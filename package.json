@@ -12,6 +12,7 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "cloudinary": "^2.0.1",
+    "connect-redis": "^8.0.0",
     "connect-sqlite3": "^0.9.15",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
@@ -32,6 +33,7 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-google-oidc": "^0.1.0",
     "pug": "^3.0.2",
+    "redis": "^4.7.0",
     "socket.io": "^4.7.5",
     "streamifier": "^0.1.1",
     "sweetalert2": "^11.10.4",
