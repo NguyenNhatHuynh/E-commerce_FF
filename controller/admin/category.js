@@ -14,7 +14,6 @@ module.exports.create = async (req,res) => {
     const category = await Category.find({
         deleted : false
     })
-    console.log(category)
 
     const createTree = (arr, parentId = "") => {
         const tree = [];
@@ -31,7 +30,6 @@ module.exports.create = async (req,res) => {
         return tree;
       };
     const newdata = createTree(category)
-    console.log(newdata)
     res.render("admin/page/category/create",{
         pagetitle : "Trang Danh Mục",
         data : newdata 
@@ -46,14 +44,12 @@ module.exports.createpost = async (req,res) => {
        }else{
         req.body.position = parseInt(req.body,position)
        }
-       console.log(req.body)
        const record = new Category(req.body) 
        await record.save()
        req.flash("nice", "Thêm Mới Sản Phẩm Thành Công")
        res.redirect(`/${system.prefixAdmin}/category`)
     
    } catch (error) {
-    console.log(req.body)
     req.flash("erro", "Thêm Mới Sản Phẩm Thất Bại")
     res.redirect(`/${system.prefixAdmin}/category`)
    }
