@@ -1,0 +1,7 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main 
+ +alert(messages.nice)
+ +alertfaild(messages.error)
+ h1 hihi trang quản trị shop nè
+ div alo alo #{prefixAdmin} #{products}

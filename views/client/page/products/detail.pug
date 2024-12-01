@@ -1,0 +1,1636 @@
+extends ../../layout/layout.pug
+block main 
+    doctype html
+    //if IE 8 
+    // [if (gte IE 9)|!(IE)] <!
+    // <![endif]
+    head
+      // Basic Page Needs
+      meta(charset='UTF-8')
+      //if IE
+        meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
+      title Techno Store - Single Product
+      meta(name='author' content='CreativeLayers')
+      // Mobile Specific Metas
+      meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+      // Boostrap style
+      link(rel='stylesheet' type='text/css' href='css/bootstrap.min.css')
+      // Theme style
+      link(rel='stylesheet' type='text/css' href='css/style.css')
+      // Reponsive
+      link(rel='stylesheet' type='text/css' href='css/responsive.css')
+      link(rel='shortcut icon' href='images/favicon.png')
+      
+      
+   
+      // Preloader
+      //- .preloader
+      //-   .clear-loading.loading-effsect-2
+          span
+      // /.preloader
+      //- section#header.header
+        //- .header-top
+          .container
+            .row
+              .col-md-4
+                ul.flat-support
+                  li
+                    a(href='faq.html' title='') Support
+                  li
+                    a(href='store-location.html' title='') Store Locator
+                  li
+                    a(href='order-tracking.html' title='') Track Your Order
+                // /.flat-support
+              // /.col-md-4
+              .col-md-4
+                ul.flat-infomation
+                  li.phone
+                    | Call Us: 
+                    a(href='#' title='') (888) 1234 56789
+                // /.flat-infomation
+              // /.col-md-4
+              .col-md-4
+                ul.flat-unstyled
+                  li.account
+                    a(href='#' title='')
+                      | My Account
+                      i.fa.fa-angle-down(aria-hidden='true')
+                    ul.unstyled
+                      li
+                        a(href='#' title='') Login
+                      li
+                        a(href='wishlist.html' title='') Wishlist
+                      li
+                        a(href='shop-cart.html' title='') My Cart
+                      li
+                        a(href='my-account.html' title='') My Account
+                      li
+                        a(href='shop-checkout.html' title='') Checkout
+                  li
+                    a(href='#' title='')
+                      | USD
+                      i.fa.fa-angle-down(aria-hidden='true')
+                    ul.unstyled
+                      li
+                        a(href='#' title='') Euro
+                      li
+                        a(href='#' title='') Dolar
+                  li
+                    a(href='#' title='')
+                      | English
+                      i.fa.fa-angle-down(aria-hidden='true')
+                    ul.unstyled
+                      li
+                        a(href='#' title='') Turkish
+                      li
+                        a(href='#' title='') English
+                      li
+                        a(href='#' title='') &#x627;&#x644;&#x644;&#x63A;&#x629; &#x627;&#x644;&#x639;&#x631;&#x628;&#x64A;&#x629;
+                      li
+                        a(href='#' title='') Espa&ntilde;ol
+                      li
+                        a(href='#' title='') Italiano
+                // /.flat-unstyled
+              // /.col-md-4
+            // /.row
+          // /.container
+        // /.header-top
+        //- .header-middle
+          .container
+            .row
+              .col-md-3
+                #logo.logo
+                  a(href='index.html' title='')
+                    img(src='images/logo.png' alt='')
+                // /#logo
+              // /.col-md-3
+              .col-md-6
+                .top-search
+                  form.form-search(action='#' method='get' accept-charset='utf-8')
+                    .cat-wrap
+                      select(name='category')
+                        option(hidden='' value='') All Category
+                        option(hidden='' value='') Cameras
+                        option(hidden='' value='') Computer
+                        option(hidden='' value='') Laptops
+                      span
+                        i.fa.fa-angle-down(aria-hidden='true')
+                      .all-categories
+                        .cat-list-search
+                          .title
+                            | Electronics
+                          ul
+                            li Components
+                            li Laptop
+                            li Monitor
+                            li Mp3 player
+                            li Scanners
+                        // /.cat-list-search
+                        .cat-list-search
+                          .title
+                            | Furniture
+                          ul
+                            li Bookcases
+                            li Barstools
+                            li TV stands
+                            li Desks
+                            li Accent chairs
+                        // /.cat-list-search
+                        .cat-list-search
+                          .title
+                            | Accessories
+                          ul
+                            li Software
+                            li Mobile
+                            li TV stands
+                            li Printers
+                            li Media
+                        // /.cat-list-search
+                      // /.all-categories
+                      span
+                        i.fa.fa-angle-down(aria-hidden='true')
+                    // /.cat-wrap
+                    .box-search
+                      input(type='text' name='search' placeholder='Search what you looking for ?')
+                      span.btn-search
+                        button.waves-effect(type='submit')
+                          img(src='images/search.png' alt='')
+                      .search-suggestions
+                        .box-suggestions
+                          .title
+                            | Search Suggestions
+                          ul
+                            li
+                              .image
+                                img(src='images/s05.jpg' alt='')
+                              .info-product
+                                .name
+                                  a(href='#' title='') Razer RZ02-01071500-R3M1
+                                .price
+                                  span.sale
+                                    | $50.00
+                                  span.regular
+                                    | $2,999.00
+                            li
+                              .image
+                                img(src='images/s06.jpg' alt='')
+                              .info-product
+                                .name
+                                  a(href='#' title='') Notebook Black Spire V Nitro VN7-591G
+                                .price
+                                  span.sale
+                                    | $24.00
+                            li
+                              .image
+                                img(src='images/14.jpg' alt='')
+                              .info-product
+                                .name
+                                  a(href='#' title='') Apple iPad Mini G2356
+                                .price
+                                  span.sale
+                                    | $90.00
+                            li
+                              .image
+                                img(src='images/02.jpg' alt='')
+                              .info-product
+                                .name
+                                  a(href='#' title='') Razer RZ02-01071500-R3M1
+                                .price
+                                  span.sale
+                                    | $50.00
+                            li
+                              .image
+                                img(src='images/l01.jpg' alt='')
+                              .info-product
+                                .name
+                                  a(href='#' title='') Apple iPad Mini G2356
+                                .price
+                                  span.sale
+                                    | $24.00
+                                  span.regular
+                                    | $2,999.00
+                            li
+                              .image
+                                img(src='images/s08.jpg' alt='')
+                              .info-product
+                                .name
+                                  a(href='#' title='') Beats Snarkitecture Headphones
+                                .price
+                                  span.sale
+                                    | $90.00
+                                  span.regular
+                                    | $2,999.00
+                        // /.box-suggestions
+                        .box-cat
+                          .cat-list-search
+                            .title
+                              | Categories
+                            ul
+                              li
+                                a(href='#') Networking &amp; Internet Devices
+                              li
+                                a(href='#') Laptops, Desktops &amp; Monitors
+                              li
+                                a(href='#') Hard Drives &amp; Memory Cards
+                              li
+                                a(href='#') Printers &amp; Ink
+                              li
+                                a(href='#') Networking &amp; Internet Devices
+                              li
+                                a(href='#') Computer Accessories
+                              li
+                                a(href='#') Software
+                          // /.cat-list-search
+                        // /.box-cat
+                      // /.search-suggestions
+                    // /.box-search
+                  // /.form-search
+                // /.top-search
+              // /.col-md-6
+              .col-md-3
+                .box-cart
+                  .inner-box
+                    ul.menu-compare-wishlist
+                      li.compare
+                        a(href='compare.html' title='')
+                          img(src='images/compare.png' alt='')
+                      li.wishlist
+                        a(href='wishlist.html' title='')
+                          img(src='images/wishlist.png' alt='')
+                    // /.menu-compare-wishlist
+                  // /.inner-box
+                  .inner-box
+                    a(href='#' title='')
+                      .icon-cart
+                        img(src='images/cart.png' alt='')
+                        span 4
+                      .price
+                        | $0.00
+                    .dropdown-box
+                      ul
+                        li
+                          .img-product
+                            img(src='images/img-cart-1.jpg' alt='')
+                          .info-product
+                            .name
+                              | Samsung - Galaxy S6 4G LTE 
+                              br
+                              | with 32GB Memory Cell Phone
+                            .price
+                              span 1 x
+                              span $250.00
+                          .clearfix
+                          span.delete x
+                        li
+                          .img-product
+                            img(src='images/img-cart-2.jpg' alt='')
+                          .info-product
+                            .name
+                              | Sennheiser - Over-the-Ear Headphone System - Black
+                            .price
+                              span 1 x
+                              span $250.00
+                          .clearfix
+                          span.delete x
+                      .total
+                        span Subtotal:
+                        span.price $1,999.00
+                      .btn-cart
+                        a.view-cart(href='shop-cart.html' title='') View Cart
+                        a.check-out(href='shop-checkout.html' title='') Checkout
+                  // /.inner-box
+                // /.box-cart
+              // /.col-md-3
+            // /.row
+          // /.container
+        // /.header-middle
+        //- .header-bottom
+          .container
+            .row
+              .col-md-3.col-2
+                #mega-menu
+                  .btn-mega
+                    span
+                    | ALL CATEGORIES
+                  ul.menu
+                    li
+                      a.dropdown(href='#' title='')
+                        span.menu-img
+                          img(src='images/01.png' alt='')
+                        span.menu-title
+                          | Laptops &amp; Mac
+                      .drop-menu
+                        .one-third
+                          .cat-title
+                            | Laptop And Mac
+                          ul
+                            li
+                              a(href='#' title='') Networking &amp; Internet Devices
+                            li
+                              a(href='#' title='') Laptops, Desktops &amp; Monitors
+                            li
+                              a(href='#' title='') Hard Drives &amp; Memory Cards
+                            li
+                              a(href='#' title='') Computer Accessories
+                            li
+                              a(href='#' title='') Software
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          .cat-title
+                            | Audio &amp; Video
+                          ul
+                            li
+                              a(href='#' title='') Headphones &amp; Speakers
+                            li
+                              a(href='#' title='') Home Entertainment Systems
+                            li
+                              a(href='#' title='') MP3 &amp; Media Players
+                            li
+                              a(href='#' title='') Software
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          ul.banner
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Headphones
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-01.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | TV &amp; Audio
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-02.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Computers
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-03.png' alt='')
+                              .clearfix
+                    li
+                      a.dropdown(href='#' title='')
+                        span.menu-img
+                          img(src='images/02.png' alt='')
+                        span.menu-title
+                          | Mobile &amp; Tablet
+                      .drop-menu
+                        .one-third
+                          .cat-title
+                            | Laptop And Computer
+                          ul
+                            li
+                              a(href='#' title='') Networking &amp; Internet Devices
+                            li
+                              a(href='#' title='') Laptops, Desktops &amp; Monitors
+                            li
+                              a(href='#' title='') Hard Drives &amp; Memory Cards
+                            li
+                              a(href='#' title='') Printers &amp; Ink
+                            li
+                              a(href='#' title='') Networking &amp; Internet Devices
+                            li
+                              a(href='#' title='') Computer Accessories
+                            li
+                              a(href='#' title='') Software
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          .cat-title
+                            | Audio &amp; Video
+                          ul
+                            li
+                              a(href='#' title='') Headphones &amp; Speakers
+                            li
+                              a(href='#' title='') Home Entertainment Systems
+                            li
+                              a(href='#' title='') MP3 &amp; Media Players
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          ul.banner
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Headphones
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-01.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | TV &amp; Audio
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-02.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Computers
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-03.png' alt='')
+                              .clearfix
+                    li
+                      a.dropdown(href='#' title='')
+                        span.menu-img
+                          img(src='images/03.png' alt='')
+                        span.menu-title
+                          | Home Devices
+                      .drop-menu
+                        .one-third
+                          .cat-title
+                            | Home Devices
+                          ul
+                            li
+                              a(href='#' title='') Internet Devices
+                            li
+                              a(href='#' title='') Desktops &amp; Monitors
+                            li
+                              a(href='#' title='') Hard Drives &amp; Memory Cards
+                            li
+                              a(href='#' title='') Networking
+                            li
+                              a(href='#' title='') Software
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          .cat-title
+                            | Audio
+                          ul
+                            li
+                              a(href='#' title='') Home Entertainment Systems
+                            li
+                              a(href='#' title='') MP3 &amp; Media Players
+                            li
+                              a(href='#' title='') Software
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          ul.banner
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Headphones
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-01.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | TV &amp; Audio
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-02.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Computers
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-03.png' alt='')
+                              .clearfix
+                    li
+                      a(href='#' title='')
+                        span.menu-img
+                          img(src='images/04.png' alt='')
+                        span.menu-title
+                          | Software
+                    li
+                      a(href='#' title='')
+                        span.menu-img
+                          img(src='images/05.png' alt='')
+                        span.menu-title
+                          | TV &amp; Audio
+                    li
+                      a(href='#' title='')
+                        span.menu-img
+                          img(src='images/06.png' alt='')
+                        span.menu-title
+                          | Sports &amp; Fitness
+                    li
+                      a.dropdown(href='#' title='')
+                        span.menu-img
+                          img(src='images/07.png' alt='')
+                        span.menu-title
+                          | Games &amp; Toys
+                      .drop-menu
+                        .one-third
+                          .cat-title
+                            | Games &amp; Toys
+                          ul
+                            li
+                              a(href='#' title='') Internet Devices
+                            li
+                              a(href='#' title='') Desktops &amp; Monitors
+                            li
+                              a(href='#' title='') Hard Drives &amp; Memory Cards
+                            li
+                              a(href='#' title='') Networking
+                            li
+                              a(href='#' title='') Software
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          .cat-title
+                            | Audio
+                          ul
+                            li
+                              a(href='#' title='') Home Entertainment Systems
+                            li
+                              a(href='#' title='') MP3 &amp; Media Players
+                            li
+                              a(href='#' title='') Software
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          ul.banner
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Headphones
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-01.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | TV &amp; Audio
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-02.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Computers
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-03.png' alt='')
+                              .clearfix
+                    li
+                      a(href='#' title='')
+                        span.menu-img
+                          img(src='images/08.png' alt='')
+                        span.menu-title
+                          | Video Cameras
+                    li
+                      a.dropdown(href='#' title='')
+                        span.menu-img
+                          img(src='images/09.png' alt='')
+                        span.menu-title
+                          | Accessories
+                      .drop-menu
+                        .one-third
+                          .cat-title
+                            | Accessories
+                          ul
+                            li
+                              a(href='#' title='') Internet Devices
+                            li
+                              a(href='#' title='') Desktops &amp; Monitors
+                            li
+                              a(href='#' title='') Hard Drives &amp; Memory Cards
+                            li
+                              a(href='#' title='') Networking
+                            li
+                              a(href='#' title='') Software
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          .cat-title
+                            | Audio
+                          ul
+                            li
+                              a(href='#' title='') Home Entertainment Systems
+                            li
+                              a(href='#' title='') MP3 &amp; Media Players
+                            li
+                              a(href='#' title='') Software
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          ul.banner
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Headphones
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-01.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | TV &amp; Audio
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-02.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Computers
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-03.png' alt='')
+                              .clearfix
+                    li
+                      a.dropdown(href='#' title='')
+                        span.menu-img
+                          img(src='images/10.png' alt='')
+                        span.menu-title
+                          | Security
+                      .drop-menu
+                        .one-third
+                          .cat-title
+                            | Security
+                          ul
+                            li
+                              a(href='#' title='') Internet Devices
+                            li
+                              a(href='#' title='') Desktops &amp; Monitors
+                            li
+                              a(href='#' title='') Hard Drives &amp; Memory Cards
+                            li
+                              a(href='#' title='') Networking
+                            li
+                              a(href='#' title='') Software
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          .cat-title
+                            | Audio
+                          ul
+                            li
+                              a(href='#' title='') Home Entertainment Systems
+                            li
+                              a(href='#' title='') MP3 &amp; Media Players
+                            li
+                              a(href='#' title='') Software
+                            li
+                              a(href='#' title='') Hard Drives &amp; Memory Cards
+                            li
+                              a(href='#' title='') Networking
+                          .show
+                            a(href='#' title='') Shop All
+                        .one-third
+                          ul.banner
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Headphones
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-01.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | TV &amp; Audio
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-02.png' alt='')
+                              .clearfix
+                            li
+                              .banner-text
+                                .banner-title
+                                  | Computers
+                                .more-link
+                                  a(href='#' title='')
+                                    | Shop Now 
+                                    img(src='images/right-2.png' alt='')
+                              .banner-img
+                                img(src='images/menu-03.png' alt='')
+                              .clearfix
+              // /.col-md-3 col-2
+              .col-md-9.col-10
+                .nav-wrap
+                  #mainnav.mainnav
+                    ul.menu
+                      li.column-1
+                        a(href='index.html' title='') Home
+                        ul.submenu
+                          li
+                            a(href='index.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Home Layout 01
+                          li
+                            a(href='index-v2.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Home Layout 02
+                          li
+                            a(href='index-v3.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Home Layout 03
+                          li
+                            a(href='index-v4.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Home Layout 04
+                          li
+                            a(href='index-v5.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Home Layout 05
+                          li
+                            a(href='index-v6.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Home Layout 06
+                          li
+                            a(href='index-v7.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Home Layout 07
+                          li
+                            a(href='index-v8.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Home Layout 08
+                          li
+                            a(href='index-v9.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Home Layout 09
+                          li
+                            a(href='index-v10.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Home Layout 10
+                        // /.submenu
+                      // /.column-1
+                      li.column-1
+                        a(href='shop.html' title='') Shop
+                        ul.submenu
+                          li
+                            a(href='shop.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Shop left sidebar
+                          li
+                            a(href='shop-v2.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Shop right sidebar
+                          li
+                            a(href='shop-v3.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Shop list view
+                          li
+                            a(href='shop-v4.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Shop full width
+                          li
+                            a(href='shop-v5.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Shop 03 column
+                          li
+                            a(href='shop-cart.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Shop cart
+                          li
+                            a(href='shop-checkout.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Shop checkout
+                        // /.submenu
+                      // /.column-1
+                      li.column-1
+                        a(href='#' title='') Features
+                        ul.submenu
+                          li
+                            a(href='#' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Home Theater Systems
+                          li
+                            a(href='#' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Receivers &amp; Amplifiers
+                          li
+                            a(href='#' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Speakers
+                          li
+                            a(href='#' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | CD Players &amp; Turntables
+                          li
+                            a(href='#' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | High-Resolution Audio
+                          li
+                            a(href='#' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | 4K Ultra HD TVs
+                        // /.submenu
+                      // /.column-1
+                      li.has-mega-menu
+                        a(href='#' title='') Electronic
+                        .submenu
+                          .row
+                            .col-lg-3.col-md-12
+                              h3.cat-title Accessories
+                              ul.submenu-child
+                                li
+                                  a(href='#' title='') Electronics
+                                li
+                                  a(href='#' title='') Furniture
+                                li
+                                  a(href='#' title='') Accessories
+                                li
+                                  a(href='#' title='') Divided
+                                li
+                                  a(href='#' title='') Everyday Fashion
+                                li
+                                  a(href='#' title='') Modern Classic
+                                li
+                                  a(href='#' title='') Party
+                              .show
+                                a(href='#' title='') Shop All
+                            // /.col-lg-3 col-md-12
+                            .col-lg-3.col-md-12
+                              h3.cat-title Laptop And Computer
+                              ul.submenu-child
+                                li
+                                  a(href='#' title='') Networking &amp; Internet Devices
+                                li
+                                  a(href='#' title='') Laptops, Desktops &amp; Monitors
+                                li
+                                  a(href='#' title='') Hard Drives &amp; Memory Cards
+                                li
+                                  a(href='#' title='') Printers &amp; Ink
+                                li
+                                  a(href='#' title='') Networking &amp; Internet Devices
+                                li
+                                  a(href='#' title='') Computer Accessories
+                                li
+                                  a(href='#' title='') Software
+                              .show
+                                a(href='#' title='') Shop All
+                            // /.col-lg-3 col-md-12
+                            .col-lg-4.col-md-12
+                              h3.cat-title Audio &amp; Video
+                              ul.submenu-child
+                                li
+                                  a(href='#' title='') Headphones &amp; Speakers
+                                li
+                                  a(href='#' title='') Home Entertainment Systems
+                                li
+                                  a(href='#' title='') MP3 &amp; Media Players
+                              .show
+                                a(href='#' title='') Shop All
+                            // /.col-lg-4 col-md-12
+                            .col-lg-2.col-md-12
+                              h3.cat-title Home Audio
+                              ul.submenu-child
+                                li
+                                  a(href='#' title='') Home Theater Systems
+                                li
+                                  a(href='#' title='') Receivers &amp; Amplifiers
+                                li
+                                  a(href='#' title='') Speakers
+                                li
+                                  a(href='#' title='') CD Players &amp; Turntables
+                                li
+                                  a(href='#' title='') High-Resolution Audio
+                                li
+                                  a(href='#' title='') 4K Ultra HD TVs
+                              .show
+                                a(href='#' title='') Shop All
+                            // /.col-lg-2 col-md-12
+                          // /.row
+                          .row
+                            .col-md-6
+                              .banner-box
+                                .inner-box
+                                  a(href='#' title='')
+                                    img(src='images/submenu-01.png' alt='')
+                            .col-md-6
+                              .banner-box
+                                .inner-box
+                                  a(href='#' title='')
+                                    img(src='images/submenu-02.png' alt='')
+                          // /.row
+                        // /.submenu
+                      // /.has-mega-menu
+                      li.column-1
+                        a(href='#' title='') Pages
+                        ul.submenu
+                          li
+                            a(href='about.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | About
+                          li
+                            a(href='404.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | 404 Page
+                          li
+                            a(href='brands.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Brands Page
+                          li
+                            a(href='categories.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Categories 01
+                          li
+                            a(href='categories-v2.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Categories 02
+                          li
+                            a(href='element.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Element
+                          li
+                            a(href='faq.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | FAQ
+                          li
+                            a(href='order-tracking.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Order Tracking
+                          li
+                            a(href='term-condition.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Terms &amp; Conditions
+                          li
+                            a(href='single-product.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Single Product 01
+                          li
+                            a(href='single-product-v2.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Single Product 02
+                          li
+                            a(href='single-product-v3.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Single Product 03
+                          li
+                            a(href='single-product-v4.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Single Product 04
+                          li
+                            a(href='single-product-v5.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Single Product 05
+                        // /.submenu
+                      // /.column-1
+                      li.column-1
+                        a(href='blog.html' title='') Blog
+                        ul.submenu
+                          li
+                            a(href='blog.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Blog left sidebar
+                          li
+                            a(href='blog-v2.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Blog right sidebar
+                          li
+                            a(href='blog-v3.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Blog list
+                          li
+                            a(href='blog-v4.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Blog 02 column
+                          li
+                            a(href='blog-v5.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Blog full width
+                          li
+                            a(href='blog-single.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Blog single
+                        // /.submenu
+                      // /.column-1
+                      li.column-1
+                        a(href='contact.html' title='') Contact
+                        ul.submenu
+                          li
+                            a(href='contact.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Contact 01
+                          li
+                            a(href='contact-v2.html' title='')
+                              i.fa.fa-angle-right(aria-hidden='true')
+                              | Contact 02
+                        // /.submenu
+                      // /.column-1
+                    // /.menu
+                  // /.mainnav
+                // /.nav-wrap
+                .today-deal
+                  a(href='#' title='') TODAY DEALS
+                // /.today-deal
+                .btn-menu
+                  span
+                // //mobile menu button
+              // /.col-md-9
+            // /.row
+          // /.container
+        // /.header-bottom
+      // /#header
+     
+           
+      section.flat-product-detail
+        if (messages.nice)
+            div(
+            class="alert alert-success"
+            show-alert
+            ) #{messages.nice} <span close-alert>x</span>
+        if (messages.error)
+            div(
+            class="alert alert-danger"
+            show-alert
+            ) #{messages.error} <span close-alert>x</span>
+        .container
+          .row
+            .col-md-5.d-lg-flex.justify-content-center.mt-5
+              .detail_product.img 
+                img.img(class="thumnail" style ="object-fit : cover; width : 350px ; height : 300px;" src=data.thumbnail)
+    
+
+                       
+            .col-md-7
+              .product-detail.card(style='box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px;')
+                .header-detail
+                  div.d-lg-flex.justify-content-between.align-items-center(style="width : 100%")
+                    .badge.fsz-14(style="padding : 10px ; background : #5B97BF; border-radius : 5px;")
+                      |Giảm giá #{data.discountPercentage}%
+                    a.fav-btn.active(style="background : #5B97BF ; color : white; padding : 7px 12px; border-radius : 50%;")
+                      i.fas.fa-heart.fsz-15
+                  h4.name(style="color : #5B97BF;margin-top : 30px;font-size : 19px !important") #{data.title}
+                  .reviewed.d-lg-flex.justify-content-between.align-items-center.mt-4
+                    .review(style="margin-top : 13px; !important")
+                      .queue
+                        i.fa.fa-star.fsz-14(aria-hidden='true' style="color : #5B97BF")
+                        i.fa.fa-star.fsz-14(aria-hidden='true' style="color : #5B97BF")
+                        i.fa.fa-star.fsz-14(aria-hidden='true' style="color : #5B97BF")
+                        i.fa.fa-star.fsz-14(aria-hidden='true' style="color : #5B97BF")
+                        i.fa.fa-star.fsz-14(aria-hidden='true' style="color : #5B97BF")
+                    // /.review
+                    .status-product
+                      span.fw-600(style="background : white; color : #5B97BF") Số lượng còn lại:
+                      span.fw-600(style="background : #5B97BF") #{data.stock}
+                  // /.reviewed
+                // /.header-detail
+                .content-detail(style="margin-top : 10px")
+                  .price
+                    .regular.fsz-20(style="color : #7D7F82")
+                      | #{data.price} VNĐ
+                    .sale(style="margin-top : 35px;color : #5B97BF")
+                      | #{data.priceNew}
+                // /.content-detail
+                .footer-detail(style="margin-top : 40px;")
+                  .quanlity-box
+                    .colors
+                      select(name='color' class="form-control" style="border-radius : 30px;")
+                        option(value='') Select Color
+                        option(value='') Black
+                        option(value='') Red
+                        option(value='') White
+                    .quanlity.ml-5(qualitycart)
+                      span.btn-down
+                      input(type='number' input name='number' value=1 min='1' max='100' placeholder='Quanlity')
+                      span.btn-up
+                  // /.quanlity-box
+                  .box-cart.style2
+                    .btn-add-cart(addcartdetail=data.id shopid=data.shopid)
+                      .button.btn-main( style="box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px; background : white" class="animate__tada animate__animated animate__infinite")
+                        form(formdetail action="" method="post")
+                        img(src='images/add-cart.png' alt='')
+                        | Thêm vào giỏ hàng
+                    .compare-wishlist
+                      a.compare(href='compare.html' title='')
+                        img(src='images/compare.png' alt='')
+                        | So sánh 
+                      a.wishlist(href='compare.html' title='')
+                        img(src='images/wishlist.png' alt='')
+                        | Wishlist
+                  // /.box-cart
+                  .social-single.d-lg-flex.justify-content-between.align-items-center
+                    div
+                      span SHARE
+                      ul.social-list.style2
+                        li
+                          a(href='#' title='')
+                            i.fa.fa-facebook(aria-hidden='true')
+                        li
+                          a(href='#' title='')
+                            i.fa.fa-twitter(aria-hidden='true')
+                        li
+                          a(href='#' title='')
+                            i.fa.fa-instagram(aria-hidden='true')
+                        li
+                          a(href='#' title='')
+                            i.fa.fa-pinterest(aria-hidden='true')
+                        li
+                          a(href='#' title='')
+                            i.fa.fa-dribbble(aria-hidden='true')
+                        li
+                          a(href='#' title='')
+                            i.fa.fa-google(aria-hidden='true')
+                    img(src="/images/snowman_2.png" style="width : 130px ; height : 130px; margin-top : -80px")
+                    // /.social-list
+                  // /.social-single
+                // /.footer-detail
+              // /.product-detail
+            // /.col-md-6
+          // /.row
+        // /.container
+      // /.flat-product-detail
+      //- product-shop-seller
+      .container
+        .row.sm-gutter.app__banner-content
+          .col.l-4.m-12
+            .row.sm-gutter-tablet(style='background-color: #5B97BF; border-radius: 4px;')
+              .col.l-12.m-6.full-home-banners__right-link
+                a(href=`/shopproducts/user/${datauser.id}`)
+                  .shop-info
+                    img.shop-info__avarta(src=datauser.avatar alt='')
+                    div(style='margin-left: 8px;')
+                      .shop-info__title
+                        | #{datauser.fullName}
+                      .shop-info__online-status
+                        | Online 21 Phút trước
+              .col.l-12.m-6.full-home-banners__right-link(href='#')
+                .shop-info
+                  button.btn-ouline
+                    i.fa-solid.fa-plus
+                    | theo dõi
+                  button.btn-ouline(datauserid = datauser.id)
+                    i.fa-brands.fa-rocketchat
+                    | chat
+                  form(submitchat action="" method="get")
+          .col.l-8.m-12.c-12
+            .full-home-banners__main
+              .shop-overview
+                .shop-overview__item
+                  i.fa-solid.fa-shop(style="color : #5B97BF;")
+                  .shop-overview__content
+                    span.fs-3(style="color : #5B97BF", ) Sản phẩm: 
+                    span.red-color.mx-3(style="color : #7D7F82") 259
+                
+                .shop-overview__item
+                  i.fa-solid.fa-users(style="color : #5B97BF")
+                  .shop-overview__content
+                    span.fs-3(style="color : #5B97BF")  Người theo dõi: 
+                    span.red-color.mx-3(style="color : #7D7F82") 6.6k
+                .shop-overview__item
+                  i.fa-solid.fa-star(style="color : #5B97BF")
+                  .shop-overview__content
+                    span.fs-3(style="color : #5B97BF")  Đánh giá:
+                    span.red-color.mx-3(style="color : #7D7F82") 4.8 #{'('}11.5k Đánh giá#{')'}
+                .shop-overview__item
+                  i.fa-solid.fa-user-check(style="color : #5B97BF")
+                  .shop-overview__content
+                    span.fs-3(style="color : #5B97BF")  Tham gia: 
+                    span.red-color.mx-3(style="color : #7D7F82") 21 tháng trước
+               
+      //- end product-shop-seller
+      section.flat-product-content
+        ul.product-detail-bar
+          li.active(style="color : #5B97BF") Reviews
+          li(style="color : #5B97BF") Description
+        // /.product-detail-bar
+        .container.color-main
+          .row
+            .col-md-6
+              .rating
+                .title.color-main
+                  | Trung Bình Đánh Giá
+                .score
+                  .average-score
+                    p.numb.color-main 4.3
+                    p.text.color-main Điểm Trung Bình
+                  .queue.color-main
+                    i.color-main.fa.fa-star(aria-hidden='true')
+                    i.color-main.fa.fa-star(aria-hidden='true')
+                    i.color-main.fa.fa-star(aria-hidden='true')
+                    i.color-main.fa.fa-star(aria-hidden='true')
+                    i.color-main.fa.fa-star(aria-hidden='true')
+                // /.score
+                ul.queue-box
+                  li.five-star
+                    span
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                    span.numb-star 3
+                  // /.five-star
+                  li.four-star
+                    span
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                    span.numb-star 4
+                  // /.four-star
+                  li.three-star
+                    span
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                    span.numb-star 3
+                  // /.three-star
+                  li.two-star
+                    span
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                    span.numb-star 2
+                  // /.two-star
+                  li.one-star
+                    span
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                      i.color-main.fa.fa-star(aria-hidden='true')
+                    span.numb-star 0
+                  // /.one-star
+                // /.queue-box
+              // /.rating
+            // /.col-md-6
+            .col-md-6
+              .form-review
+                .title.color-main
+                  | Thêm Đánh Giá
+                .your-rating.queue
+                  span.color-main Số Sao
+                  i.color-main.fa.fa-star(aria-hidden='1' style='color: black;' )
+                  i.color-main.fa.fa-star(aria-hidden='2' style='color: black;')
+                  i.color-main.fa.fa-star(aria-hidden='3'  style='color: black;')
+                  i.color-main.fa.fa-star(aria-hidden='4'  style='color: black;')
+                  i.color-main.fa.fa-star(aria-hidden='5'  style='color: black;')
+                form( action='/products/submitcontent' method='POST' enctype="multipart/form-data" formsbreviewdetail accept-charset='utf-8')
+                  .review-form-name
+                    div(class="custom-file-container" data-upload-id="upload-images")
+                    input(type="hidden" value="" rating name="rating")
+                    input(type="file" multiple style="display : none;"  images name="images")
+                    input(type="hidden" name="product_id" value=data.id)
+                  .review-form-comment
+                    textarea(name='content' placeholder='Your Name' contentreview)
+                  .btn-submit
+                    button(type='submit' style="color : white; background : #5B97BF") Add Review
+              // /.form-review
+            // /.col-md-6
+            .col-md-12
+              ul.review-list
+                each item in review          
+                  li
+                    .review-metadata
+                      .name(style="color : #5B97BF")
+                        | #{item.infor.fullName} 
+                        span.fw-600.ml-2(style="color : #7D7F82") #{item.time}
+                      .queue
+                        - for(let i = 1 ; i <= parseInt(item.rating) ; i++)
+                            i.fa.fa-star(aria-hidden='true' style="color: #5B97BF;")                    
+                    .review-content
+                      p(style="color : #7D7F82") #{item.content}
+                      .inner-images
+                          each image in item.images
+                            img(src=image, style='width: 100px; height: 100px; object-fit: cover; margin-right : 10px;')
+
+          .row
+            .col-md-6
+              .description-text
+                .box-text
+                  h4 Mô Tả Chi Tiết
+                  p !{data.description}
+                //- .box-text.wireless
+                //-   h4 Wireless
+                //-   p
+                //-     | Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece 
+                //-     br
+                //-     | of classical Latin literature from 45 BC, making it over 2000 years old.
+                //- .box-text.design
+                //-   h4 Fresh Design
+                //-   p
+                //-     | It is a long established fact that a reader will be distracted by the readable content of 
+                //-     br
+                //-     | a page when looking at its layout. The point of using Lorem Ipsum is that it has a 
+                //-     br
+                //-     | more-or-less normal distribution of letters, as opposed to using
+                //- .box-text.sound
+                //-   h4 Fabolous Sound
+                //-   p
+                //-     | There are many variations of passages of Lorem Ipsum available, but the 
+                //-     br
+                //-     | majority have suffered alteration in some form, by injected humour, or 
+                //-     br
+                //-     | randomised words which don&apos;t look even slightly believable.
+              // /.description-text
+            // /.col-md-6
+            //- .col-md-6
+            //-   .description-image
+            //-     .box-image
+            //-       img(src='images/01_1.png' alt='')
+            //-     .box-text
+            //-       h4 Nuqqam Et Massa
+            //-       p
+            //-         | Sed sodales sed orci molestie tristique. Nunc dictum, erat id molestie vestibulum, ex leo vestibulum justo, luctus tempor erat sem quis diam. Lorem ipsum dolor sit amet.
+            //-   // /.description-image
+            //- // /.col-md-6
+            //- .col-md-12
+            //-   .different-color
+            //-     .title
+            //-       | Different Colors
+            //-     p
+            //-       | Sed sodales sed orci
+            //-       br
+            //-       | molestie
+            //-   // /.different-color
+            //- // /.col-md-12
+            //- .col-md-6
+            //-   .box-left
+            //-     .img-line
+            //-       img(src='images/line-1.png' alt='')
+            //-     .img-product
+            //-       img(src='images/06_1.png' alt='')
+            //-   // /.box-left
+            //- // /.col-md-6
+            //- .col-md-6
+            //-   .box-right
+            //-     .img-line
+            //-       img(src='images/line-2.png' alt='')
+            //-       img(src='images/04_1.png' alt='')
+            //-     .img-product
+            //-     .box-text
+            //-       h4 Nuqqam Et Massa
+            //-       p
+            //-         | Sed sodales sed orci molestie tristique. Nunc dictum, erat id molestie vestibulum, ex leo vestibulum justo, luctus tempor erat sem quis diam. Lorem ipsum dolor sit amet.
+              // /.box-right
+ 
+ 
+                       
+                //- li
+                  .review-metadata
+                    .name
+                      | Jon Tufan : 
+                      span April 3, 2016
+                    .queue
+                      i.fa.fa-star(aria-hidden='true')
+                      i.fa.fa-star(aria-hidden='true')
+                      i.fa.fa-star(aria-hidden='true')
+                      i.fa.fa-star(aria-hidden='true')
+                      i.fa.fa-star(aria-hidden='true')
+                  // /.review-metadata
+                  .review-content
+                    p
+                      | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                  // /.review-content
+              // /.review-list
+            // /.col-md-12
+     
+      // /.flat-imagebox style4
+      //- footer
+      //-   .container
+      //-     .row
+      //-       .col-lg-3.col-md-6
+      //-         .widget-ft.widget-about
+      //-           .logo.logo-ft
+      //-             a(href='index.html' title='')
+      //-               img(src='images/logo-ft.png' alt='')
+      //-           // /.logo-ft
+      //-           .widget-content
+      //-             .icon
+      //-               img(src='images/call.png' alt='')
+      //-             .info
+      //-               p.questions Got Questions ? Call us 24/7!
+      //-               p.phone Call Us: (888) 1234 56789
+      //-               p.address
+      //-                 | PO Box CT16122 Collins Street West, Victoria 8007,
+      //-                 br
+      //-                 | Australia.
+      //-           // /.widget-content
+      //-           ul.social-list
+      //-             li
+      //-               a(href='#' title='')
+      //-                 i.fa.fa-facebook(aria-hidden='true')
+      //-             li
+      //-               a(href='#' title='')
+      //-                 i.fa.fa-twitter(aria-hidden='true')
+      //-             li
+      //-               a(href='#' title='')
+      //-                 i.fa.fa-instagram(aria-hidden='true')
+      //-             li
+      //-               a(href='#' title='')
+      //-                 i.fa.fa-pinterest(aria-hidden='true')
+      //-             li
+      //-               a(href='#' title='')
+      //-                 i.fa.fa-dribbble(aria-hidden='true')
+      //-             li
+      //-               a(href='#' title='')
+      //-                 i.fa.fa-google(aria-hidden='true')
+      //-           // /.social-list
+      //-         // /.widget-about
+      //-       // /.col-lg-3 col-md-6
+      //-       .col-lg-3.col-md-6
+      //-         .widget-ft.widget-categories-ft
+      //-           .widget-title
+      //-             h3 Find By Categories
+      //-           ul.cat-list-ft
+      //-             li
+      //-               a(href='#' title='') Desktops
+      //-             li
+      //-               a(href='#' title='') Laptops &amp; Notebooks
+      //-             li
+      //-               a(href='#' title='') Components
+      //-             li
+      //-               a(href='#' title='') Tablets
+      //-             li
+      //-               a(href='#' title='') Software
+      //-             li
+      //-               a(href='#' title='') Phones &amp; PDAs
+      //-             li
+      //-               a(href='#' title='') Cameras
+      //-           // /.cat-list-ft
+      //-         // /.widget-categories-ft
+      //-       // /.col-lg-3 col-md-6
+      //-       .col-lg-2.col-md-6
+      //-         .widget-ft.widget-menu
+      //-           .widget-title
+      //-             h3 Customer Care
+      //-           ul
+      //-             li
+      //-               a(href='#' title='')
+      //-                 | Contact us
+      //-             li
+      //-               a(href='#' title='')
+      //-                 | Site Map
+      //-             li
+      //-               a(href='#' title='')
+      //-                 | My Account
+      //-             li
+      //-               a(href='#' title='')
+      //-                 | Wish List
+      //-             li
+      //-               a(href='#' title='')
+      //-                 | Delivery Information
+      //-             li
+      //-               a(href='#' title='')
+      //-                 | Privacy Policy
+      //-             li
+      //-               a(href='#' title='')
+      //-                 | Terms &amp; Conditions
+      //-         // /.widget-menu
+      //-       // /.col-lg-2 col-md-6
+      //-       .col-lg-4.col-md-6
+      //-         .widget-ft.widget-newsletter
+      //-           .widget-title
+      //-             h3 Sign Up To New Letter
+      //-           p
+      //-             | Make sure that you never miss our interesting 
+      //-             br
+      //-             | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;news by joining our newsletter program
+      //-           form.subscribe-form(action='#' method='get' accept-charset='utf-8')
+      //-             .subscribe-content
+      //-               input.subscribe-email(type='text' name='email' placeholder='Your E-Mail')
+      //-               button(type='submit')
+      //-                 img(src='images/right-2.png' alt='')
+      //-           // /.subscribe-form
+      //-           ul.pay-list
+      //-             li
+      //-               a(href='#' title='')
+      //-                 img(src='images/ft-01.png' alt='')
+      //-             li
+      //-               a(href='#' title='')
+      //-                 img(src='images/ft-02.png' alt='')
+      //-             li
+      //-               a(href='#' title='')
+      //-                 img(src='images/ft-03.png' alt='')
+      //-             li
+      //-               a(href='#' title='')
+      //-                 img(src='images/ft-04.png' alt='')
+      //-             li
+      //-               a(href='#' title='')
+      //-                 img(src='images/ft-05.png' alt='')
+      //-           // /.pay-list
+      //-         // /.widget-newsletter
+      //-       // /.col-lg-4 col-md-6
+      //-     // /.row
+      //-     .row
+      //-       .col-md-12
+      //-         .widget.widget-apps
+      //-           .widget-title
+      //-             h3 Mobile Apps
+      //-           ul.app-list
+      //-             li.app-store
+      //-               a(href='#' title='')
+      //-                 .img
+      //-                   img(src='images/app-store.png' alt='')
+      //-                 .text
+      //-                   h4 App Store
+      //-                   p Available now on the
+      //-             // /.app-store
+      //-             li.google-play
+      //-               a(href='#' title='')
+      //-                 .img
+      //-                   img(src='images/google-play.png' alt='')
+      //-                 .text
+      //-                   h4 Google Play
+      //-                   p Get in on
+      //-             // /.google-play
+      //-           // /.app-list
+      //-         // /.widget-apps
+      //-       // /.col-md-12
+      //-     // /.row
+      //-   // /.container
+      //- // /footer
+      //- section.footer-bottom
+        .container
+          .row
+            .col-md-12
+              p.copyright  All Rights Reserved &copy; Techno Store 2017
+              p.btn-scroll
+                a(href='#' title='')
+                  img(src='images/top.png' alt='')
+            // /.col-md-12
+          // /.row
+        // /.container
+      // /.footer-bottom
+    // /.boxed
+    // Javascript
+    script(type='text/javascript' src='js/jquery.min.js')
+    script(type='text/javascript' src='js/tether.min.js')
+    script(type='text/javascript' src='js/bootstrap.min.js')
+    script(type='text/javascript' src='js/waypoints.min.js')
+    script(type='text/javascript' src='js/jquery.circlechart.js')
+    script(type='text/javascript' src='js/easing.js')
+    script(type='text/javascript' src='js/jquery.zoom.min.js')
+    script(type='text/javascript' src='js/jquery.flexslider-min.js')
+    script(type='text/javascript' src='js/owl.carousel.js')
+    script(type='text/javascript' src='js/smoothscroll.js')
+    script(type='text/javascript' src='js/jquery-ui.js')
+    script(type='text/javascript' src='js/jquery.mCustomScrollbar.js')
+    script(type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB')
+    script(type='text/javascript' src='js/gmap3.min.js')
+    script(type='text/javascript' src='js/waves.min.js')
+    script(type='text/javascript' src='js/jquery.countdown.js')
+    script(type='text/javascript' src='js/main.js')
+    script(type='text/javascript' src='js/main.js')
+
+

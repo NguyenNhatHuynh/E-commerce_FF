@@ -1,0 +1,88 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='x-ua-compatible' content='ie=edge')
+  title Xmee | Login and Register Form Html Templates
+  meta(name='description' content='')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  // Favicon
+  link(rel='shortcut icon' type='/image/x-icon' href='/loginadmin/images/favicon.png')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='/loginadmin/css/bootstrap.min.css')
+  // Fontawesome CSS
+  link(rel='stylesheet' href='/loginadmin/css/fontawesome-all.min.css')
+  // Flaticon CSS
+  link(rel='stylesheet' href='/loginadmin/css/flaticon.css')
+  // Google Web Fonts
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  // Custom CSS
+  link(rel='stylesheet' href='/loginadmin/css/style.css')
+  include ../../mixi/mixi.pug
+
+#preloader.preloader
+  .inner
+    .line1
+    .line2
+    .line3
+section.fxt-template-animation.fxt-template-layout21
+  // Animation Start Here
+  #particles-js
+  // Animation End Here
+  .container
+    +alert(messages.nice)
+    +alertfaild(messages.error)
+    .row.align-items-center.justify-content-center
+      .col-xl-6.col-lg-7.col-sm-12.col-12.fxt-bg-color
+        .fxt-content
+          .fxt-header
+            div.fxt-logo(href='login-21.html' style="font-size : 30px;") Đăng Nhập
+            p Hãy Đăng Nhập Tài Khoản Của bạn
+          .fxt-form
+            form(action=`/auth/loginadmin/loginpost` method="POST")
+              .form-group
+                .fxt-transformY-50.fxt-transition-delay-1
+                  input#email.form-control( type="email"
+                     name="email"
+                     placeholder='Email' required='required')
+              .form-group
+                .fxt-transformY-50.fxt-transition-delay-2
+                  input#password.form-control(type="password"
+                    placeholder="PassWord"
+                    name="password"
+                    required)
+                  i.fa.fa-fw.fa-eye.toggle-password.field-icon(toggle='#password')
+              .form-group
+                .fxt-transformY-50.fxt-transition-delay-3
+                  .fxt-checkbox-area
+                    .checkbox
+                      input#checkbox1(type='checkbox')
+                      label(for='checkbox1') Keep me logged in
+              .form-group
+                .fxt-transformY-50.fxt-transition-delay-4
+                  button.fxt-btn-fill(type='submit') Đăng Nhập
+          .fxt-style-line
+            .fxt-transformY-50.fxt-transition-delay-5
+              h3 Hổ Trợ Khác
+          ul.fxt-socials
+            li.fxt-google
+              .fxt-transformY-50.fxt-transition-delay-6
+                a(href='/auth/loginadmin/register' title='google')
+                  span Đăng Ký
+            li.fxt-twitter
+              .fxt-transformY-50.fxt-transition-delay-7
+                a(href='/auth/loginadmin/forgotpassword' title='twitter')
+                  span Quên Mật Khẩu
+            li.fxt-facebook
+              .fxt-transformY-50.fxt-transition-delay-8
+                a(href='/auth/loginadmin/confim' title='Facebook')
+                  span Xác Thực
+          .fxt-footer
+            .fxt-transformY-50.fxt-transition-delay-9
+           
+script(src='/loginadmin/js/jquery.min.js')
+script(src='/loginadmin/js/bootstrap.min.js')
+script(src='/loginadmin/js/imagesloaded.pkgd.min.js')
+script(src='/loginadmin/js/particles.min.js')
+script(src='/loginadmin/js/particles-1.js')
+script(src='/loginadmin/js/validator.min.js')
+script(src='/loginadmin/js/main.js')

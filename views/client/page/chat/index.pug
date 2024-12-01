@@ -1,0 +1,956 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    title FFN - Chat and Discussion Platform
+    // Favicon
+    link(rel='icon' href='images/favicon.png' type='image/png')
+    // Bundle Styles
+    link(rel='stylesheet' href='/chat/css/bundle.css')
+    link(rel='stylesheet' href='/chat/css/enjoyhint.css')
+    //- //- // App styles
+    link(rel='stylesheet' href='/chat/css/app.min.css')
+    link(rel="stylesheet", href="https://unpkg.com/file-upload-with-preview/dist/style.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.css")
+
+// page loading
+.page-loading
+// ./ page loading
+// page tour modal
+#pageTour.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+  .modal-dialog.modal-lg.modal-dialog-centered.modal-dialog-zoom(role='document')
+    .modal-content
+      .modal-body.text-center.pt-5
+        .row
+          .col-md-6.offset-3
+            figure
+              img.img-fluid(src='images/undraw_product_tour_foyt.svg' alt='image')
+            p.lead.mt-5 Would you like to take a short page tour?
+      .modal-footer.justify-content-center
+        button.btn.btn-primary.start-tour(type='button') Start Tour
+        button.btn.btn-link(type='button' data-dismiss='modal' aria-label='Close') Close
+// ./ page tour modal
+// disconnected modal
+#disconnected.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+  .modal-dialog.modal-lg.modal-dialog-centered.modal-dialog-zoom(role='document')
+    .modal-content
+      .modal-body
+        .row.mb-5
+          .col-md-6.offset-3
+            img.img-fluid(src='images/undraw_warning_cyit.svg' alt='image')
+        p.lead.text-center Application disconnected
+      .modal-footer.justify-content-center
+        button.btn.btn-success.btn-lg(type='button') Reconnect
+        a.btn.btn-link(href='login.html') Logout
+// ./ disconnected modal
+// voice call modal
+#call.modal.call.fade(tabindex='-1' role='dialog' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered.modal-dialog-zoom(role='document')
+    .modal-content
+      .modal-body
+        .call
+          div
+            figure.mb-4.avatar.avatar-xl
+              img.rounded-circle(src='images/women_avatar1.jpg' alt='image')
+            h4
+              | Brietta Blogg 
+              span.text-success calling...
+            .action-button
+              button.btn.btn-danger.btn-floating.btn-lg(type='button' data-dismiss='modal')
+                i(data-feather='x')
+              button.btn.btn-success.btn-pulse.btn-floating.btn-lg(type='button')
+                i(data-feather='phone')
+// ./ voice call modal
+// voice call modal
+#videoCall.modal.call.fade(tabindex='-1' role='dialog' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered.modal-dialog-zoom(role='document')
+    .modal-content
+      .modal-body
+        .call
+          div
+            figure.mb-4.avatar.avatar-xl
+              img.rounded-circle(src='images/women_avatar1.jpg' alt='image')
+            h4
+              | Brietta Blogg 
+              span.text-success video calling...
+            .action-button
+              button.btn.btn-danger.btn-floating.btn-lg(type='button' data-dismiss='modal')
+                i(data-feather='x')
+              button.btn.btn-success.btn-pulse.btn-floating.btn-lg(type='button')
+                i(data-feather='video')
+// ./ voice call modal
+// add friends modal
+#addFriends.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered.modal-dialog-zoom(role='document')
+    .modal-content
+      .modal-header
+        h5.modal-title
+          i.mr-2(data-feather='user-plus')
+          |  Add Friends
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          i.ti-close
+      .modal-body
+        .alert.alert-info Send invitations to friends.
+        form
+          .form-group
+            label.col-form-label(for='emails') Email addresses
+            input#emails.form-control(type='text')
+          .form-group
+            label.col-form-label(for='message') Invitation message
+            textarea#message.form-control
+      .modal-footer
+        button.btn.btn-primary(type='button') Submit
+// ./ add friends modal
+// new group modal
+#newGroup.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered.modal-dialog-zoom(role='document')
+    .modal-content
+      .modal-header
+        h5.modal-title
+          i.mr-2(data-feather='users')
+          |  New Group
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          i.ti-close
+      .modal-body
+        form
+          .form-group
+            label.col-form-label(for='group_name') Group name
+            .input-group
+              input#group_name.form-control(type='text')
+              .input-group-append
+                button.btn.btn-light(data-toggle='tooltip' title='Emoji' type='button')
+                  i(data-feather='smile')
+          p.mb-2 The group members
+          .form-group
+            .avatar-group
+              figure.avatar(data-toggle='tooltip' title='Tobit Spraging')
+                span.avatar-title.bg-success.rounded-circle T
+              figure.avatar(data-toggle='tooltip' title='Cloe Jeayes')
+                img.rounded-circle(src='images/women_avatar4.jpg' alt='image')
+              figure.avatar(data-toggle='tooltip' title='Marlee Perazzo')
+                span.avatar-title.bg-warning.rounded-circle M
+              figure.avatar(data-toggle='tooltip' title='Stafford Pioch')
+                img.rounded-circle(src='images/man_avatar1.jpg' alt='image')
+              figure.avatar(data-toggle='tooltip' title='Bethena Langsdon')
+                span.avatar-title.bg-info.rounded-circle B
+              a(href='#' title='Add friends')
+                figure.avatar
+                  span.avatar-title.bg-primary.rounded-circle
+                    i(data-feather='plus')
+          .form-group
+            label.col-form-label(for='description') Description
+            textarea#description.form-control
+      .modal-footer
+        button.btn.btn-primary(type='button') Create Group
+// ./ new group modal
+// setting modal
+#settingModal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered.modal-dialog-zoom(role='document')
+    .modal-content
+      .modal-header
+        h5.modal-title
+          i.mr-2(data-feather='settings')
+          |  Settings
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          i.ti-close
+      .modal-body
+        ul.nav.nav-tabs(role='tablist')
+          li.nav-item
+            a.nav-link.active(data-toggle='tab' href='#account' role='tab' aria-controls='account' aria-selected='true') Account
+          li.nav-item
+            a.nav-link(data-toggle='tab' href='#notification' role='tab' aria-controls='notification' aria-selected='false') Notification
+          li.nav-item
+            a.nav-link(data-toggle='tab' href='#contact' role='tab' aria-controls='contact' aria-selected='false') Security
+        .tab-content
+          #account.tab-pane.show.active(role='tabpanel')
+            .form-item.custom-control.custom-switch
+              input#customSwitch1.custom-control-input(type='checkbox' checked='')
+              label.custom-control-label(for='customSwitch1') Allow connected contacts
+            .form-item.custom-control.custom-switch
+              input#customSwitch2.custom-control-input(type='checkbox' checked='')
+              label.custom-control-label(for='customSwitch2') Confirm message requests
+            .form-item.custom-control.custom-switch
+              input#customSwitch3.custom-control-input(type='checkbox' checked='')
+              label.custom-control-label(for='customSwitch3') Profile privacy
+            .form-item.custom-control.custom-switch
+              input#customSwitch4.custom-control-input(type='checkbox')
+              label.custom-control-label(for='customSwitch4') Developer mode options
+            .form-item.custom-control.custom-switch
+              input#customSwitch5.custom-control-input(type='checkbox' checked='')
+              label.custom-control-label(for='customSwitch5')
+                | Two-step security
+                | verification
+          #notification.tab-pane(role='tabpanel')
+            .form-item.custom-control.custom-switch
+              input#customSwitch6.custom-control-input(type='checkbox' checked='')
+              label.custom-control-label(for='customSwitch6') Allow mobile notifications
+            .form-item.custom-control.custom-switch
+              input#customSwitch7.custom-control-input(type='checkbox')
+              label.custom-control-label(for='customSwitch7')
+                | Notifications from your
+                | friends
+            .form-item.custom-control.custom-switch
+              input#customSwitch8.custom-control-input(type='checkbox')
+              label.custom-control-label(for='customSwitch8') Send notifications by email
+          #contact.tab-pane(role='tabpanel')
+            .form-item.custom-control.custom-switch
+              input#customSwitch9.custom-control-input(type='checkbox')
+              label.custom-control-label(for='customSwitch9')
+                | Suggest changing passwords every
+                | month.
+            .form-item.custom-control.custom-switch
+              input#customSwitch10.custom-control-input(type='checkbox' checked='')
+              label.custom-control-label(for='customSwitch10')
+                | Let me know about suspicious
+                | entries to your account
+            .form-item
+              p
+                a.btn.btn-light(data-toggle='collapse' href='#collapseExample' role='button' aria-expanded='false' aria-controls='collapseExample')
+                  i.mr-2(data-feather='plus')
+                  |  Security Questions
+              #collapseExample.collapse
+                .form-group
+                  input.form-control(type='text' placeholder='Question 1')
+                .form-group
+                  input.form-control(type='text' placeholder='Answer 1')
+                .form-group
+                  input.form-control(type='text' placeholder='Question 2')
+                .form-group
+                  input.form-control(type='text' placeholder='Answer 2')
+      .modal-footer
+        button.btn.btn-primary(type='button') Save
+// ./ setting modal
+// edit profile modal
+#editProfileModal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered.modal-dialog-zoom(role='document')
+    .modal-content
+      .modal-header
+        h5.modal-title
+          i.mr-2(data-feather='edit-2')
+          |  Edit Profile
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          i.ti-close
+      .modal-body
+        ul.nav.nav-tabs(role='tablist')
+          li.nav-item
+            a.nav-link.active(data-toggle='tab' href='#personal' role='tab' aria-controls='personal' aria-selected='true') Personal
+          li.nav-item
+            a.nav-link(data-toggle='tab' href='#about' role='tab' aria-controls='about' aria-selected='false') About
+          li.nav-item
+            a.nav-link(data-toggle='tab' href='#social-links' role='tab' aria-controls='social-links' aria-selected='false') Social Links
+        .tab-content
+          #personal.tab-pane.show.active(role='tabpanel')
+            form
+              .form-group
+                label.col-form-label(for='fullname') Fullname
+                .input-group
+                  input#fullname.form-control(type='text')
+                  .input-group-append
+                    span.input-group-text
+                      i(data-feather='user')
+              .form-group
+                label.col-form-label Avatar
+                .d-flex.align-items-center
+                  div
+                    figure.avatar.mr-3.item-rtl
+                      img.rounded-circle(src='images/man_avatar4.jpg' alt='image')
+                  .custom-file
+                    input#customFile.custom-file-input(type='file')
+                    label.custom-file-label(for='customFile') Choose file
+              .form-group
+                label.col-form-label(for='city') City
+                .input-group
+                  input#city.form-control(type='text' placeholder='Ex: Columbia')
+                  .input-group-append
+                    span.input-group-text
+                      i(data-feather='target')
+              .form-group
+                label.col-form-label(for='phone') Phone
+                .input-group
+                  input#phone.form-control(type='text' placeholder='(555) 555 55 55')
+                  .input-group-append
+                    span.input-group-text
+                      i(data-feather='phone')
+              .form-group
+                label.col-form-label(for='website') Website
+                input#website.form-control(type='text' placeholder='https://')
+          #about.tab-pane(role='tabpanel')
+            form
+              .form-group
+                label.col-form-label(for='about-text')
+                  | Write a few words that describe
+                  | you
+                textarea#about-text.form-control
+              .custom-control.custom-checkbox
+                input#customCheck1.custom-control-input(type='checkbox' checked='')
+                label.custom-control-label(for='customCheck1') View profile
+          #social-links.tab-pane(role='tabpanel')
+            form
+              .form-group
+                .input-group
+                  input.form-control(type='text' placeholder='Username')
+                  .input-group-append
+                    span.input-group-text.bg-facebook
+                      i.ti-facebook
+              .form-group
+                .input-group
+                  input.form-control(type='text' placeholder='Username')
+                  .input-group-append
+                    span.input-group-text.bg-twitter
+                      i.ti-twitter
+              .form-group
+                .input-group
+                  input.form-control(type='text' placeholder='Username')
+                  .input-group-append
+                    span.input-group-text.bg-instagram
+                      i.ti-instagram
+              .form-group
+                .input-group
+                  input.form-control(type='text' placeholder='Username')
+                  .input-group-append
+                    span.input-group-text.bg-linkedin
+                      i.ti-linkedin
+              .form-group
+                .input-group
+                  input.form-control(type='text' placeholder='Username')
+                  .input-group-append
+                    span.input-group-text.bg-dribbble
+                      i.ti-dribbble
+              .form-group
+                .input-group
+                  input.form-control(type='text' placeholder='Username')
+                  .input-group-append
+                    span.input-group-text.bg-youtube
+                      i.ti-youtube
+              .form-group
+                .input-group
+                  input.form-control(type='text' placeholder='Username')
+                  .input-group-append
+                    span.input-group-text.bg-google
+                      i.ti-google
+              .form-group
+                .input-group
+                  input.form-control(type='text' placeholder='Username')
+                  .input-group-append
+                    span.input-group-text.bg-whatsapp
+                      i.fa.fa-whatsapp
+      .modal-footer
+        button.btn.btn-primary(type='button') Save
+// ./ edit profile modal
+// layout
+.layout
+  // navigation
+  nav.navigation
+    .nav-group
+      ul
+        li.logo
+          a(href='#')
+            svg(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='612px' height='612px' viewbox='0 0 612 612' style='enable-background:new 0 0 612 612;' xml:space='preserve')
+              g
+                g#_x32__26_
+                  g
+                    path(d='M401.625,325.125h-191.25c-10.557,0-19.125,8.568-19.125,19.125s8.568,19.125,19.125,19.125h191.25\
+                    c10.557,0,19.125-8.568,19.125-19.125S412.182,325.125,401.625,325.125z M439.875,210.375h-267.75\
+                    c-10.557,0-19.125,8.568-19.125,19.125s8.568,19.125,19.125,19.125h267.75c10.557,0,19.125-8.568,19.125-19.125\
+                    S450.432,210.375,439.875,210.375z M306,0C137.012,0,0,119.875,0,267.75c0,84.514,44.848,159.751,114.75,208.826V612\
+                    l134.047-81.339c18.552,3.061,37.638,4.839,57.203,4.839c169.008,0,306-119.875,306-267.75C612,119.875,475.008,0,306,0z\
+                    M306,497.25c-22.338,0-43.911-2.601-64.643-7.019l-90.041,54.123l1.205-88.701C83.5,414.133,38.25,345.513,38.25,267.75\
+                    c0-126.741,119.875-229.5,267.75-229.5c147.875,0,267.75,102.759,267.75,229.5S453.875,497.25,306,497.25z')
+              g
+              g
+              g
+              g
+              g
+              g
+              g
+              g
+              g
+              g
+              g
+              g
+              g
+              g
+              g
+        li
+          a.active(data-navigation-target='chats' href='#' data-toggle='tooltip' title='Chats' data-placement='right')
+            span.badge.badge-warning
+            i(data-feather='message-circle')
+        li
+          a(data-navigation-target='friends' href='#' data-toggle='tooltip' title='Friends' data-placement='right')
+            span.badge.badge-danger
+            i(data-feather='user')
+        li
+          a(data-navigation-target='favorites' data-toggle='tooltip' title='Favorites' data-placement='right' href='#')
+            i(data-feather='star')
+        li.brackets
+          a(data-navigation-target='archived' href='#' data-toggle='tooltip' title='Archived' data-placement='right')
+            i(data-feather='archive')
+        li
+          a.dark-light-switcher(href='#' data-toggle='tooltip' title='Dark mode' data-placement='right')
+            i(data-feather='moon')
+        li(data-toggle='tooltip' title='User menu' data-placement='right')
+          a(href='./login.html' data-toggle='dropdown')
+            figure.avatar
+              img.rounded-circle(src='images/women_avatar5.jpg' alt='image')
+          .dropdown-menu
+            a.dropdown-item(href='#' data-toggle='modal' data-target='#editProfileModal')
+              | Edit
+              | profile
+            a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+            a.dropdown-item(href='#' data-toggle='modal' data-target='#settingModal') Settings
+            .dropdown-divider
+            a.dropdown-item.text-danger(href='login.html') Logout
+  // ./ navigation
+  // content
+  .content
+    // sidebar group
+    .sidebar-group
+      // Chats sidebar
+      #chats.sidebar.active
+        header
+          span Chats
+          ul.list-inline
+            li.list-inline-item(data-toggle='tooltip' title='New group')
+              a.btn.btn-outline-light(href='#' data-toggle='modal' data-target='#newGroup')
+                i(data-feather='users')
+            li.list-inline-item
+              a.btn.btn-outline-light(data-toggle='tooltip' title='New chat' href='#' data-navigation-target='friends')
+                i(data-feather='plus-circle')
+            li.list-inline-item.d-xl-none.d-inline
+              a.btn.btn-outline-light.text-danger.sidebar-close(href='#')
+                i(data-feather='x')
+        form
+          input.form-control(type='text' placeholder='Search chats')
+        .sidebar-body
+          each item in bongchat
+            if(item)
+              a.list-group-item(href=item.id)
+                figure.avatar.avatar-state-success
+                  img.rounded-circle(src=item.avatar alt='image')
+                .users-list-body
+                    div
+                      h5.text-primary #{item.fullName}
+                      p What&apos;s up, how are you?
+                    .users-list-action
+                      .new-message-count 3
+                      small.text-primary 03:41 PM
+
+      // Friends sidebar
+      #friends.sidebar
+        header
+          span Friends
+          ul.list-inline
+            li.list-inline-item(data-toggle='tooltip' title='Add friends')
+              a.btn.btn-outline-light(href='#' data-toggle='modal' data-target='#addFriends')
+                i(data-feather='user-plus')
+            li.list-inline-item.d-xl-none.d-inline
+              a.btn.btn-outline-light.text-danger.sidebar-close(href='#')
+                i(data-feather='x')
+        form
+          input.form-control(type='text' placeholder='Search friends')
+        .sidebar-body
+          ul.list-group.list-group-flush
+            li.list-group-item(data-navigation-target='chats')
+              div
+                figure.avatar
+                  img.rounded-circle(src='images/women_avatar5.jpg' alt='image')
+              .users-list-body
+                div
+                  h5 Harrietta Souten
+                  p Dental Hygienist
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') New chat
+                        a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Block
+            li.list-group-item(data-navigation-target='chats')
+              div
+                figure.avatar.avatar-state-warning
+                  span.avatar-title.bg-success.rounded-circle A
+              .users-list-body
+                div
+                  h5 Aline McShee
+                  p Marketing Assistant
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') New chat
+                        a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Block
+            li.list-group-item(data-navigation-target='chats')
+              div
+                figure.avatar.avatar-state-success
+                  img.rounded-circle(src='images/women_avatar1.jpg' alt='image')
+              .users-list-body
+                div
+                  h5 Brietta Blogg
+                  p Actuary
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') New chat
+                        a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Block
+            li.list-group-item(data-navigation-target='chats')
+              div
+                figure.avatar.avatar-state-success
+                  img.rounded-circle(src='images/man_avatar3.jpg' alt='image')
+              .users-list-body
+                div
+                  h5 Karl Hubane
+                  p Chemical Engineer
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') New chat
+                        a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Block
+            li.list-group-item(data-navigation-target='chats')
+              div
+                figure.avatar
+                  img.rounded-circle(src='images/man_avatar2.jpg' alt='image')
+              .users-list-body
+                div
+                  h5 Jillana Tows
+                  p Project Manager
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') New chat
+                        a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Block
+            li.list-group-item(data-navigation-target='chats')
+              div
+                figure.avatar.avatar-state-success
+                  span.avatar-title.bg-info.rounded-circle AD
+              .users-list-body
+                div
+                  h5 Alina Derington
+                  p Nurse
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') New chat
+                        a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Block
+            li.list-group-item(data-navigation-target='chats')
+              div
+                figure.avatar.avatar-state-secondary
+                  span.avatar-title.bg-warning.rounded-circle S
+              .users-list-body
+                div
+                  h5 Stevy Kermeen
+                  p Associate Professor
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') New chat
+                        a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Block
+            li.list-group-item(data-navigation-target='chats')
+              div
+                figure.avatar
+                  img.rounded-circle(src='images/man_avatar1.jpg' alt='image')
+              .users-list-body
+                div
+                  h5 Stevy Kermeen
+                  p Senior Quality Engineer
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') New chat
+                        a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Block
+            li.list-group-item(data-navigation-target='chats')
+              div
+                figure.avatar
+                  img.rounded-circle(src='images/man_avatar5.jpg' alt='image')
+              .users-list-body
+                div
+                  h5 Gloriane Shimmans
+                  p Web Designer
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') New chat
+                        a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Block
+            li.list-group-item(data-navigation-target='chats')
+              div
+                figure.avatar.avatar-state-warning
+                  span.avatar-title.bg-secondary.rounded-circle B
+              .users-list-body
+                div
+                  h5 Bernhard Perrett
+                  p Software Engineer
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') New chat
+                        a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Block
+      // ./ Friends sidebar
+      // Favorites sidebar
+      #favorites.sidebar
+        header
+          span Favorites
+          ul.list-inline
+            li.list-inline-item.d-xl-none.d-inline
+              a.btn.btn-outline-light.text-danger.sidebar-close(href='#')
+                i(data-feather='x')
+        form
+          input.form-control(type='text' placeholder='Search favorites')
+        .sidebar-body
+          ul.list-group.list-group-flush.users-list
+            li.list-group-item
+              .users-list-body
+                div
+                  h5 Jennica Kindred
+                  p I know how important this file is to you. You can trust me ;)
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') Open
+                        a.dropdown-item(href='#') Remove favorites
+            li.list-group-item
+              .users-list-body
+                div
+                  h5 Marvin Rohan
+                  p Lorem ipsum dolor sitsdc sdcsdc sdcsdcs
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') Open
+                        a.dropdown-item(href='#') Remove favorites
+            li.list-group-item
+              .users-list-body
+                div
+                  h5 Frans Hanscombe
+                  p Lorem ipsum dolor sitsdc sdcsdc sdcsdcs
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') Open
+                        a.dropdown-item(href='#') Remove favorites
+            li.list-group-item
+              .users-list-body
+                div
+                  h5 Karl Hubane
+                  p Lorem ipsum dolor sitsdc sdcsdc sdcsdcs
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') Open
+                        a.dropdown-item(href='#') Remove favorites
+      // ./ Stars sidebar
+      // Archived sidebar
+      #archived.sidebar
+        header
+          span Archived
+          ul.list-inline
+            li.list-inline-item.d-xl-none.d-inline
+              a.btn.btn-outline-light.text-danger.sidebar-close(href='#')
+                i(data-feather='x')
+        form
+          input.form-control(type='text' placeholder='Search archived')
+        .sidebar-body
+          ul.list-group.list-group-flush.users-list
+            li.list-group-item
+              figure.avatar
+                span.avatar-title.bg-danger.rounded-circle M
+              .users-list-body
+                div
+                  h5 Mercedes Pllu
+                  p I know how important this file is to you. You can trust me ;)
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') Open
+                        a.dropdown-item(href='#') Restore
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Delete
+            li.list-group-item
+              figure.avatar
+                span.avatar-title.bg-secondary.rounded-circle R
+              .users-list-body
+                div
+                  h5 Rochelle Golley
+                  p Lorem ipsum dolor sitsdc sdcsdc sdcsdcs
+                .users-list-action
+                  .action-toggle
+                    .dropdown
+                      a(data-toggle='dropdown' href='#')
+                        i(data-feather='more-horizontal')
+                      .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') Open
+                        a.dropdown-item(href='#') Restore
+                        .dropdown-divider
+                        a.dropdown-item.text-danger(href='#') Delete
+    if(data)
+      .chat
+        .chat-header
+          .chat-header-user
+            figure.avatar
+              img.rounded-circle(src=datauser.avatar alt='image')
+            div
+              h5 #{datauser.fullName}
+              small.text-success
+                i Hoạt Động
+          .chat-header-action
+            ul.list-inline
+              li.list-inline-item.d-xl-none.d-inline
+                a.btn.btn-outline-light.mobile-navigation-button(href='#')
+                  i(data-feather='menu')
+              li.list-inline-item(data-toggle='tooltip' title='Voice call')
+                a.btn.btn-outline-light.text-success(href='#' data-toggle='modal' data-target='#call')
+                  i(data-feather='phone')
+              li.list-inline-item(data-toggle='tooltip' title='Video call')
+                a.btn.btn-outline-light.text-warning(href='#' data-toggle='modal' data-target='#videoCall')
+                  i(data-feather='video')
+              li.list-inline-item
+                a.btn.btn-outline-light(href='#' data-toggle='dropdown')
+                  i(data-feather='more-horizontal')
+                .dropdown-menu.dropdown-menu-right
+                  a.dropdown-item(href='#' data-navigation-target='contact-information') Profile
+                  a.dropdown-item(href='#') Add to archive
+                  a.dropdown-item(href='#') Delete
+                  .dropdown-divider
+                  a.dropdown-item.text-danger(href='#') Block
+        .chat-body
+          .messages(myid=userid)
+            each item in data 
+              if(userid == item.user_id)
+                if(item.content || item.images)
+                  div(class="message-item outgoing-message")
+                      if(item.content)
+                        .message-content
+                            | #{item.content}
+                      if(item.images)
+                        .inner-images
+                            each image in item.images
+                              img(src=image)
+              else
+                if(item.content || item.images) 
+                  div(class="message-item")
+                    
+                    .message-avatar
+                      figure.avatar
+                        img.rounded-circle(src=datauser.avatar alt='image')
+                      div
+                        h5 #{datauser.fullName}
+                        .time
+                          | 01:20 PM 
+                          i.ti-double-check.text-info
+                    if(item.content)
+                      .message-content
+                        | #{item.content}
+                    if(item.images)
+                        .inner-imagesright
+                          each image in item.images
+                            img(src=image)
+            div(class="inner-list-typing")
+      
+        .chat-footer
+          .inner-preview-images
+              div(
+                class="custom-file-container"
+                data-upload-id="upload-images"
+              )
+          form(formsendmessclient)
+            div
+              button.btn.btn-light.mr-3(data-toggle='tooltip' title='Emoji' buttonemoji type='button')
+                i(data-feather='smile')
+            input.form-control(type='text' inputchatclient placeholder='Write a message.')
+            .form-buttons
+              button.btn.btn-light(data-toggle='tooltip' title='Add files' type='button')
+                label(for="file-upload-with-preview-upload-images")
+                  i(data-feather='paperclip')
+              button.btn.btn-light.d-sm-none.d-block(data-toggle='tooltip' title='Send a voice record' type='button')
+                i(data-feather='mic')
+              button.btn.btn-primary(type='submit')
+                i(data-feather='send')
+              div(class="tooltip" role="tooltip")
+                emoji-picker(class="light")
+    // ./ chat
+    .sidebar-group
+      #contact-information.sidebar
+        header
+          span Profile
+          ul.list-inline
+            li.list-inline-item
+              a.btn.btn-outline-light.text-danger.sidebar-close(href='#')
+                i(data-feather='x')
+        .sidebar-body
+          .pl-4.pr-4
+            .text-center
+              figure.avatar.avatar-xl.mb-4
+                img.rounded-circle(src='images/women_avatar5.jpg' alt='image')
+              h5.mb-1 Mirabelle Tow
+              small.text-muted.font-italic Last seen: Today
+              ul#myTab.nav.nav-tabs.justify-content-center.mt-5(role='tablist')
+                li.nav-item
+                  a#home-tab.nav-link.active(data-toggle='tab' href='#home' role='tab' aria-controls='home' aria-selected='true') About
+                li.nav-item
+                  a#profile-tab.nav-link(data-toggle='tab' href='#profile' role='tab' aria-controls='profile' aria-selected='false') Media
+            #myTabContent.tab-content
+              #home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab')
+                p.text-muted
+                  | Lorem ipsum is a pseudo-Latin text used in web design, typography,
+                  | layout, and printing in place of English to emphasise design elements over content.
+                  | It&apos;s also called placeholder (or filler) text. It&apos;s a convenient tool for
+                  | mock-ups.
+                .mt-4.mb-4
+                  h6 Phone
+                  p.text-muted (555) 555 55 55
+                .mt-4.mb-4
+                  h6 City
+                  p.text-muted Germany / Berlin
+                .mt-4.mb-4
+                  h6 Website
+                  p
+                    a(href='#') www.franshanscombe.com
+                .mt-4.mb-4
+                  h6.mb-3 Social media accounts
+                  ul.list-inline.social-links
+                    li.list-inline-item
+                      a.btn.btn-sm.btn-floating.btn-facebook(href='#' data-toggle='tooltip' title='Facebook')
+                        i.fa.fa-facebook
+                    li.list-inline-item
+                      a.btn.btn-sm.btn-floating.btn-twitter(href='#' data-toggle='tooltip' title='Twitter')
+                        i.fa.fa-twitter
+                    li.list-inline-item
+                      a.btn.btn-sm.btn-floating.btn-dribbble(href='#' data-toggle='tooltip' title='Dribbble')
+                        i.fa.fa-dribbble
+                    li.list-inline-item
+                      a.btn.btn-sm.btn-floating.btn-whatsapp(href='#' data-toggle='tooltip' title='Whatsapp')
+                        i.fa.fa-whatsapp
+                    li.list-inline-item
+                      a.btn.btn-sm.btn-floating.btn-linkedin(href='#' data-toggle='tooltip' title='Linkedin')
+                        i.fa.fa-linkedin
+                    li.list-inline-item
+                      a.btn.btn-sm.btn-floating.btn-google(href='#' data-toggle='tooltip' title='Google')
+                        i.fa.fa-google
+                    li.list-inline-item
+                      a.btn.btn-sm.btn-floating.btn-behance(href='#' data-toggle='tooltip' title='Behance')
+                        i.fa.fa-behance
+                    li.list-inline-item
+                      a.btn.btn-sm.btn-floating.btn-instagram(href='#' data-toggle='tooltip' title='Instagram')
+                        i.fa.fa-instagram
+                .mt-4.mb-4
+                  h6.mb-3 Settings
+                  .form-group
+                    .form-item.custom-control.custom-switch
+                      input#customSwitch11.custom-control-input(type='checkbox')
+                      label.custom-control-label(for='customSwitch11') Block
+                  .form-group
+                    .form-item.custom-control.custom-switch
+                      input#customSwitch12.custom-control-input(type='checkbox' checked='')
+                      label.custom-control-label(for='customSwitch12') Mute
+                  .form-group
+                    .form-item.custom-control.custom-switch
+                      input#customSwitch13.custom-control-input(type='checkbox')
+                      label.custom-control-label(for='customSwitch13')
+                        | Get
+                        | notification
+              #profile.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab')
+                h6.mb-3.d-flex.align-items-center.justify-content-between
+                  span Recent Files
+                  a.btn.btn-link.small(href='#')
+                    i.mr-2(data-feather='upload')
+                    |  Upload
+                div
+                  ul.list-group.list-group-flush
+                    li.list-group-item.pl-0.pr-0.d-flex.align-items-center
+                      a(href='#')
+                        i.fa.fa-file-pdf-o.text-danger.mr-2
+                        |  report4221.pdf
+                    li.list-group-item.pl-0.pr-0.d-flex.align-items-center
+                      a(href='#')
+                        i.fa.fa-image.text-muted.mr-2
+                        |  avatar_image.png
+                    li.list-group-item.pl-0.pr-0.d-flex.align-items-center
+                      a(href='#')
+                        i.fa.fa-file-excel-o.text-success.mr-2
+                        |                                                 excel_report_file2020.xlsx
+                    li.list-group-item.pl-0.pr-0.d-flex.align-items-center
+                      a(href='#')
+                        i.fa.fa-file-text-o.text-warning.mr-2
+                        |  articles342133.txt
+  // ./ content
+// ./ layout
+// Bundle
+script(type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js") 
+script(src='js/bundle.js')
+script(src='js/enjoyhint.min.js')
+// App scripts
+script(src='js/app.min.js')
+// Examples
+//- script(src='js/examples.js')
+script(src="/socket.io/socket.io.js")
+script(src="/jsclient/io.js")
+script(type="module" src="/jsclient/chat.js")
+script(type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js")
+
+script(src="https://unpkg.com/file-upload-with-preview/dist/file-upload-with-preview.iife.js") 
+script(src="https://unpkg.com/file-upload-with-preview/dist/file-upload-with-preview.iife.js")
+
+script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.js") 
+
+

@@ -1,0 +1,331 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main
+      +alert(messages.nice)
+      +alertfaild(messages.error)    
+      .pc-content(style="padding : 0;")
+        // [ breadcrumb ] start
+        .page-header
+          .page-block
+            .row.align-items-center
+             
+              .col-md-12
+                .page-header-title
+                  h2.mb-0 Cập Nhật Đơn Hàng
+        // [ breadcrumb ] end
+        // [ Main Content ] start
+        .row
+          // [ sample-page ] start
+          .col-sm-12
+            .card
+              .card-header
+                h5 Trạng Thái Giao Hàng
+              .card-body
+                #basicwizard.form-wizard.row.justify-content-center
+                  ul.nav.nav-pills.justify-content-center.course-wizard(phicssstatusship style="width : 100%;")
+                    li.nav-item(data-target-form='#jobDetailForm')
+                        a.nav-link.icon-btn(href='/admin/invoice/status/0' class=(id == 0 ? "active" : ""))
+                          .course-wizard-num
+                            span 1
+                          span.d-none.d-sm-inline Tất Cả
+                    li.nav-item(data-target-form='#jobDetailForm')
+                      a.nav-link.icon-btn(href='/admin/invoice/status/1'  class=(id == 1 ? "active" : ""))
+                        .course-wizard-num
+                          span 2
+                        span.d-none.d-sm-inline Đang Chờ Xác Nhận
+                    // end nav item
+                    li.nav-item(data-target-form='#jobDetailForm')
+                      a.nav-link.icon-btn(href='/admin/invoice/status/2'  class=(id == 2 ? "active" : ""))
+                        .course-wizard-num
+                          span 3
+                        span.d-none.d-sm-inline Đã Chuẩn Bị Hàng
+                    // end nav item
+                    li.nav-item(data-target-form='#jobDetailForm')
+                      a.nav-link.icon-btn(href='/admin/invoice/status/3' class=(id == 3 ? "active" : ""))
+                        .course-wizard-num
+                          span 4
+                        span.d-none.d-sm-inline Đang Giao Hàng
+                    // end nav item
+                    li.nav-item(data-target-form='#jobDetailForm')
+                      a.nav-link.icon-btn(href='/admin/invoice/status/4' class=(id == 4 ? "active" : ""))
+                        .course-wizard-num
+                          span 5
+                        span.d-none.d-sm-inline Hoàn Thành
+                    li.nav-item(data-target-form='#jobDetailForm')
+                      a.nav-link(href='/admin/invoice/status/5' class=(id == 5 ? "active" : "") )
+                        .course-wizard-num
+                          span 6
+                        span.d-none.d-sm-inline Hủy Đơn Hàng
+                    li.nav-item(data-target-form='#jobDetailForm')
+                      a.nav-link(href='/admin/invoice/status/6' class=(id == 6 ? "active" : "") )
+                        .course-wizard-num
+                          span 7
+                        span.d-none.d-sm-inline Trả Hàng
+                    
+                    // end nav item
+                  .tab-content
+                      #finish.tab-pane(style="display : block;")
+                        .card.table-card.border.shadow-none
+                          .card-header.pb-0.pt-2
+                            ul#myTab.nav.nav-tabs.profile-tabs(role='tablist')
+                              li.nav-item(role='presentation')
+                                button#home-tab.nav-link.active(data-bs-toggle='tab' data-bs-target='#home-tab-pane' type='button' role='tab' aria-controls='home-tab-pane' aria-selected='true') Đơn Hàng
+                             
+                          .card-body.pb-0
+                            #myTabContent.tab-content
+                              #home-tab-pane.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab' tabindex='0')
+                                .table-responsive
+                                  table.table.table-hover.mb-0
+                                    thead
+                                      tr(style="text-align : center;")
+                                        th Mã Hóa Đơn
+                                        th Ngày Tháng
+                                        th Trạng Thái
+                                        if(id == 4)
+                                          th Sàn Kiểm Duyệt
+                                        
+                                        th Hành Động
+                                    tbody(actionstatusotheradmin)
+                                      form(action="" method="POST" formactioninvoicecanceladmin)
+                                      each item in data 
+                                        tr(style="text-align : center;")
+                                            td #{item.id}
+                                            td #{item.Time}
+                                            td
+                                             span.badge.text-bg-success #{item.orderStatus}
+                                            if(id == 4)
+                                              td 
+                                                if(item.checked == "true")
+                                                  button(style="background : #1DE9B6; color : white ;  border: 1px solid white; font-size : 11px; border-radius : 6px;" actioncheckinvoice = item.id) Hoàn Thành 
+                                                else 
+                                                  span(style="color : #9A90D4") Chờ Đợi
+                                            td(style = "display : flex; justify-content : center; align-item : center;" )
+                                                a.avtar.avtar-xs.btn-link-secondary(href=`/admin/invoice/detail/${item.id}`)
+                                                    i.ti.ti-eye.f-20
+                                                if(id > 0 && id < 4)
+                                                  a.avtar.avtar-xs.btn-link-secondary(actionstatus=`/admin/invoice/status/${item.id}/${item.orderStatus}`)
+                                                    i.ti.ti-edit.f-20
+                                                if(role.permissions.includes("confim-cancel") && id == 5)  
+                                                    a.avtar.avtar-xs.btn-link-secondary(actioncancelinvoiceadmin=`/admin/invoice/cancel/${item.id}`  data-bs-toggle="tooltip" title="Xác Nhận")
+                                                      <i class="fa-regular fa-circle-check"  style="font-size : 15px; color : #1DE9B6;"></i>
+                                                if(role.permissions.includes("comfim-return") && id == 6)
+                                                //- if(id > 0 && id < 3)
+                                                //-   a.avtar.avtar-xs.btn-link-secondary(actionstatus=`/admin/invoice/status/${item.id}/${item.orderStatus}`)
+                                                //-     <i class="fa-regular fa-circle-xmark"></i>
+                                                //- if(id == 4)
+                                                //-   a.avtar.avtar-xs.btn-link-secondary(style="font-size : 15px;" actionstatus=`/admin/invoice/status/${item.id}/${item.orderStatus}`)
+                                                //-    <i class="fa-regular fa-file-lines"></i>
+                                           
+                                    //-   tr
+                                    //-     td Login Page
+                                    //-     td /login-page.design
+                                    //-     td
+                                    //-       span.badge.text-bg-success Published
+                                    //-     td
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-eye.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-edit.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-trash.f-20
+                                    //-   tr
+                                    //-     td Privacy Policy
+                                    //-     td /privacy-policy
+                                    //-     td
+                                    //-       span.badge.text-bg-danger Unpublished
+                                    //-     td
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-eye.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-edit.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-trash.f-20
+                                    //-   tr
+                                    //-     td Main Page
+                                    //-     td /main.page
+                                    //-     td
+                                    //-       span.badge.text-bg-success Published
+                                    //-     td
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-eye.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-edit.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-trash.f-20
+                                    //-   tr
+                                    //-     td Login Page
+                                    //-     td /login-page.design
+                                    //-     td
+                                    //-       span.badge.text-bg-success Published
+                                    //-     td
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-eye.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-edit.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-trash.f-20
+                                    //-   tr
+                                    //-     td Privacy Policy
+                                    //-     td /privacy-policy
+                                    //-     td
+                                    //-       span.badge.text-bg-danger Unpublished
+                                    //-     td
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-eye.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-edit.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-trash.f-20
+                                    //-   tr
+                                    //-     td Main Page
+                                    //-     td /main.page
+                                    //-     td
+                                    //-       span.badge.text-bg-success Published
+                                    //-     td
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-eye.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-edit.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-trash.f-20
+                                    //-   tr
+                                    //-     td Login Page
+                                    //-     td /login-page.design
+                                    //-     td
+                                    //-       span.badge.text-bg-success Published
+                                    //-     td
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-eye.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-edit.f-20
+                                    //-       a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                    //-         i.ti.ti-trash.f-20
+                                    //-   tr
+                                        td Privacy Policy
+                                        td /privacy-policy
+                                        td
+                                          span.badge.text-bg-danger Unpublished
+                                        td
+                                          a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                            i.ti.ti-eye.f-20
+                                          a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                            i.ti.ti-edit.f-20
+                                          a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                            i.ti.ti-trash.f-20
+                                //- #profile-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab' tabindex='0')
+                                //-     .table-responsive
+                                //-     table.table.table-hover.mb-0
+                                //-         thead
+                                //-         tr
+                                //-             th Page Title
+                                //-             th URL
+                                //-             th State
+                                //-             th Action
+                                //-         tbody
+                                //-         tr
+                                //-             td Privacy Policy
+                                //-             td /privacy-policy
+                                //-             td
+                                //-             span.badge.text-bg-danger Unpublished
+                                //-             td
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-eye.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-edit.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-trash.f-20
+                                //-         tr
+                                //-             td Main Page
+                                //-             td /main.page
+                                //-             td
+                                //-             span.badge.text-bg-success Published
+                                //-             td
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-eye.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-edit.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-trash.f-20
+                                //-         tr
+                                //-             td Login Page
+                                //-             td /login-page.design
+                                //-             td
+                                //-             span.badge.text-bg-success Published
+                                //-             td
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-eye.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-edit.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-trash.f-20
+                                //-         tr
+                                //-             td Main Page
+                                //-             td /main.page
+                                //-             td
+                                //-             span.badge.text-bg-success Published
+                                //-             td
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-eye.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-edit.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-trash.f-20
+                                //-         tr
+                                //-             td Privacy Policy
+                                //-             td /privacy-policy
+                                //-             td
+                                //-             span.badge.text-bg-danger Unpublished
+                                //-             td
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-eye.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-edit.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-trash.f-20
+                                //-         tr
+                                //-             td Login Page
+                                //-             td /login-page.design
+                                //-             td
+                                //-             span.badge.text-bg-success Published
+                                //-             td
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-eye.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-edit.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-trash.f-20
+                                //-         tr
+                                //-             td Main Page
+                                //-             td /main.page
+                                //-             td
+                                //-             span.badge.text-bg-success Published
+                                //-             td
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-eye.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-edit.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-trash.f-20
+                                //-         tr
+                                //-             td Privacy Policy
+                                //-             td /privacy-policy
+                                //-             td
+                                //-             span.badge.text-bg-danger Unpublished
+                                //-             td
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-eye.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-edit.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-trash.f-20
+                                //-         tr
+                                //-             td Login Page
+                                //-             td /login-page.design
+                                //-             td
+                                //-             span.badge.text-bg-success Published
+                                //-             td
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-eye.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')
+                                //-                 i.ti.ti-edit.f-20
+                                //-             a.avtar.avtar-xs.btn-link-secondary(href='#')

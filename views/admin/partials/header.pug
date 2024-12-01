@@ -1,0 +1,68 @@
+header.pc-header(style = "background : white;  box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px;")
+  .header-wrapper(style="justify-content : space-between;")
+    // [Mobile Media Block] start
+    .me-auto.pc-mob-drp
+      ul.list-unstyled
+        // ======= Menu collapse Icon =====
+        li.pc-h-item.pc-sidebar-collapse
+          a#sidebar-hide.pc-head-link.ms-0(href='#')
+            i.ti.ti-menu-2
+       
+    // [Mobile Media Block end]
+    .ms-auto
+      ul.list-unstyled.d-flex.align-items-center
+        
+        li
+         span(style="font-size : 14px;margin-right : 4px;color : #04A9F5;")  Tài Khoản :
+         span.badge.text-bg-success #{user.money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' VNĐ'}
+        li
+         span(style="font-size : 16px;margin-left : 20px; margin-rigt : 8px;color : #1DE9B6;")  #{user.nameshop}
+        li.dropdown.pc-h-item.header-user-profile
+          a.pc-head-link.dropdown-toggle.arrow-none.me-0(data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='false' data-bs-auto-close='outside' aria-expanded='false')
+            img.user-avtar(src=user.avatar alt='user-image')
+          .dropdown-menu.dropdown-user-profile.dropdown-menu-end.pc-h-dropdown
+            .dropdown-header.d-flex.align-items-center.justify-content-between
+              h5.m-0 Thông Tin Cá Nhân
+            .dropdown-body
+              .profile-notification-scroll.position-relative(style='max-height: calc(100vh - 225px)')
+                ul.list-group.list-group-flush.w-100
+                  li.list-group-item
+                    .d-flex.align-items-center
+                      .flex-shrink-0
+                        img.wid-50.rounded-circle(src=user.avatar alt='user-image')
+                      .flex-grow-1.mx-3
+                        h5.mb-0 #{user.fullName}
+                        a.link-primary(href='mailto:carson.darrin@company.io') #{user.email}
+                      if(user.duration < 3)
+                         span.badge.bg-primary Basic 
+                      else if(user.duration < 5)
+                         span.badge.bg-primary Intermediate 
+                      else
+                         span.badge.text-bg-success Premium 
+                  li.list-group-item(phicssiconadmin)
+                    a.dropdown-item(href=`/${prefixAdmin}/myaccount`)
+                      span.d-flex.align-items-center
+                         i.ph-duotone.ph-user
+                         span Thông Tin Cá Nhân
+                    a.dropdown-item(href=`/${prefixAdmin}/myaccount/edit`)
+                      span.d-flex.align-items-center
+                        <i class="fa-solid fa-pencil"></i>
+                        span Chỉnh Sửa Trang Cá Nhân
+                    a.dropdown-item
+                      span.d-flex.align-items-center
+                        i.ph-duotone.ph-moon
+                        span Dark mode
+                      .form-check.form-switch.form-check-reverse.m-0
+                        input#dark-mode.form-check-input.f-18(type='checkbox' onclick='dark_mode()' role='switch')
+                    a.dropdown-item(href='/admin/myaccount/money')
+                      span.d-flex.align-items-center
+                        <i class="fa-solid fa-money-bills" style=></i>
+                        span(style="margin-left : 16px") Nạp Tiền
+                    a.dropdown-item(lockaccountadmin)
+                      span.d-flex.align-items-center
+                        <i class="fa-solid fa-lock"></i>
+                        span Khóa Tài Khoản
+                    a.dropdown-item(href='/auth/loginadmin/logout')
+                      span.d-flex.align-items-center
+                        i.ph-duotone.ph-power
+                        span Logout

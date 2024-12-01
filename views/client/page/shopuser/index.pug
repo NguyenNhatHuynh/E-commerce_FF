@@ -1,0 +1,239 @@
+extends ../../layout/layout.pug
+
+block main 
+  .app__banner
+    .grid.wide
+      .row.sm-gutter.app__banner-content
+        .col.l-4.m-12
+          .row.sm-gutter-tablet(style='background-color: rgba(0,0,0,.6); border-radius: 4px;')
+            .col.l-12.m-6.full-home-banners__right-link
+              .shop-info
+                img.shop-info__avarta(src=data.avatar alt='')
+                div(style='margin-left: 8px;')
+                  .shop-info__title
+                    | #{data.fullName}
+                  .shop-info__online-status
+                    | Online 13 Phút trước
+            .col.l-12.m-6.full-home-banners__right-link(href='#')
+              .shop-info
+                button.btn-ouline
+                  i.fa-solid.fa-plus
+                  | theo dõi
+                button.btn-ouline
+                  i.fa-brands.fa-rocketchat
+                  | chat
+        .col.l-8.m-12.c-12
+          .full-home-banners__main
+            .shop-overview
+              .shop-overview__item
+                i.fa-solid.fa-shop
+                .shop-overview__content
+                  span Sản phẩm: 
+                  span.red-color.mx-3 259
+              .shop-overview__item
+                i.fa-solid.fa-user
+                .shop-overview__content
+                  span &Dstrok;ang theo: 
+                  span.red-color.mx-3 1
+              .shop-overview__item
+                i.fa-solid.fa-comment
+                .shop-overview__content
+                  span T&#x1EC9; l&#x1EC7; ph&#x1EA3;n h&#x1ED3;i chat: 
+                  span.red-color.mx-3 81% (Trong V&agrave;i Gi&#x1EDD;)
+              .shop-overview__item
+                i.fa-solid.fa-users
+                .shop-overview__content
+                  span Ng&#x1B0;&#x1EDD;i theo d&otilde;i: 
+                  span.red-color.mx-3 6.6k
+              .shop-overview__item
+                i.fa-solid.fa-star
+                .shop-overview__content
+                  span &Dstrok;&aacute;nh gi&aacute;: 
+                  span.red-color.mx-3 4.8 (11.5k &Dstrok;&aacute;nh gi&aacute;)
+              .shop-overview__item
+                i.fa-solid.fa-user-check
+                .shop-overview__content
+                  span Tham gia: 
+                  span.red-color.mx-3 21 th&aacute;ng tr&#x1B0;&#x1EDB;c
+              .shop-overview__item
+                i.fa-solid.fa-shop
+                .shop-overview__content
+                  span T&#x1EC9; l&#x1EC7; shop h&#x1EE7;y &dstrok;&#x1A1;n: 
+                  span.red-color.mx-3 1%
+    //-   ul.app__banner-list
+        li.banner-list__item
+          a.banner-list__link(href='')
+            .banner-list__img(style="background-image: url('https://cf.shopee.vn/file/3820374516083447a858e6f303441170_xhdpi');")
+            span.banner-list__title B&#x1EA3;o v&#x1EC7; s&#x1EE9;c kh&#x1ECF;e
+        li.banner-list__item
+          a.banner-list__link(href='')
+            .banner-list__img(style="background-image: url('https://cf.shopee.vn/file/b3535d7e56c58c4ebe9a87672d38cc5e_xhdpi');")
+            span.banner-list__title G&igrave; C&utilde;ng R&#x1EBB; - Mua L&agrave; Freeship
+        li.banner-list__item
+          a.banner-list__link(href='')
+            .banner-list__img(style="background-image: url('https://cf.shopee.vn/file/46a2a2c810622f314d78455da5e5d926_xhdpi');")
+            span.banner-list__title Khung Gi&#x1EDD; S&abreve;n Sale
+        li.banner-list__item
+          a.banner-list__link(href='')
+            .banner-list__img(style="background-image: url('https://cf.shopee.vn/file/c7a2e1ae720f9704f92f72c9ef1a494a_xhdpi');")
+            span.banner-list__title Mi&#x1EC5;n Ph&iacute; V&#x1EAD;n Chuy&#x1EC3;n
+        li.banner-list__item
+          a.banner-list__link(href='')
+            .banner-list__img(style="background-image: url('https://cf.shopee.vn/file/9da9a3acb5520d601f86a90434f455a5_xhdpi');")
+            span.banner-list__title Ho&agrave;n Xu 20% - L&ecirc;n &Dstrok;&#x1EBF;n 50K
+        li.banner-list__item
+          a.banner-list__link(href='')
+            .banner-list__img(style="background-image: url('https://cf.shopee.vn/file/765ca66457ec08802f74c529f71a99b7_xhdpi');")
+            span.banner-list__title H&agrave;ng Hi&#x1EC7;u -50%
+        li.banner-list__item
+          a.banner-list__link(href='')
+            .banner-list__img(style="background-image: url('https://cf.shopee.vn/file/a08ab28962514a626195ef0415411585_xhdpi');")
+            span.banner-list__title H&agrave;ng Qu&#x1ED1;c T&#x1EBF;
+        li.banner-list__item
+          a.banner-list__link(href='')
+            .banner-list__img(style="background-image: url('https://cf.shopee.vn/file/9df57ba80ca225e67c08a8a0d8cc7b85_xhdpi');")
+            span.banner-list__title N&#x1EA1;p Th&#x1EBB; D&#x1ECB;ch V&#x1EE5;
+        li.banner-list__item
+          a.banner-list__link(href='')
+            .banner-list__img(style="background-image: url('https://cf.shopee.vn/file/96385a65fa50800e096bb790fa5c1dba_xhdpi');")
+            span.banner-list__title Deal S&#x1ED1;c T&#x1EEB; 1K
+  // Container
+  .app__container
+    .grid.wide
+      .row.sm-gutter.app_content
+        // Category left bar
+        .col.l-2.m-0.c-0
+          nav.category
+            h3.category__heading Danh m&#x1EE5;c
+            ul.category-list
+              li.category-item.category-item--active
+                a.category-item__link(href='#') Best Seller
+              li.category-item
+                a.category-item__link(href='#') Laptop Gaming
+              li.category-item
+                a.category-item__link(href='#') Laptop V&abreve;n Ph&ograve;ng
+              li.category-item
+                a.category-item__link(href='#') Laptop &Dstrok;&#x1ED3; H&#x1ECD;a
+        // Product
+        .col.l-10.m-12.c-12
+          // Filter bar
+          .home-filter.hide-on-mobile-tablet
+            span.home-filter__label S&#x1EAF;p x&#x1EBF;p theo
+            button.home-filter__btn.btn Ph&#x1ED5; bi&#x1EBF;n
+            button.home-filter__btn.btn.btn--primary M&#x1EDB;i nh&#x1EA5;t
+            button.home-filter__btn.btn B&aacute;n ch&#x1EA1;y
+            .select-input
+              span.select-input__label Gi&aacute;
+              i.select-input__icon.fa-solid.fa-angle-down
+              // List options
+              ul.select-input__list
+                li.select-input__item
+                  a.select-input__link(href='')
+                    | Gi&aacute;: Th&#x1EA5;p &dstrok;&#x1EBF;n Cao
+                li.select-input__item
+                  a.select-input__link(href='')
+                    | Gi&aacute;: Cao &dstrok;&#x1EBF;n Th&#x1EA5;p
+            .home-filter__page
+              span.home-filter__page-num
+                span.home-filter__page-current 1
+                | /
+                span.home-filter__page-total 14
+              .home-filter__page-control
+                a.home-filter__page-btn.home-filter__page-btn-disabled(href='')
+                  i.home-filter__page-icon.fa-solid.fa-angle-left
+                a.home-filter__page-btn(href='')
+                  i.home-filter__page-icon.fa-solid.fa-angle-right
+          // Mobile Category
+          nav.mobile-category
+            ul.mobile-category__list
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+              li.mobile-category__item
+                a.mobile-category__link(href='') D&#x1EE5;ng c&#x1EE5; &amp; thi&#x1EBF;t b&#x1ECB; ti&#x1EC7;n &iacute;ch
+          // Product list
+          .home-product
+            .row.sm-gutter
+              each item in dataproducts
+                .col.l-2-4.m-4.c-6
+                  .home-product-item
+                    .home-product-item__img(style=`background-image: url(${item.thumbnail});`)
+                    h4.home-product-item__name
+                      | #{item.title}
+                    .home-product-item__price
+                      span.home-product-item__price-old #{item.price}
+                      span.home-product-item__price-current #{item.priceNew}
+                    .home-product-item__action
+                      span.home-product-item__like.home-product-item__like--liked
+                        i.home-product-item__like-icon-empty.fa-regular.fa-heart
+                        i.home-product-item__like-icon-fill.fa-solid.fa-heart
+                      .home-product-item__rating
+                        i.home-product-item__star--gold.fa-solid.fa-star
+                        i.home-product-item__star--gold.fa-solid.fa-star
+                        i.home-product-item__star--gold.fa-solid.fa-star
+                        i.home-product-item__star--gold.fa-solid.fa-star
+                        i.fa-solid.fa-star
+                      span.home-product-item__sold #{item.stock} #{'đã bán'}
+                    .home-product-item__origin
+                      span.home-product-item__brand HanoiComputer
+                      span.home-product-item__origin-name Acer
+                    .home-product-item__favourite
+                      i.fa-solid.fa-check
+                      span Y&ecirc;u th&iacute;ch
+                    .home-product-item__sale-off
+                      span.home-product-item__sale-off-percent #{item.discountPercentage}#{"%"}
+
+          // Pagination
+          ul.pagination.home-product__pagination
+            li.pagination-item
+              a.pagination-item__link(href='#')
+                i.pagination-item__icon.fa-solid.fa-angle-left
+            li.pagination-item.pagination-item--active
+              a.pagination-item__link(href='#') 1
+            li.pagination-item
+              a.pagination-item__link(href='#') 2
+            li.pagination-item
+              a.pagination-item__link(href='#') 3
+            li.pagination-item
+              a.pagination-item__link(href='#') 4
+            li.pagination-item
+              a.pagination-item__link(href='#') 5
+            li.pagination-item
+              a.pagination-item__link(href='#') ...
+            li.pagination-item
+              a.pagination-item__link(href='#') 14
+            li.pagination-item
+              a.pagination-item__link(href='#')
+                i.pagination-item__icon.fa-solid.fa-angle-right
+  // Footer

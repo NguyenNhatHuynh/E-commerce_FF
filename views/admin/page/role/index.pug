@@ -1,0 +1,44 @@
+extends ../../layout/index.pug
+
+block main 
+ h1 Danh Sách Nhóm Quyền
+ .card.mb-3
+    .card-header
+    .card-body 
+        .row 
+            .col-8
+            .col-4.text-right
+                if(role.permissions.includes("roles_create")) 
+                    a(
+                    href=`/${prefixAdmin}/role/create`
+                    class="btn btn-outline-success"
+                    ) + Thêm mới
+            table(
+                class="table table-hover table-sm"
+            )
+                thead
+                    tr
+                        th STT
+                        th Nhóm quyền
+                        th Mô tả ngắn
+                        th Hành động
+                tbody
+                if(data.length > 0)
+                    each item, index in data
+                        tr
+                            td #{index + 1}
+                            td #{item.title}
+                            td #{item.description}
+                            td
+                                if(role.permissions.includes("roles_edit")) 
+                                    a(
+                                        class="btn badge text-bg-success btn-sm ml-1"
+                                        href=`/${prefixAdmin}/role/edit/${item.id}`
+                                    ) Sửa
+                                if(role.permissions.includes("roles_delete")) 
+                                    button(
+                                        class="btn badge text-bg-primary btn-sm ml-1"
+                                    ) Xóa
+                else
+                    tr
+                        td(colspan="4" class="text-center") Chưa có nhóm quyền nào được tạo.

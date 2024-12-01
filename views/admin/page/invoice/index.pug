@@ -1,0 +1,153 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main 
+      +alert(messages.nice)
+      +alertfaild(messages.error)
+      .pc-content(style="padding : 0;")
+        // [ breadcrumb ] start
+        .page-header.cssheaderphicss
+          .page-block
+            .row.align-items-center
+              .col-md-12
+                
+              .col-md-12
+                .page-header-title
+                  h2.mb-0 Quản Lý Hóa Đơn
+        // [ breadcrumb ] end
+        // [ Main Content ] start
+        .row
+          // [ sample-page ] start
+          .col-sm-12
+            .card
+              .card-header 
+                h5(style="color : #04A9F5;") Quản Lý Lịch Sử Và Chi Tiết Hóa Đơn
+              .card-body
+                .row.justify-content-between.ali.mb-3.g-3
+                  .col-sm-auto
+                    form.form-search
+                      i.ph-duotone.ph-magnifying-glass.icon-search
+                      input.form-control(type='search' placeholder='Search...')
+                      button.btn.btn-light-secondary.btn-search Search
+                  .col-sm-auto
+                    input.form-control(type='date')
+                .table-responsive
+                  table.table.table-hover.mb-0
+                    thead
+                      tr
+                        th Họ Tên
+                        th Trạng Thái
+                        th Tổng Tiền
+                        th Thành Phố
+                        th(style="text-align : center;") Ngày Tháng
+                        th Phương Thức
+                        th Doanh Thu
+                        th Chi Tiết
+                    tbody
+                      //- tr
+                        td
+                          .form-check
+                            input.form-check-input(type='checkbox')
+                        td
+                          .row.align-items-center
+                            .col-auto.pe-0
+                              img.wid-40.rounded-circle(src='images/avatar-1.jpg' alt='user-image')
+                            .col
+                              h5.mb-0 Addie Bass
+                        td
+                          i.ph-duotone.ph-x-circle.text-danger.f-24
+                        td $20,000
+                        td #63579067848912
+                        th.text-center
+                          | 10
+                        td.text-center
+                          img.img-fluid(src='images/img-mastercard.svg' alt='img')
+                      each item in data
+                        tr
+                          
+                          td
+                            .row.align-items-center
+                              .col
+                                h5.mb-0 #{item.fullName}
+                          td
+                            if(item.status == 0)
+                              i.ph-duotone.ph-clock-countdown.text-warning.f-24
+                            if(item.status == 1)
+                              i.ph-duotone.ph-check-circle.text-success.f-24
+                            if(item.status == 2)
+                              i.ph-duotone.ph-x-circle.text-danger.f-24
+                          td #{item.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' VNĐ'}
+                          td #{item.City}
+                          th.text-center #{item.Time}
+                            
+                          td.text-center #{item.paymentMethod}
+                          if(item.status == 1)
+                             td 
+                               span.badge.text-bg-success + #{item.revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' VNĐ'}
+                          else 
+                             td 
+                              span.badge.text-bg-success 0 VNĐ
+                          td(style="text-align : center;")
+                            .dropdown
+                              a.avtar.avtar-xs.btn-link-secondary.dropdown-toggle.arrow-none(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                i.material-icons-two-tone.f-18 more_vert
+                              .dropdown-menu.dropdown-menu-end
+                                a.dropdown-item(href=`/admin/invoice/detail/${item.id}`) Chi tiết Hóa Đơn
+                                if(item.paymentMethod == "momo")
+                                  a.dropdown-item(href=`/admin/invoice/detailmomo/${item.id}`) Chi tiết MoMo
+                            
+                      //- tr
+                      //-   td
+                      //-     .form-check
+                      //-       input.form-check-input(type='checkbox')
+                      //-   td
+                      //-     .row.align-items-center
+                      //-       .col-auto.pe-0
+                      //-         img.wid-40.rounded-circle(src='images/avatar-3.jpg' alt='user-image')
+                      //-       .col
+                      //-         h5.mb-0 Abey Boseley
+                      //-   td
+                      //-     i.ph-duotone.ph-check-circle.text-success.f-24
+                      //-   td $20,000
+                      //-   td #63579067848912
+                      //-   th.text-center
+                      //-     | 10
+                      //-   td.text-center
+                      //-     img.img-fluid(src='images/img-mastercard.svg' alt='img')
+                      //- tr
+                      //-   td
+                      //-     .form-check
+                      //-       input.form-check-input(type='checkbox')
+                      //-   td
+                      //-     .row.align-items-center
+                      //-       .col-auto.pe-0
+                      //-         img.wid-40.rounded-circle(src='images/avatar-4.jpg' alt='user-image')
+                      //-       .col
+                      //-         h5.mb-0 Addie Bass
+                      //-   td
+                      //-     i.ph-duotone.ph-x-circle.text-danger.f-24
+                      //-   td $20,000
+                      //-   td #63579067848912
+                      //-   th.text-center
+                      //-     | 10
+                      //-   td.text-center
+                      //-     img.img-fluid(src='images/img-mastercard.svg' alt='img')
+                      //- tr
+                        td
+                          .form-check
+                            input.form-check-input(type='checkbox')
+                        td
+                          .row.align-items-center
+                            .col-auto.pe-0
+                              img.wid-40.rounded-circle(src='images/avatar-5.jpg' alt='user-image')
+                            .col
+                              h5.mb-0 Addie Bass
+                        td
+                          i.ph-duotone.ph-x-circle.text-danger.f-24
+                        td $20,000
+                        td #63579067848912
+                        th.text-center
+                          | 10
+                        td.text-center
+                          img.img-fluid(src='images/img-mastercard.svg' alt='img')
+          // [ sample-page ] end
+        // [ Main Content ] end

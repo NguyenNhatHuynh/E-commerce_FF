@@ -1,0 +1,222 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+
+block main
+  - if (messages.nice)
+    div(
+      class="alert alert"
+      show-alert
+      data-time=5000
+    ) #{messages.nice} <span close-alert>x</span>
+  h1(class="mb-4") Các Trường Của Sản Phẩm
+
+  form(
+    action=`/${prefixAdmin}/products/edit/${data.id}`
+    method=""
+  )
+    div(class="form-group")
+        input(
+            readonly
+            type="hidden"
+            class="form-control"
+            id="id"
+            name="id"
+            required
+            value=data.id  
+        )
+    div(class="form-group")
+        label(for="title") Tiêu đề
+        .row
+            .col-11
+                input(
+                    readonly
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    required
+                    value=data.title
+                )
+            .col-1.text-right
+               if(data.success.includes("title"))
+                <i class="fa-regular fa-circle-check" style="font-size : 24px; color : #1DE9B6;"></i>
+               else 
+                <i class="fa-solid fa-xmark"  style="font-size : 26px; color : #04A9F5;"></i>
+    div(class="form-group")
+      label(for="categoryid") Danh Muc 
+      .row
+        .col-11
+            input(
+                readonly
+                type="text"
+                class="form-control"
+                id="title"
+                required
+                
+                value=data.category.title
+            )
+        .col-1.text-right
+               if(data.success.includes("category"))
+                <i class="fa-regular fa-circle-check" style="font-size : 24px; color : #1DE9B6;"></i>
+               else 
+                <i class="fa-solid fa-xmark"  style="font-size : 26px; color : #04A9F5;"></i>
+    div(class="form-group m-4" style="margin-top : 20px; margin-bottom : 0px !important;")
+      .row
+        .col-11
+            input(
+                readonly
+                type="radio"
+                class="form-check-input"
+                id="featured0"
+                value="0"
+                disabled
+                checked=(data.featured == "0" ? true : false)
+            )
+            label(for="featured0" class="form-check-label" style="margin-right : 60px;") Không   
+            input(
+                readonly
+                type="radio"
+                class="form-check-input"
+                id="featured1"
+                value="1"
+                checked=(data.featured == "1" ? true : false)
+            )
+            label(for="featured1" class="form-check-label") Nổi bật
+        .col-1.text-right
+               if(data.success.includes("featured"))
+                <i class="fa-regular fa-circle-check" style="font-size : 24px; color : #1DE9B6; margin-left : 69px !important;"></i>
+               else 
+                <i class="fa-solid fa-xmark"  style="font-size : 26px; color : #04A9F5;margin-left : 74px !important;"></i>
+    div(class="form-group")
+      label(for="desc") Mô tả
+      .row
+        .col-11
+            textarea(
+                readonly
+                disabled
+                class="form-control"
+                id="desc"
+                rows="5"
+            ) #{data.description}
+        .col-1.text-right
+            if(data.success.includes("description"))
+                <i class="fa-regular fa-circle-check" style="font-size : 24px; color : #1DE9B6;"></i>
+            else 
+                <i class="fa-solid fa-xmark"  style="font-size : 26px; color : #04A9F5;"></i>
+    div(class="form-group")
+      label(for="price") Giá
+      .row
+        .col-11
+            input(
+                readonly
+                type="number"
+                class="form-control"
+                id="price"
+                value=data.price
+                min="0"
+            )
+        .col-1.text-right
+             if(data.success.includes("price"))
+                <i class="fa-regular fa-circle-check" style="font-size : 24px; color : #1DE9B6;"></i>
+             else 
+                <i class="fa-solid fa-xmark"  style="font-size : 26px; color : #04A9F5;"></i>
+    div(class="form-group")
+      label(for="discount") % Giảm giá
+      .row
+        .col-11
+            input(
+                readonly
+                type="number"
+                class="form-control"
+                id="discount"
+                value=data.discountPercentage
+                min="0"
+            )
+        .col-1.text-right
+             if(data.success.includes("discountPercentage"))
+                <i class="fa-regular fa-circle-check" style="font-size : 24px; color : #1DE9B6; "></i>
+             else 
+                <i class="fa-solid fa-xmark"  style="font-size : 26px; color : #04A9F5;"></i>
+    div(class="form-group")
+      label(for="stock") Số lượng
+      .row
+        .col-11
+            input(
+                readonly
+                type="number"
+                class="form-control"
+                id="stock"
+                value=data.stock
+                min="0"
+            )
+        .col-1.text-right
+             if(data.success.includes("stock"))
+                <i class="fa-regular fa-circle-check" style="font-size : 24px; color : #1DE9B6;"></i>
+             else 
+                <i class="fa-solid fa-xmark"  style="font-size : 26px; color : #04A9F5;"></i>
+    div(class="form-group")
+      label(for="thumbnail") Ảnh
+      .row
+        .col-11
+            img.img(
+                style="width : 120px ; height : 120px ; margin-left : 20px;object-fix : cover;"
+            id="thumbnail"
+            src=data.thumbnail
+            )
+        .col-1.text-right
+             if(data.success.includes("thumbnail"))
+                <i class="fa-regular fa-circle-check" style="font-size : 24px; color : #1DE9B6; "></i>
+             else 
+                <i class="fa-solid fa-xmark"  style="font-size : 26px; color : #04A9F5;"></i>
+    div(class="form-group")
+      label(for="position") Vị trí
+      .row
+        .col-11
+            input(
+                readonly
+                type="number"
+                class="form-control"
+                id="position"
+                placeholder="Tự động tăng"
+                min="1"
+                value=data.position
+            )
+        .col-1.text-right
+             if(data.success.includes("position"))
+                <i class="fa-regular fa-circle-check" style="font-size : 24px; color : #1DE9B6;"></i>
+             else 
+                <i class="fa-solid fa-xmark"  style="font-size : 26px; color : #04A9F5;"></i>   
+    div(class="form-group m-3")
+      .row
+        .col-11
+            input(
+                readonly
+                disabled
+                type="radio"
+                class="form-check-input"
+                id="statusInActive"
+                value="inactive"
+                checked = (data.status == "inactive" ? true : false)
+            )
+            label(for="statusInActive" class="form-check-label" style="margin-right : 60px;") Dừng hoạt động
+            input(
+                readonly
+                disabled
+                type="radio"
+                class="form-check-input"
+                id="statusActive"
+                value="active"
+                checked = (data.status == "active" ? true : false)
+            )
+            label(for="statusActive" class="form-check-label") Hoạt động
+        .col-1
+               if(data.success.includes("status"))
+                <i class="fa-regular fa-circle-check" style="font-size : 24px; color : #1DE9B6; margin-left : 62px !important;"></i>
+               else 
+                <i class="fa-solid fa-xmark"  style="font-size : 26px; color : #04A9F5; margin-left : 67px !important;"></i>
+    div(class="form-group")
+      button(
+        type="submit"
+        class="btn btn-primary"
+      ) Chỉnh Sửa
+
+  script(src="/admin/js/product.js")

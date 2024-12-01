@@ -1,0 +1,411 @@
+extends ../../layout/layout.pug
+
+block main 
+    .containerphicss 
+        // Start navbar containerphicss
+        .tc-navbar-containerphicss-style3                   
+          // Start products
+          section.tc-products-style6.p-30.radius-4.bg-white.mt-3.wow.fadeInUp
+            .row
+              .col-lg-3
+                .filters
+                  .filter-box.mt-10(style="background : #5B97BF;")
+                    .row 
+                      .col-12.card(style=" border-radius: 10px !important;")
+                        .title.mb-20.card-body(style="background : white !important; padding 10px;")
+                          h6.fsz-16.text-uppercase(style="color : #5B97BF; font-weight : 900;margin-left : -12px !important;margin-top : 4px;")  Tìm Kiếm Nâng Cao 
+                          a.rest-btn.hover-green2(href='#' idcategory="")
+                            i.fa-solid.fa-power-off(style="color : #809AA7; font-weight : 900;margin-right : 5px;")
+                            span(style="color : #5B97BF; font-weight : 900;margin-right : -15px;") Reset All
+                      .col-12.card(style=" border-radius: 10px !important;")
+                        .selected-filters.card-body(style="background : white !important; margin-bottom : 10px !important; ")
+                          h5.fsz-16.mb-4(style="color : #5B97BF; font-weight : 900;") Danh Mục Sản Phẩm
+                          each item in datacategory
+                            div.selected-item.fsz-15(idcategory=item.id style="border-radius: 0px !important;color : #809AA7; font-weight : 600;margin-left : -7px;border-bottom : 1px solid #D6D7D7")
+                              | #{item.title}
+                     
+                  
+                      .col-12.card(style=" border-radius: 10px !important;")
+                        .filter-groups
+                          .filter-group
+                            .group-title
+                              strong.fsz-14 Sắp Xếp Nâng Cao
+                            .group-body
+                               div.selected-item.fsz-15( style="border-radius: 0px !important;margin-top : 10px;color : #809AA7; font-weight : 600;margin-left : -7px;border-bottom : 1px solid #D6D7D7")
+                                  | Giá Giảm Dần
+                               div.selected-item.fsz-15( style="border-radius: 0px !important;margin-top : 10px;color : #809AA7; font-weight : 600;margin-left : -7px;border-bottom : 1px solid #D6D7D7")
+                                  | Giá Tăng Dần
+                               div.selected-item.fsz-15(style="border-radius: 0px !important;margin-top : 10px;color : #809AA7; font-weight : 600;margin-left : -7px;border-bottom : 1px solid #D6D7D7")
+                                  | TIêu Đề A - Z
+                               div.selected-item.fsz-15(style="border-radius: 0px !important;margin-top : 10px;color : #809AA7; font-weight : 600;margin-left : -7px;border-bottom : 1px solid #D6D7D7")
+                                  | Tiều Đề Z - A
+                      .col-12.card(style=" border-radius: 10px !important;")
+                        .filter-groups
+                          .filter-group
+                            .group-title
+                              strong.fsz-14 Sắp Xếp Nâng Cao
+                            .group-body
+                               div.selected-item.fsz-15( style="border-radius: 0px !important;margin-top : 10px;color : #809AA7; font-weight : 600;margin-left : -7px;border-bottom : 1px solid #D6D7D7")
+                                  | Giá Giảm Dần
+                               div.selected-item.fsz-15( style="border-radius: 0px !important;margin-top : 10px;color : #809AA7; font-weight : 600;margin-left : -7px;border-bottom : 1px solid #D6D7D7")
+                                  | Giá Tăng Dần
+                               div.selected-item.fsz-15(style="border-radius: 0px !important;margin-top : 10px;color : #809AA7; font-weight : 600;margin-left : -7px;border-bottom : 1px solid #D6D7D7")
+                                  | TIêu Đề A - Z
+                               div.selected-item.fsz-15(style="border-radius: 0px !important;margin-top : 10px;color : #809AA7; font-weight : 600;margin-left : -7px;border-bottom : 1px solid #D6D7D7")
+                                  | Tiều Đề Z - A
+                  
+                 
+              .col-lg-9
+                .products-content
+                  ul(suggestionssearch)     
+                  .prod-filter.color-666
+                    .row.align-items-center.justify-content-between(phicssseachclient)
+                      .col-lg-7
+                        div.d-flex.align-items-center
+                          h5(style="color : white; font-size : 18px; font-weight : 600; margin-right : 0;") Sắp Xếp Theo
+                          div 
+                            button.btnphicss.ml-4(style="color : #5B97BF; font-weight : 600") Phổ Biến 
+                            button.btnphicss.ml-4(style="color : #5B97BF; font-weight : 600") Mới Nhất 
+                            button.btnphicss.ml-4(style="color : #5B97BF; font-weight : 600") Bán Chạy 
+                      .col-lg-5
+                         .search-cat(style="margin-right : -20px;")
+                              input.form-control(
+                                 style="background : white;"
+                                 placeholder="Search anything..." 
+                                 type="text"
+                                 seachproductindex
+                                )
+                              a.search-btn(href="#" buttonsubmitseachproductindex)
+                                <i class="fa-solid fa-magnifying-glass" style ="margin-right : 10px;"></i>
+                    
+                  .products
+                    .row
+                      each item in products
+                        .col-lg-3
+                          .product-card
+                            .top-inf
+                              .dis-card(style="background : #5B97BF; font-weight : 600;")
+                                small.fsz-10.d-block.text-uppercase  save 
+                                h6.fsz-14  #{item.discountPercentage}% 
+                              a.fav-btn(style="background : #5B97BF ; color : white;")
+                                <i class="fa-solid fa-heart"></i>
+                            a.img(href=`/products/detail/${item.slug}`)
+                              img.img-contain.main-image(src=item.thumbnail alt='')
+                            .info(phicssngoisaoclienthome)
+                              .rating
+                                .stars
+                                  i.fa-solid.fa-star-half-stroke
+                                  i.fa-solid.fa-star-half-stroke
+                                  i.fa-solid.fa-star-half-stroke
+                                  i.fa-solid.fa-star-half-stroke
+                                  i.fa-solid.fa-star-half-stroke                              
+                                span.num(style="color : #7D7F82;") (152) 
+                              h6
+                                a.prod-title.fsz-14.fw-bold.mt-2.hover-green2(href='../inner_pages/single_product.html') #{item.title}
+                              .price.mt-15
+                                h5.fsz-20.color-red1.fw-600
+                                  | #{item.priceNew}
+                                 
+                              .meta.d-flex.align-items-center(freeship)
+                                  span(price).old.fsz-16.color-666.text-decoration-line-through.mr-3  #{item.price} VNĐ                  
+                                  p.fsz-14.mt-3.d-flex.align-items-center
+                                    i.fas.fa-check-circle.color-green1.me-1
+                                    span(style="font-size : 10px;") In stock
+                    
+                  nav(aria-label='Page navigation example')
+                    ul.pagination(phicsspaginationclient)
+                      li.page-item
+                        a.page-link(href='#')
+                          | Trang Đầu 
+                          <i class="fa-solid fa-arrow-left"></i>
+                      li.page-item
+                        a.page-link.activephicss(href='#') 1  
+                      li.page-item
+                        a.page-link(href='#') 2             
+                      li.page-item
+                        a.page-link(href='#')
+                          | Trang Cuối 
+                          <i class="fa-solid fa-arrow-right"></i>
+          // End products
+          // Start recently
+          //- section.tc-recently-viewed-style6.p-30.radius-4.bg-white.mt-3.wow.fadeInUp.mb-3
+            .title.mb-30
+              .row.align-items-center
+                .col-lg-8
+                  h6.fsz-18.fw-bold.text-uppercase.d-inline-block  your recently viewed 
+                  a.more.text-capitalize.color-666.fsz-13.ms-lg-4.mt-4.mt-lg-0(href='#')
+                    | View All 
+                    i.la.la-angle-right.ms-1
+                .col-lg-4.text-lg-end.mt-3.mt-lg-0
+                  .arrows
+                    .swiper-button-next
+                    .swiper-button-prev
+            .products-slider
+              .swiper-wrapper
+                .swiper-slide
+                  .product-card
+                    .top-inf
+                      small.fsz-10.py-1.px-2.radius-2.bg-222.text-white.text-uppercase  new 
+                      a.fav-btn(href='#0')
+                        i.las.la-heart
+                    .row.gx-0
+                      .col-5
+                        a.img(href='#')
+                          img.img-contain(src='images/prod58.png' alt='')
+                      .col-7
+                        .info
+                          .rating
+                            .stars
+                              i.la.la-star
+                              i.la.la-star
+                              i.la.la-star
+                              i.la.la-star
+                              i.la.la-star.color-999
+                            span.num  (152) 
+                          a.title.fsz-13.fw-bold.mb-15.hover-green2.pe-3(href='#')  Xomie Remid 8 Sport Water Resitance Watch 
+                          h6.fsz-16.fw-bold  $579.00 
+                .swiper-slide
+                  .product-card
+                    .top-inf
+                      small.fsz-10.py-1.px-2.radius-2.bg-222.text-white.text-uppercase  new 
+                      a.fav-btn(href='#0')
+                        i.las.la-heart
+                    .row.gx-0
+                      .col-5
+                        a.img(href='#')
+                          img.img-contain(src='images/prod59.png' alt='')
+                      .col-7
+                        .info
+                          a.title.fsz-13.fw-bold.mb-15.hover-green2.pe-3(href='#')  Microte Surface 2.0 Laptop 
+                          h6.fsz-16.fw-bold  $979.00 
+                .swiper-slide
+                  .product-card
+                    .top-inf
+                      a.fav-btn(href='#0')
+                        i.las.la-heart
+                    .row.gx-0
+                      .col-5
+                        a.img(href='#')
+                          img.img-contain(src='images/prod60.png' alt='')
+                      .col-7
+                        .info
+                          a.title.fsz-13.fw-bold.mb-15.hover-green2.pe-3(href='#')  aPod Pro Tablet 2023 LTE + Wifi, GPS Cellular 12.9 Inch, 512GB 
+                          h6.fsz-16.fw-bold  $979.00 - $1,259.00 
+                .swiper-slide
+                  .product-card
+                    .top-inf
+                      .dis-card
+                        small.fsz-10.d-block.text-uppercase  save 
+                        h6.fsz-10  $192.00 
+                      a.fav-btn(href='#0')
+                        i.las.la-heart
+                    .row.gx-0
+                      .col-5
+                        a.img(href='#')
+                          img.img-contain(src='images/prod61.png' alt='')
+                      .col-7
+                        .info
+                          .rating
+                            .stars
+                              i.la.la-star
+                              i.la.la-star
+                              i.la.la-star
+                              i.la.la-star
+                              i.la.la-star.color-999
+                            span.num  (152) 
+                          a.title.fsz-13.fw-bold.mb-15.hover-green2.pe-3(href='#')  SROK Smart Phone 128GB, Oled Retina 
+                          h6.fsz-16.fw-bold
+                            span.color-red1.fw-600  $579.00  
+                            span.old.fsz-14.color-666.text-decoration-line-through.ms-2  $779.00 
+                .swiper-slide
+                  .product-card
+                    .top-inf
+                      a.fav-btn(href='#0')
+                        i.las.la-heart
+                    .row.gx-0
+                      .col-5
+                        a.img(href='#')
+                          img.img-contain(src='images/prod60.png' alt='')
+                      .col-7
+                        .info
+                          a.title.fsz-13.fw-bold.mb-15.hover-green2.pe-3(href='#')  aPod Pro Tablet 2023 LTE + Wifi, GPS Cellular 12.9 Inch, 512GB 
+                          h6.fsz-16.fw-bold  $979.00 - $1,259.00 
+          // End recently
+        // End-Contents
+    // Start footer
+    //- footer.tc-footer-style3
+      .containerphicss
+        .footer-content
+          .row
+            .col-lg-4
+              .foot-info
+                h6.fsz-18.fw-bold.mb-30.text-uppercase  Swoo - 1st NYC tech online market 
+                p.text-uppercase  hotline 24/7 
+                h4.fsz-30.fw-bold.color-green2.mb-30  (025) 3686 25 16 
+                p.fsz-14.color-000
+                  | 257 Thatcher Road St, Brooklyn, Manhattan, 
+                  br
+                  |  NY 10092
+                a.fsz-14.color-000(href='#')  contact@Swootechmart.com 
+                .foot-social.mt-40
+                  a(href='#')
+                    i.fab.fa-twitter
+                  a(href='#')
+                    i.fab.fa-facebook-f
+                  a(href='#')
+                    i.fab.fa-instagram
+                  a(href='#')
+                    i.fab.fa-youtube
+                  a(href='#')
+                    i.fab.fa-pinterest
+            .col-lg-2
+              .links
+                h6.fsz-18.fw-bold.mb-30.text-uppercase  top Categories 
+                ul.links-list
+                  li
+                    a(href='#')  Laptops 
+                  li
+                    a(href='#')  PC &amp; Computers 
+                  li
+                    a(href='#')  Cell Phones 
+                  li
+                    a(href='#')  Tablets 
+                  li
+                    a(href='#')  Gaming &amp; VR 
+                  li
+                    a(href='#')  networks 
+                  li
+                    a(href='#')  Cameras 
+                  li
+                    a(href='#')  Sounds 
+                  li
+                    a(href='#')  Office 
+            .col-lg-2
+              .links
+                h6.fsz-18.fw-bold.mb-30.text-uppercase  company 
+                ul.links-list
+                  li
+                    a(href='#')  About Swoo 
+                  li
+                    a(href='#')  Contact 
+                  li
+                    a(href='#')  Career 
+                  li
+                    a(href='#')  Blog 
+                  li
+                    a(href='#')  Sitemap 
+                  li
+                    a(href='#')  Store Locations 
+            .col-lg-2
+              .links
+                h6.fsz-18.fw-bold.mb-30.text-uppercase  help center 
+                ul.links-list
+                  li
+                    a(href='#')  Customer Service 
+                  li
+                    a(href='#')  Policy 
+                  li
+                    a(href='#')  Terms &amp; Conditions 
+                  li
+                    a(href='#')  Trach Order 
+                  li
+                    a(href='#')  FAQs 
+                  li
+                    a(href='#')  My Account 
+                  li
+                    a(href='#')  Product Support 
+            .col-lg-2
+              .links
+                h6.fsz-18.fw-bold.mb-30.text-uppercase  partner 
+                ul.links-list
+                  li
+                    a(href='#')  Become Seller 
+                  li
+                    a(href='#')  Affiliate 
+                  li
+                    a(href='#')  Advertise 
+                  li
+                    a(href='#')  Partnership 
+          .footer-btm-info.mt-60
+            .row
+              .col-lg-4
+                .dropdowns
+                  ul.links-ul
+                    li.dropdown
+                      a#navbarDropdown.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                        i.la.la-dollar-sign.me-1
+                        |  USD
+                      ul.dropdown-menu(aria-labelledby='navbarDropdown')
+                        li
+                          a.dropdown-item(href='#') USD
+                        li
+                          a.dropdown-item(href='#') USD
+                    li.dropdown
+                      a#navbarDropdown1.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                        img.me-1.icon-15(src='images/eng.png' alt='')
+                        |  Eng
+                      ul.dropdown-menu(aria-labelledby='navbarDropdown1' style='')
+                        li
+                          a.dropdown-item(href='#') Arabic
+              .col-lg-8
+                .subscribe-content
+                  h6.fsz-18.fw-bold.mb-30.text-uppercase
+                    | subscribe &amp; get 
+                    span.color-red1  10% off 
+                    |  for your first order
+                  .form-group
+                    span.icon
+                      i.la.la-envelope
+                    input(type='text' placeholder='Enter your email address')
+                    button
+                      | subscribe 
+                      i.la.la-long-arrow-right.ms-2.fsz-18
+                  p.fsz-13.fst-italic.color-666.mt-2
+                    | By subscribing, you&rsquo;re accepted the our 
+                    a.color-000.text-decoration-underline(href='#')  Policy 
+        .foot
+          .row.align-items-center
+            .col-lg-4.text-center.text-lg-start
+              p.color-666
+                | &copy; 2024 
+                strong.color-000  Swoo 
+                | . All Rights Reserved
+            .col-lg-4
+              .pay-imgs.text-center.my-3.my-lg-0
+                img(src='images/pay1.png' alt='')
+                img(src='images/pay2.png' alt='')
+                img(src='images/pay3.png' alt='')
+                img(src='images/pay4.png' alt='')
+                img(src='images/pay5.png' alt='')
+            .col-lg-4.text-center.text-lg-end
+              a.text-primary(href='#')
+                i.la.la-mobile.me-1.fsz-16
+                |  Mobile Site
+      .mob-navigation.d-flex.d-lg-none
+        ul
+          li.list
+            a(href='#0')
+              span.icon
+                i.las.la-sync-alt
+              span.text Compare
+          li.list
+            a(href='#0')
+              span.icon
+                i.lar.la-heart
+              span.text Favorite
+          li.list.active
+            a(href='#0')
+              span.icon
+                i.las.la-home
+              span.text Home
+          li.list
+            a(href='#0')
+              span.icon
+                i.las.la-shopping-bag
+              span.text Cart
+          li.list
+            a(href='#0')
+              span.icon
+                i.las.la-user
+              span.text Profile
+          li.indicator

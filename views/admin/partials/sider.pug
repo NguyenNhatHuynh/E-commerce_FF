@@ -1,0 +1,128 @@
+
+nav.pc-sidebar
+  .navbar-wrapper
+    .m-header
+      a.b-brand.text-primary(href=`/${prefixAdmin}/dashboard`)
+        // ========   Change your logo from here   ============
+        span.badge.bg-brand-color-2.rounded-pill.ms-2.theme-version(style="font-size : 20px ;background : #04A9F5;") FFN
+    .navbar-content
+      ul.pc-navbar(phicsstongiconadmin)
+
+        
+        if(role.permissions.includes("manage-dashboard"))
+          li.pc-item
+            a.pc-link(href=`/${prefixAdmin}/dashboard`)
+              span.pc-micon
+                <i class="fa-regular fa-chart-bar"></i>
+              span.pc-mtext Tổng Quan
+        if(role.permissions.includes("products_view"))
+          li.pc-item
+            a.pc-link(href=`/${prefixAdmin}/products`)
+              span.pc-micon
+               <i style="font-size : 17px;" class="fa-solid fa-shop"></i>
+              span.pc-mtext Sản Phẩm
+        if(role.permissions.includes("invoice_view"))
+          li.pc-item
+            a.pc-link(href=`/${prefixAdmin}/invoice`)
+              span.pc-micon
+                <i class="fa-solid fa-receipt"></i>
+              span.pc-mtext Hóa Đơn
+        if(role.permissions.includes("handle_invoice"))
+          li.pc-item
+            a.pc-link(href=`/${prefixAdmin}/invoice/status/0`)
+              span.pc-micon
+                <i  style="font-size : 17px;" class="fa-solid fa-truck-moving"></i>
+              span.pc-mtext Xử lý Hóa Đơn
+        if(role.permissions.includes("manage-revenue"))
+            li.pc-item
+              a.pc-link(href=`/${prefixAdmin}/chart`)
+                span.pc-micon
+                  <i class="fa-solid fa-chart-pie"></i>
+                span.pc-mtext Doanh Thu
+        if(role.permissions.includes("maintain-account"))
+          li.pc-item
+              a.pc-link(href=`/${prefixAdmin}/maintain`)
+                span.pc-micon
+                  <i class="fa-solid fa-pen-ruler"></i>
+                span.pc-mtext Gia Hạn
+        if(role.permissions.includes("manage-seo"))
+          li.pc-item
+            a.pc-link(href=`/${prefixAdmin}/SEO`)
+              span.pc-micon
+                <i class="fa-solid fa-magnifying-glass"></i>
+              span.pc-mtext SEO
+        if(role.permissions.includes("manage-dashboard-admin"))
+          li.pc-item
+              a.pc-link(href=`/${prefixAdmin}/dashboardadmin` )
+                span.pc-micon
+                  <i class="fa-solid fa-chart-column"></i>
+                span.pc-mtext.pc-icon-link
+                  | Tổng Quang Quảng Trị
+                  i.ti.ti-link.text-primary.f-14
+        if(role.permissions.includes("roles_view"))
+          li.pc-item
+            a.pc-link(href=`/${prefixAdmin}/role` )
+              span.pc-micon
+                <i class="fa-solid fa-group-arrows-rotate"></i>
+              span.pc-mtext.pc-icon-link
+                | Nhóm Quyển
+                i.ti.ti-link.text-primary.f-14
+        if(role.permissions.includes("roles_permissions")) 
+          li.pc-item
+            a.pc-link(href=`/${prefixAdmin}/premisson`)
+              span.pc-micon
+                <i class="fa-solid fa-drum"></i>
+              span.pc-mtext Phân Quyền
+        if(role.permissions.includes("account_view"))
+          li.pc-item.pc-hasmenu
+            a.pc-link(href=`/${prefixAdmin}/user`)
+              span.pc-micon
+               <i class="fa-solid fa-users"></i>
+              span.pc-mtext Tài Khoản
+        if(role.permissions.includes("products-category_view"))
+          li.pc-item
+              a.pc-link(href=`/${prefixAdmin}/category`)
+                span.pc-micon
+                  <i class="fa-solid fa-layer-group"></i>
+                span.pc-mtext Danh Mục
+        if(role.permissions.includes("view-revenu"))
+            li.pc-item
+              a.pc-link(href=`/${prefixAdmin}/chartfloor`)
+                span.pc-micon
+                  <i class="fa-solid fa-chart-line"></i>
+                span.pc-mtext Biểu Đồ Doanh Thu Sàn
+        if(role.permissions.includes("manage-voucher"))
+            li.pc-item
+              a.pc-link(href=`/${prefixAdmin}/voucher`)
+                span.pc-micon
+                  <i class="fa-solid fa-money-bill"></i>
+                span.pc-mtext Voucher
+      
+        if(role.permissions.includes("manage-mess"))
+          li.pc-item
+            a.pc-link(href=`/${prefixAdmin}/chat`)
+              span.pc-micon
+                <i class="fa-regular fa-comments"></i>
+              span.pc-mtext Chat
+        if(role.permissions.includes("check-products"))
+          li.pc-item
+            a.pc-link(href='/admin/checkproducts')
+              span.pc-micon
+                i.ph-duotone.ph-target
+              span.pc-mtext Xét Duyệt Sản Phẩm
+        if(role.permissions.includes("check-account"))
+          li.pc-item
+            a.pc-link(href='/admin/accountreview')
+              span.pc-micon
+                i.ph-duotone.ph-rocket
+              span.pc-mtext.pc-icon-link
+                | Xét Duyện Tài Khoản
+                i.ti.ti-link.text-primary.f-14
+        if(role.permissions.includes("check-invoice"))
+          li.pc-item
+            a.pc-link(href='/admin/checkinvoice')
+              span.pc-micon
+                <i class="fa-solid fa-money-check-dollar"></i>
+              span.pc-mtext.pc-icon-link
+                | Xét Duyện Hóa Đơn
+        

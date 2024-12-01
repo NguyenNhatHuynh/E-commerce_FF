@@ -1,0 +1,80 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main
+      +alert(messages.nice)
+      +alertfaild(messages.error)
+      .pc-content(style="padding : 0;")
+        // [ breadcrumb ] start
+        .page-header
+          .page-block
+            .row.align-items-center
+             
+              .col-md-12
+                .page-header-title
+                  h2.mb-0 Chi Tiết Hóa Đơn
+        // [ breadcrumb ] end
+        // [ Main Content ] start
+        .row
+          // [ sample-page ] start
+          .col-sm-12
+            .card
+              .card-body
+                .mb-3.d-print-none
+                  ul.list-inline.ms-auto.mb-0.d-flex.justify-content-end.flex-wrap
+                    li.list-inline-item.align-bottom.me-2
+                      a.avtar.avtar-s.btn-link-secondary(href='#')
+                        i.ph-duotone.ph-pencil-simple-line.f-22
+                    li.list-inline-item.align-bottom.me-2
+                      a.avtar.avtar-s.btn-link-secondary(href='#')
+                        i.ph-duotone.ph-eye.f-22
+                    li.list-inline-item.align-bottom.me-2
+                      a.avtar.avtar-s.btn-link-secondary(href='#')
+                        i.ph-duotone.ph-download-simple.f-22
+                    li.list-inline-item.align-bottom.me-2
+                      a.avtar.avtar-s.btn-link-secondary(href='#')
+                        i.ph-duotone.ph-printer.f-22
+                    li.list-inline-item.align-bottom.me-2
+                      a.avtar.avtar-s.btn-link-secondary(href='#')
+                        i.ph-duotone.ph-paper-plane-tilt.f-22
+                    li.list-inline-item.align-bottom.me-2
+                      a.avtar.avtar-s.btn-link-secondary(href='#')
+                        i.ph-duotone.ph-share-network.f-22
+                .card.shadow-none.bg-body.mb-0
+                  .card-body
+                    .card
+                      .card-body
+                        .row.g-3
+                          .col-12
+                            .row.align-items-center.g-3
+                             
+                              .col-sm-6.text-sm-end
+                                h6
+                                  | Ngày Đặt Hàng
+                                  span.text-muted.f-w-400.m-l-15 #{invoice.Time}
+                          
+                          .col-12
+                            .table-responsive
+                              table.table.table-hover.mb-0
+                                thead
+                                  tr(style="text-align:center;")
+                                    th transId
+                                    th partnerCode
+                                    th orderId
+                                    th requestId
+                                    th orderType
+                                    th orderInfo
+                                tbody
+                                 each item in detailinvoice
+                                  tr(style="text-align:center;")
+                                    td #{item.transId}
+                                    td #{item.partnerCode}
+                                    td #{item.orderId}
+                                    td #{item.requestId}
+                                    td #{item.orderType}
+                                    td #{item.orderInfo}
+                                
+                           
+                          
+                    
+          // [ sample-page ] end
+        // [ Main Content ] end

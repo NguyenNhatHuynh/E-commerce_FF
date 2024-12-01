@@ -1,0 +1,311 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main
+  +alert(messages.nice)
+  +alertfaild(messages.error)  
+  div(style="display : none;" datadoanhthugroupbylinechart=datadoanhthugroupby)      
+    div(style="display : none;" datatop5doanhthu=newdatatop5sanpham)      
+
+  .pc-content(style="padding : 0;")
+    .page-header
+      .page-block
+        .row.align-items-center
+          .col-md-12
+            
+          .col-md-12
+            .page-header-title
+              h2.mb-0 Thống Kê Doanh Thu
+    // [ breadcrumb ] end
+    .row
+      .col-lg-6
+        .card
+          .card-header
+            .d-flex.align-items-center.justify-content-between
+              h5.mb-0 Biểu Đồ Doanh Thu Theo Tháng
+          .card-body
+            .d-flex.align-items-center.mb-1
+              -var total = 0
+              each item in datadoanhthugroupby
+                -total += item.total
+              h3.mb-0(style="color : #7E8083; margin-right : 15px;")
+                | Tổng Doanh Thu :
+              span.badge.bg-light-success.ms-2(style="font-size : 17px;") #{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' VNĐ'}
+            #customer-rate-graph
+      .col-lg-6
+        .card
+          .card-header
+            .d-flex.align-items-center.justify-content-between
+              h5.mb-0 Đơn Hàng Hằng Tháng
+              
+          .card-body
+            .d-flex.align-items-center.mb-1
+                -var totaldonhang = 0
+                each item in datadoanhthugroupby
+                  -totaldonhang += item.donhang
+                h3.mb-0(style="color : #7E8083; margin-right : 15px;")
+                    | Tổng Đơn Hàng :
+                span.badge.bg-light-success.ms-2(style="font-size : 17px;") #{totaldonhang} 
+            #thongkehoadonshop
+      .col-lg-6
+        .card
+          .card-header 
+            h5 Top 5 Sản Phẩm Bán Chạy Nhất
+          .card-body(class="cartdetailtop5sanphambanchaynhat")
+            .d-flex.align-items-center.justify-content-between
+            #performance-chart
+            .d-flex.align-items-center.justify-content-between(style ="margin-top : 15px; margin-bottom : 5px;") 
+              div Chú Thích :
+              each item in newdatatop5sanpham
+                 div.d-flex.align-items-center.justify-content-between
+                    span(style=`background : ${item.mamau}; width : 8px; height : 8px;`)
+                    span(style="margin-left : 10px") #{item.title}
+                
+            .text-center
+              div
+                button.btn.btn-primary.mt-2(buttonshowdetailproducts) Xem Chi Tiết
+             
+          .cart-body(charttop5sanphambanchaynhat class="hidden") 
+             table.table.table-hover.mb-0
+                thead
+                    tr(style="text-align : center;")
+                        th Title
+                        th Thumbnail
+                        th price
+                        th status
+                tbody
+                  each item in newdatatop5sanpham
+                    if(item.products)
+                      tr(style="text-align : center;")
+                         td  #{item.products.title}
+                         td  
+                            img(src=item.products.thumbnail style="width : 60px ; height : 6d0px; object-fit : cover;")
+                         td #{item.products.price}
+                         td(style="color : #1DE9B6;") #{item.products.stock}
+             button.btn.btn-primary.mt-4(style="margin-left : 78.5%;" buttonshowbieudotop5sanpham) Xem Biểu Đồ
+      .col-lg-6
+        .card
+          .card-header
+            .d-flex.align-items-center.justify-content-between
+              h5.mb-0 Top 5 sản phẩm doanh thu cao nhất
+      
+          .card-body
+            -var totalproducts = 0
+                each item in newdatatop5sanpham
+                  -totalproducts += parseInt(item.total)
+            h3.mb-0(style="color : #7E8083;") Tổng tiền :
+            h4(style ="color : #9A90D4; margin-top : 15px;") #{totalproducts.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' VNĐ'}
+            #monthly-report-graph
+    //-   .col-md-12.col-xl-4
+    //-     .card
+    //-       .card-header.d-flex.align-items-center.justify-content-between
+    //-         h5 Overview
+    //-         i.ph-duotone.ph-info.f-20.ms-1(data-bs-toggle='tooltip' data-bs-title='Overview')
+    //-       .card-body
+    //-         #overview-bar-chart
+    //-         .bg-body.mt-3.py-2.px-3.rounded.d-flex.align-items-center.justify-content-between
+    //-           p.mb-0
+    //-             i.ph-duotone.ph-circle.text-danger.f-12
+    //-             |  Apps
+    //-           h5.mb-0.ms-1 10+
+    //-         .bg-body.mt-1.py-2.px-3.rounded.d-flex.align-items-center.justify-content-between
+    //-           p.mb-0
+    //-             i.ph-duotone.ph-circle.text-primary.f-12
+    //-             |  Other
+    //-           h5.mb-0.ms-1 5
+    //-         .bg-body.mt-1.py-2.px-3.rounded.d-flex.align-items-center.justify-content-between
+    //-           p.mb-0
+    //-             i.ph-duotone.ph-circle.text-purple-500.f-12
+    //-             |  Widgets
+    //-           h5.mb-0.ms-1 150+
+    //-         .bg-body.mt-1.py-2.px-3.rounded.d-flex.align-items-center.justify-content-between
+    //-           p.mb-0
+    //-             i.ph-duotone.ph-circle.text-success.f-12
+    //-             |  Forms
+    //-           h5.mb-0.ms-1 50+
+    //-         .bg-body.mt-1.py-2.px-3.rounded.d-flex.align-items-center.justify-content-between
+    //-           p.mb-0
+    //-             i.ph-duotone.ph-circle.text-warning.f-12
+    //-             |  Components
+    //-           h5.mb-0.ms-1 200+
+    //-         .bg-body.mt-1.py-2.px-3.rounded.d-flex.align-items-center.justify-content-between
+    //-           p.mb-0
+    //-             i.ph-duotone.ph-circle.text-info.f-12
+    //-             |  Pages
+    //-           h5.mb-0.ms-1 150+
+    //-   .col-md-6.col-xxl-3
+    //-     .card
+    //-       .card-body
+    //-         .d-flex.align-items-center
+    //-           .flex-grow-1.me-3
+    //-             h6.mb-0 Project Rating
+    //-           .flex-shrink-0
+    //-             .dropdown
+    //-               a.avtar.avtar-s.btn-link-secondary.dropdown-toggle.arrow-none(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+    //-                 i.ti.ti-dots-vertical.f-18
+    //-               .dropdown-menu.dropdown-menu-end
+    //-                 a.dropdown-item(href='#') Today
+    //-                 a.dropdown-item(href='#') Weekly
+    //-                 a.dropdown-item(href='#') Monthly
+    //-         .d-flex.align-items-center.mb-3
+    //-           i.ph-duotone.ph-star.text-warning.me-1
+    //-           h4.mb-0
+    //-             | 4.5 
+    //-             small.text-muted  / 5
+    //-           span.badge.bg-light-success.ms-2 36%
+    //-         #project-rating-chart
+    //-   .col-md-6.col-xxl-3
+    //-     .card
+    //-       .card-header.py-3
+    //-         .d-flex.align-items-center.justify-content-between
+    //-           h5.mb-0 Transactions
+    //-           input.form-control.form-control-sm.w-auto.border-0.shadow-none2(type='date')
+    //-       .card-body
+    //-         .row.align-items-center
+    //-           .col-5
+    //-             h5.mb-1 $ 59,48
+    //-             span.badge.bg-success 36%
+    //-           .col-7
+    //-             #transactions-chart
+    //-   .col-md-6.col-xxl-3
+    //-     .card
+    //-       .card-header.py-3
+    //-         .d-flex.align-items-center.justify-content-between
+    //-           h5.mb-0 Canceled order
+    //-           input.form-control.form-control-sm.w-auto.border-0.shadow-none2(type='date')
+    //-       .card-body
+    //-         .row.align-items-center
+    //-           .col-5
+    //-             h4.mb-1 3.15k
+    //-           .col-7
+    //-             #canceled-order-chart
+    //-   .col-md-6.col-xxl-3
+    //-     .card
+    //-       .card-body.pb-0
+    //-         .d-flex.align-items-center.justify-content-between
+    //-           div
+    //-             h4.mb-1 3.15k
+    //-             p.mb-0 Total Order
+    //-           i.ph-duotone.ph-info.f-20.ms-1(data-bs-toggle='tooltip' data-bs-title='Overview')
+    //-       #total-order-chart
+    //-   .col-xxl-6
+    //-     .card
+    //-       .card-header.d-flex.align-items-center.justify-content-between
+    //-         h5 Reports
+    //-         i.ph-duotone.ph-info.f-20.ms-1(data-bs-toggle='tooltip' data-bs-title='Reports')
+    //-       .card-body
+    //-         .d-sm-flex.align-items-center.justify-content-between
+    //-           ul.list-inline.me-auto.mb-3.mb-sm-0
+    //-             li.list-inline-item
+    //-               | Visitor
+    //-             li.list-inline-item
+    //-               button#chart-line.avtar.avtar-s.btn.btn-light-secondary
+    //-                 i.ph-duotone.ph-chart-line.f-18
+    //-             li.list-inline-item
+    //-               button#chart-bar.avtar.avtar-s.btn.btn-light-secondary
+    //-                 i.ph-duotone.ph-chart-bar.f-18
+    //-             li.list-inline-item
+    //-               button#chart-area.avtar.avtar-s.btn.btn-light-secondary
+    //-                 i.ph-duotone.ph-wave-sine.f-18
+    //-           .d-flex.align-items-center
+    //-             h3.mb-0.me-1 $ 82.99
+    //-             span.badge.bg-success
+    //-               i.ti.ti-arrow-narrow-up
+    //-               |  2.6%
+    //-         #reports-chart
+    //-   .col-xxl-6
+    //-     .row
+    //-       .col-md-6
+    //-         .card
+    //-           .card-body
+    //-             .row.align-items-center
+    //-               .col-5
+    //-                 p.mb-1 Avg. time spent
+    //-                 h5.mb-0 00:03:45
+    //-               .col-7
+    //-                 #timesspent-chart
+    //-       .col-md-6
+    //-         .card
+    //-           .card-body
+    //-             .row.align-items-center
+    //-               .col-6
+    //-                 p.mb-1 New visitor
+    //-                 .d-flex.align-items-center.flex-wrap
+    //-                   h5.mb-0.me-1 $3,569
+    //-                   span.badge.bg-danger
+    //-                     i.ti.ti-arrow-narrow-down
+    //-                     |  2.6%
+    //-               .col-6
+    //-                 #new-visitor-chart
+    //-       .col-md-6
+    //-         .card
+    //-           .card-body
+    //-             .d-flex.align-items-center
+    //-               .flex-shrink-0
+    //-                 .avtar.avtar-s.bg-light-warning
+    //-                   i.ti.ti-clipboard-list.f-20
+    //-               .flex-grow-1.text-end.ms-3
+    //-                 h5.mb-1 9,000
+    //-                 p.mb-0 Total Rewards
+    //-             #total-rewards-chart
+    //-       .col-md-6
+    //-         .card
+    //-           .card-body
+    //-             .text-center.mb-2
+    //-               .avtar.avtar-s.bg-light-warning
+    //-                 i.ti.ti-clipboard-list.f-20
+    //-               h5.mb-1 9,000
+    //-               p.mb-0 Total Rewards
+    //-             #total-rewards-chart-2
+    //-   .col-lg-12.col-xxl-8
+    //-     .card
+    //-       .card-body
+    //-         .row.align-items-center.justify-content-center
+    //-           .col-md-6.col-xl-4.my-2
+    //-             .d-flex.align-items-center.justify-content-between
+    //-               p.mb-0.me-1 Bitcoin
+    //-               p.mb-0.text-muted
+    //-                 i.ph-duotone.ph-caret-up.f-20.align-bottom.text-success
+    //-                 |  0.73%
+    //-             .mt-1.row.align-items-center
+    //-               .col-6
+    //-                 h5.mb-0 &pound; 5678.09
+    //-                 p.text-muted.mb-0 Total Tasks
+    //-               .col-6
+    //-                 #bitcoin-chart-1
+    //-           .col-md-6.col-xl-4.my-2
+    //-             .d-flex.align-items-center.justify-content-between
+    //-               p.mb-0.me-1 Bitcoin
+    //-               p.mb-0.text-muted
+    //-                 i.ph-duotone.ph-caret-down.f-20.align-bottom.text-danger
+    //-                 |  0.73%
+    //-             .mt-1.row.align-items-center
+    //-               .col-6
+    //-                 h5.mb-0 &pound; 5678.09
+    //-                 p.text-muted.mb-0 Total Tasks
+    //-               .col-6
+    //-                 #bitcoin-chart-2
+    //-           .col-md-6.col-xl-4.my-2
+    //-             .d-flex.align-items-center.justify-content-between
+    //-               p.mb-0.me-1 Bitcoin
+    //-               p.mb-0.text-muted
+    //-                 i.ph-duotone.ph-caret-up.f-20.align-bottom.text-primary
+    //-                 |  0.73%
+    //-             .mt-1.row.align-items-center
+    //-               .col-6
+    //-                 h5.mb-0 &pound; 5678.09
+    //-                 p.text-muted.mb-0 Total Tasks
+    //-               .col-6
+    //-                 #bitcoin-chart-3
+    //-   .col-md-6.col-xxl-4
+        .row
+          .col-6
+            .card
+              .card-body
+                .my-n4.text-center.mx-auto(style='max-width: 130px')
+                  #total-earning-chart-1
+          .col-6
+            .card
+              .card-body
+                .my-n4.text-center.mx-auto(style='max-width: 130px')
+                  #total-earning-chart-2
+  // [ Main Content ] end

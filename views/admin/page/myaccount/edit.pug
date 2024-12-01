@@ -1,0 +1,87 @@
+extends ../../layout/index.pug
+
+block main
+
+      .pc-content(style="padding : 0;")
+        // [ breadcrumb ] start
+        .page-header
+          .page-block
+            .row.align-items-center
+              
+              .col-md-12
+                .page-header-title
+                  h2.mb-0 Trang Cá Nhân
+        // [ breadcrumb ] end
+        form(action="/admin/myaccount/editpost?_method=PATCH" method="POST" enctype="multipart/form-data")
+         .row
+          .col-sm-12
+            .card.social-profile
+              img.w-100.card-img-top(src='/admin/layoutadmin/images/img-profile-cover.jpg' alt='')
+              .card-body.pt-0
+                .row.align-items-end
+                  .col-md-auto.text-md-start
+                    img.img-fluid.img-profile-avtar(src=user.avatar alt='User image')
+                  .col
+                    .row.justify-content-between.align-items-end
+                      .col-md-5.col-xl-6.soc-profile-data
+                        h5.mb-1(style="color : #04A9F5;") #{user.nameshop}
+                        p.mb-0(style="color : #7D7F82 ; font-weight : 600;")
+                          | Tổng Tiền #{user.money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' VNĐ'}
+                      .col-md-7.col-xl-6.col-xxl-5
+                        .row.g-1.text-center
+                          .col-4
+                            h5.mb-0 #{user.follow}
+                            p.text-muted.mb-0 Theo Dõi
+                          .col-4.border.border-top-0.border-bottom-0
+                            h5.mb-0 #{product}
+                            p.text-muted.mb-0 Sản Phẩm
+                          .col-4.border.border-top-0.border-bottom-0
+                            h5.mb-0 #{totalrating} <i class="fa-regular fa-star" style="font-size : 14px;"></i>
+                            span(style="font-size : 12px;")  #{totalreview} lượt đánh giá
+                            p.text-muted.mb-0 Đánh giá 
+         .row
+          // [ form-element ] start
+          .col-lg-12
+            .card
+              #sticky-action.sticky-action
+                .card-header
+                  .row.align-items-center
+                    .col-sm-6
+                      h5 Thông Tin Chi Tiết
+                    .col-sm-6.text-sm-end.mt-3.mt-sm-0
+                
+              .card-body       
+                .row
+                  .col-md-6
+                      .mb-3
+                        label.form-label(for='exampleInputEmail1') Họ Và Tên
+                        input#exampleInputEmail1.form-control(type='text' value=dataaccount.fullName name="fullName"  )
+                      .mb-3
+                        label.form-label(for='exampleInputPassword1') Password
+                        input#exampleInputPassword1.form-control(type='password' value="" name="password" getemailprofileadmin  placeholder='Password')
+                  .col-md-6
+                      .mb-3
+                        label.form-label(for='exampleInputEmail1') Số Điện Thoại
+                        input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp' value=dataaccount.phone name="phone"  placeholder='Enter email')
+                      .mb-3
+                        label.form-label(for='exampleInputEmail1') Tên Shop
+                        input#exampleInputEmail1.form-control(type='text'  value=dataaccount.nameshop name="nameshop"    placeholder='Enter email')
+             
+                .row
+                  .col-md-6
+                    .mb-3
+                        label.form-label(for='exampleInputEmail1') Tuổi
+                        input#exampleInputEmail1.form-control(type='text'   value=dataaccount.age  name="age"  placeholder='Enter email')
+                  .col-md-6
+                    .mb-3
+                        label.form-label(for='exampleInputEmail1') Avatar
+                        input#exampleInputEmail1.form-control(type='file'  aria-describedby='emailHelp' value=dataaccount.age name="avatar" placeholder='Enter email')
+      
+                .row
+
+                    .mb-3.col-md-6
+                      label.form-label(for='inputAddress') Ngày Sinh
+                      input#inputAddress.form-control(type='text' name="birthday"  value=dataaccount.birthday placeholder='1234 Main St')
+                    .col-md-6.text-right(style="margin-top : 28px;")
+                      button(style="padding : 20px;").btn.btn-sm.badge.text-bg-success Cập Nhật
+                

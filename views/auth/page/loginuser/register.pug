@@ -1,0 +1,103 @@
+include ../../mixi/mixi.pug
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='x-ua-compatible' content='ie=edge')
+  title Xmee | Login and Register Form Html Templates
+  meta(name='description' content='')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  // Favicon
+  link(rel='shortcut icon' type='image/x-icon' href='/regisimages/favicon.png')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='/regiscss/bootstrap.min.css')
+  // Fontawesome CSS
+  link(rel='stylesheet' href='/regiscss/fontawesome-all.min.css')
+  // Flaticon CSS
+  link(rel='stylesheet' href='/regiscss/flaticon.css')
+  // Google Web Fonts
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  // Custom CSS
+  link(rel='stylesheet' href='/regiscss/style.css')
+//if lt IE 8
+  p.browserupgrade
+    | You are using an 
+    strong outdated
+    |  browser. Please 
+    a(href='http://browsehappy.com/') upgrade your browser
+    |  to improve your experience.
+    
++alert(messages.nice)
++alertfaild(messages.error)
+#preloader.preloader
+  .inner
+    .line1
+    .line2
+    .line3
+section.fxt-template-animation.fxt-template-layout34(data-bg-image='/img/elements/bg1.png')
+  .fxt-shape
+    .fxt-transformX-L-50.fxt-transition-delay-1
+      img(src='/regisimages/shape1.png' alt='Shape')
+  .container 
+    .row
+      .col-lg-8
+        .fxt-column-wrap.justify-content-between
+          .fxt-animated-img
+            .fxt-transformX-L-50.fxt-transition-delay-10
+              img(src='/regisimages/bg34-1.png' alt='Animated Image')
+          .fxt-transformX-L-50.fxt-transition-delay-3
+            a.fxt-logo(href='login-34.html')
+              img(src='/regisimages/logo-34.png' alt='Logo')
+          .fxt-transformX-L-50.fxt-transition-delay-5
+            .fxt-middle-content
+              h1.fxt-main-title Sign Up to Rechage Direct
+              .fxt-switcher-description1
+                | If you have an account You can
+                a.fxt-switcher-text.ms-2(href='login-34.html') Sign In
+          .fxt-transformX-L-50.fxt-transition-delay-7
+            .fxt-qr-code
+              img(src='/regisimages/qr-register-34.png' alt='QR')
+      .col-lg-4
+        .fxt-column-wrap.justify-content-center
+          .fxt-form
+            form(method='POST' action="/auth/loginuser/registerpost")
+              .form-group
+                input#f_name.form-control(type='text' name='fname' placeholder='FullName' required='required')
+              .form-group
+                input#l_name.form-control(type='text' name='sdt' placeholder='Phone' required='required')
+              .form-group
+                input#email.form-control(type='email' name='email' placeholder='E-mail Address' required='required')
+              .form-group
+                input#password.form-control(type='password' name='password' placeholder='********' required='required')
+                i.fa.fa-fw.fa-eye.toggle-password.field-icon(toggle='#password')
+              .form-group
+                .fxt-checkbox-box
+                  input#checkbox1(type='checkbox')
+                  label.ps-4(for='checkbox1')
+                    | I agree with 
+                    a.terms-link(href='#') Terms
+                    |  and 
+                    a.terms-link(href='#') Privacy Policy
+              .form-group
+                button.fxt-btn-fill(type='submit') Sign Up
+          .fxt-style-line
+            span Or Continus with
+          ul.fxt-socials
+            li.fxt-google
+              a(href='#' title='google')
+                i.fab.fa-google-plus-g
+            li.fxt-apple
+              a(href='#' title='apple')
+                i.fab.fa-apple
+            li.fxt-facebook
+              a(href='#' title='Facebook')
+                i.fab.fa-facebook-f
+// jquery
+script(src='/regisjs/jquery.min.js')
+// Bootstrap js
+script(src='/regisjs/bootstrap.min.js')
+// Imagesloaded js
+script(src='/regisjs/imagesloaded.pkgd.min.js')
+// Validator js
+script(src='/regisjs/validator.min.js')
+// Custom Js
+script(src='/regisjs/main.js')

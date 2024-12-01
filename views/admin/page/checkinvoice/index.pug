@@ -1,0 +1,54 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main 
+    +alert(messages.nice)
+    +alertfaild(messages.error) 
+    .pc-content(style="padding : 0; margin-bottom : 20px;")
+        // [ breadcrumb ] start
+        .page-header
+          .page-block
+            .row.align-items-center
+              .col-md-12
+                .page-header-title
+                  h2.mb-0 Giao Dịch
+    .row
+      each item in datainvoice
+        .col-md-6.col-xl-4(phicssinvoicetransaction)
+           .card.statistics-card-1.overflow-hidden
+            .card-body
+              img.img-fluid.img-bg(src='/admin/layoutadmin/images/img-status-7.svg' alt='img')
+              .d-flex.align-items-center
+                img.img-fluid(src='/admin/layoutadmin/images/img-twitter.svg' style="width : 50px ; height : 50px; object-fix : cover; border-radius : 50%;" alt='img')
+                .flex-grow-1.ms-3
+                  p.mb-0.text-muted(total) Mã Giao Dịch
+                  .d-inline-flex.align-items-center(content)
+                    h5.f-w-300.d-flex.align-items-center.m-b-0 #{item.id}
+                    
+              .row(nd1) 
+                .col-9
+                    span(style = "color : #7D7F82; margin-right : 9px;") Tổng Tiền :
+                    span(style="color : #7D7F82;") #{item.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' VNĐ'}
+                .col-3
+                    span.badge.ms-2(style ="background : #1DE9B6;") Thuế #{item.thue}%
+              .row(nd1) 
+                .col-12
+                    span(style = "color : #7D7F82; margin-right : 9px;") Thời Gian Giao Dịch:
+                    span(style="color : #7D7F82;") #{item.Timecomplete}
+              .row(nd1) 
+                .col-12
+                    span(style = "color : #7D7F82; margin-right : 9px;") Điều Kiện Xét Duyệt:
+                    span(style=`color : ${item.request ? "#2FEBBC" : "#9A90D4"};`) 
+                        if(item.request)
+                            button(style="background : #1DE9B6; color : white ;  border: 1px solid white;" buttonsubmitcheckinvoiceadmin=item.id) Duyệt Đơn 
+                        else 
+                            span Chưa Đạt Yêu Cầu
+                
+              .row.text-center(nd2)
+                .col-6
+                  p.mb-0.mt-1.text-muted Tên Shop
+                  h6.mb-0 #{item.datashop.nameshop}
+                .col-6.border-start
+                  p.mb-0.mt-1.text-muted Tên Người Mua
+                  h6.mb-0 #{item.datauser.fullName}
+                  form(action="" method="Post" formsubmitcheckinvoiceadmin)
+    

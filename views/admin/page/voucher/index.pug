@@ -1,0 +1,48 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main
+  +alert(messages.nice)
+  +alertfaild(messages.error)    
+  .pc-content(style="padding : 0;")
+    // [ breadcrumb ] start
+    .page-header
+       h2.mb-0 Mã Giám Giá
+    // [ breadcrumb ] end
+    // [ Main Content ] start
+    .row
+      // [ sample-page ] start
+      .col-sm-12
+        .card.mb-3 
+            .card-header 
+              .row 
+                .col-10 
+                    h5 Mã Giảm Giá
+                .col-2.text-right
+                    a(href="/admin/voucher/create" style="padding : 8px ; border : 2px solid #0FADF5; width : 100px; margin-left : auto; color: #0FADF5;") + Thêm mới
+      .row
+        each item in voucher
+          .col-xl-6 
+            .card.statistics-card-1.overflow-hidden
+              .card-body(style="position : relative")     
+                img.img-fluid.img-bg(src='/admin/layoutadmin/images/img-status-7.svg' alt='img')
+                .dropdown(style="margin-left: 97%; z-index : 9999; top : 200px ; right : 0;" )
+                  a.avtar.avtar-xs.btn-link-secondary.dropdown-toggle.arrow-none(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                    i.material-icons-two-tone.f-18 more_vert
+                  .dropdown-menu.dropdown-menu-end
+                    a.dropdown-item(href=`/admin/voucher/deleted/${item.id}`) Xóa
+                span.badge.text-bg-success(style="margin-left: 97%; z-index : 9999; top : -50px ; right : 500px; font-size : 13px" ) #{item.status}
+                .row 
+                  .col-xl-4
+                    img(src=item.thumbnail style="width : 100%; height : 100%; object-fit : cover;")
+                  .col-xl-8(style="display : flex;align-items : center !important;")
+                    .row(phicssvoucheradmin)
+                      .col-xl-12(style="margin-bottom : 15px; font-size : 15px;")
+                        span.badge.text-bg-success #{item.title} : #{item.value}%
+                      .col-xl-12(style="color : #1DE9B6 ;") 
+                        span !{item.notecondition}
+                      .col-xl-12(style="color : #1DE9B6 ;") 
+                        span !{item.notelimit}
+                      .col-xl-12(style="margin-bottom : 15px;") 
+                        span(style = "color : #04A9F5; font-size : 12px;") Số Ngày hết Hạn #{item.dateend} : Tính Từ #{item.datestart} 
+                      .col-xl-12.m-0
+                        span(style="color : #04A9F5;") Số Lượng còn lại : #{item.stock}

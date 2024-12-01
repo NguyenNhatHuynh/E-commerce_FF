@@ -1,0 +1,165 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  // font-awesome
+  link(rel='stylesheet' href='/registeradmin/css/all.min.css')
+  // Bootstrap-5
+  link(rel='stylesheet' href='/registeradmin/css/bootstrap.min.css')
+  // custom-styles
+  link(rel='stylesheet' href='/registeradmin/css/style.css')
+  link(rel='stylesheet' href='/registeradmin/css/responsive.css')
+  link(rel='stylesheet' href='/registeradmin/css/animation.css')
+  // color sceme
+  link#defaultscheme(rel='stylesheet' href='/registeradmin/css/default.css')
+  // color switcher
+  link(rel='stylesheet' href='/registeradmin/css/colorswitcher.css')
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-BV4Wnix4HwCg7zjcPxFxJd3oHksv4B6A/1c7xzATVwF7QRZ7d0HM1WZCsH3c1dPFK6SjSK5bhQW8bQSc5zwIyA==" crossorigin="anonymous" referrerpolicy="no-referrer")
+
+main.overflow-hidden
+  .row
+    // sidebar
+    .tab-sm-100.col-md-5.sidebar
+      aside.sidebar-inner
+        .logo
+         
+          .logo-text
+            | FFN
+        article.sidebar-text
+          h2 Insurance Made Easy!
+          p(style="color : #687290;")
+            | Toptal is an exclusive network of the world&apos;s top talent in business, design, and technology. We provide access to top companies.
+          .step-bar
+            span.steps_count
+              span#showstep 1
+              |  to 3 step
+            h3
+              span#completion-rate(style="color : #007BFC;") 25% to complete
+            .step-bar-inner
+              .move-bar
+    .tab-sm-100.col-md-7.steps-area
+      // step-type
+      .step-counter
+        .step-counter-inner
+          .step-type.active
+            .step-type-icon
+              <i class="fa-solid fa-user"></i>
+            span Thông Tin
+          .step-type
+            .step-type-icon
+              <i class="fa-solid fa-shop"></i>
+            span Cài Đặt Shop
+          .step-type.no-line
+            .step-type-icon
+             <i class="fa-solid fa-circle-check"></i>
+            span Hoàn Thành
+      form(method='POST' action="/auth/loginadmin/registerpost" enctype="multipart/form-data")
+        .show-section.wrapper
+          // step-1
+          section.steps
+            // step-1-form
+            #step1.lightSpeedIn.form
+              .input-field.row
+                .col-md-3.text-end
+                  label Email
+                .col-md-9
+                  input#mail-email(type='text' name='email' )
+              .input-field.row
+                .col-md-3.text-end
+                  label Mật Khẩu
+                .col-md-9
+                  input#mail-name(type='password' name='password' )
+              
+              .radio-field.row
+                
+              .input-field.row
+                .col-md-3.text-end
+                  label Số điện thoại
+                .col-md-9
+                  input#education(type='text' name='phone')
+              .row
+                .col-md-6
+                  .input-field.row
+                    .col-md-6.text-end
+                      label(for='cccd') CCCD hoặc CMND
+                    .col-md-6
+                      input#age(type='file' class="form-control" name='cccd')
+                .col-md-6
+                  .input-field.row
+                    .col-md-4.text-end
+                      label Ngày Sinh
+                    .col-md-8
+                      input#dob(name='birthday'  type='text' placeholder="Xác Minh CMND" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'")
+                .col-md-6 
+                  .input-field.row
+                    .col-md-3.text-end
+                      label Họ Tên
+                    .col-md-9
+                      input#address(type='text'  placeholder=" " name='fullName' class="form-control")
+                .col-md-6 
+                  .input-field.row
+                    .col-md-3.text-end
+                      label Tuổi
+                    .col-md-9
+                      input#address(type='text'  placeholder="Yêu Cầu Trên 18 Tuổi " name='age' class="form-control")
+            
+             
+            .next-prev
+              button#step1btn.step1.next(type='button') Next Step
+          // step-2
+          section.steps
+            // step-2-form
+            #step2.lightSpeedIn.form
+              .main-heading
+                | Vui Lòng Chọn Danh Mục Kinh Doanh
+              .check-field.row
+                 each item in datacategory
+                    .tab-33.col-md-3
+                        .check-field-single(style="width : 70px; height : 70px;")
+                            img(src=item.thumbnail style="width : 70px; height : 70px;")
+                            input(checked='' phicssinputcategoryadmin type='radio' name='category_id' value=item.id)
+                        span.insurance-type #{item.title}
+              
+                 
+              .input-field.row
+                .col-md-6
+                  .input-field.row
+                    .text-start
+                        label Tên Shop
+                    .col-md-12
+                        input#home-address(required='' type='text' name='nameshop')
+                .col-md-6(style="margin-top : -20px;")
+                  label(for='liability')
+                    | Liability Limit Needed
+                  .select-field
+                    select#liability(name='address' required='' class="form-select" style="height : 50px;")
+                      each item in place
+                        option(value=item.id) #{item.name}
+                    span
+            .next-prev
+              button.prev(type='button') Previous Step
+              button#step2btn.next(type='button') Next Step
+          // step-3
+          section.steps
+            // step-3-form
+            #step3.lightSpeedIn.form
+              .main-heading Chờ Đợi Mã Xác Nhận
+              div 
+                <i class="fa-solid fa-circle-check"></i>
+                div Chúc mừng bạn đã đăng ký thành công , chúng tôi sẽ liên hệ bạn sớm nhất qua email ,
+                   | vui lòng kiểm tra email trong 2 đến 3 ngày gần đây
+      
+            .next-prev
+              button.prev(type='button') Previous Step
+              button#sub.apply(type='submit') Send
+#error
+// Bootstrap-5
+script(src='/registeradmin/js/bootstrap.min.js')
+// Jquery
+script(src='/registeradmin/js/jquery-3.6.1.min.js')
+// My js
+script(src='/registeradmin/js/custom.js')
+// colorswitcher
+script(src='/registeradmin/js/callswitcher.js')

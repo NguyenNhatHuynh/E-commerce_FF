@@ -1,0 +1,148 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main
+  - if (messages.error)
+    div(
+      class="alert alert-danger"
+      show-alert
+      data-time=5000
+    ) #{messages.error} <span close-alert>x</span>
+  h2(class="mb-4") Thêm mới sản phẩm
+  .card
+    .card-header
+      h5 Form Thêm Mới Sản Phẩm
+    .card-body
+     form(
+        action=`/${prefixAdmin}/voucher/createpost`
+        id="form-create-product"
+        method="POST"
+        enctype="multipart/form-data"
+       )
+       
+        div(class="form-group")
+          label(for="type") Loại Voucher
+          select( placeholder='Tiêu đề' id="type" name="type" class='form-control' required)
+           option(value="public") Public 
+           option(value="private") Private
+        div(class="form-group")
+          label(for="title") Tiêu Đề Voucher 
+          input(
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            required
+          )
+        div(class="form-group")
+          label(for="value") Giá Trị voucher %
+          input(
+            type="number"
+            class="form-control"
+            id="value"
+            name="value"
+            placeholder="Tự động tăng"
+            min="1"
+          )
+        div(class="form-group")
+          label(for="notecondition") Ghi chú điều kiện
+          textarea(
+            class="form-control"
+            id="notecondition"
+            name="notecondition"
+            rows="5"
+            textarea-mce
+          )
+        div(class="form-group")
+          label(for="condition") Giá trị điều kiện
+          input(
+            type="number"
+            class="form-control"
+            id="condition"
+            name="condition"
+            value="0"
+            min="0"
+          )
+        div(class="form-group")
+          label(for="notelimit") Ghi chú Giới Hạn Giảm Giá
+          textarea(
+            class="form-control"
+            id="notelimit"
+            name="notelimit"
+            rows="5"
+            textarea-mce
+          )
+        div(class="form-group")
+          label(for="limit") Giới Hạn Giảm Giá
+          input(
+            type="number"
+            class="form-control"
+            id="limit"
+            name="limit"
+            value="0"
+            min="0"
+          )
+
+       
+        div(class="form-group")
+          label(for="thumbnail") Ảnh
+          input(
+            type="file"
+            class="form-control-file"
+            id="thumbnail"
+            name="thumbnail"
+            accept="image/*"
+          )
+        div(class="form-group")
+          label(for="dateend") Số Ngày Hoạt Động
+          input(
+            type="text"
+            class="form-control"
+            id="dateend"
+            name="dateend"
+            min="1"
+          )
+        div(class="form-group")
+          label(for="stock") Số Lượng
+          input(
+            type="number"
+            class="form-control"
+            id="stock"
+            name="stock"
+            min="1"
+          )
+        div(class="form-group")
+          label(for="iduser") Shop được áp dụng
+          select( placeholder='address' id="iduser" name="iduser" class='form-control')
+            option(value="all") All  
+        div(class="form-group")
+          label(for="idshop") Người Dùng Được Áp Dụng
+          select( placeholder='address' id="idshop" name="idshop" class='form-control')
+            option(value="all") All  
+        div(class="form-group")
+          label(for="products") Sản Phẩm Được Áp Dụng
+          select( placeholder='address' name="products" id="products" class='form-control')
+            option(value="all") All  
+        div(class="form-group form-check form-check-inline")
+          input(
+            type="radio"
+            class="form-check-input"
+            id="statusActive"
+            name="status"
+            value="active"
+            checked
+          )
+          label(for="statusActive" class="form-check-label") Hoạt động
+        div(class="form-group form-check form-check-inline")
+          input(
+            type="radio"
+            class="form-check-input"
+            id="statusInActive"
+            name="status"
+            value="inactive"
+          )
+          label(for="statusInActive" class="form-check-label") Dừng hoạt động
+        div.mt-5.text-right(class="form-group")
+          button(
+            type="submit"
+            class="btn btn-primary"
+          ) Tạo mới

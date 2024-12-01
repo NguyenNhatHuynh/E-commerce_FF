@@ -1,0 +1,636 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(name='keywords' content='Circlehub')
+  meta(name='description' content='Circlehub HTML5 Template')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Profile 
+  link(rel='shortcut icon' href='/profile/images/fav.png' type='image/x-icon')
+  link(rel='stylesheet' href='/profile/css/style.css')
+  link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css")
+  link(rel="stylesheet", href="/admin/styleadmin.css")
+  link(href='https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='/admin/layoutadmin/css/tabler-icons.min.css')
+  link(rel='stylesheet' href='/admin/layoutadmin/css/feather.css')
+  link(rel='stylesheet' href='/admin/layoutadmin/css/fontawesome.css')
+  link(rel='stylesheet' href='/admin/layoutadmin/css/material.css')
+  link#main-style-link(rel='stylesheet' href='/admin/layoutadmin/css/style.css')
+  link(rel='stylesheet' href='/admin/layoutadmin/css/style-preset.css')
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css")
+  
+// start preloader
+
+// end preloader
+// Scroll To Top Start
+button.scrollToTop.d-none.d-lg-block
+  i.mat-icon.fas.fa-angle-double-up
+// Scroll To Top End
+// header-section start
+header.header-section.header-menu
+  nav.navbar.navbar-expand-lg.p-0
+    .container
+      nav.navbar.w-100.navbar-expand-lg.justify-content-betweenm
+        a.navbar-brand(href='index.html')
+          img.logo(src='images/logo.png' alt='logo')
+        button.button.search-active.d-block.d-md-none
+          i.d-center.material-symbols-outlined.fs-xxl.mat-icon  search 
+        .search-form
+          form.input-area.d-flex.align-items-center(action='#')
+            i.material-symbols-outlined.mat-icon search
+            input(type='text' placeholder='Search Circlehubtio' autocomplete='off')
+        ul.navbar-nav.feed.flex-row.gap-xl-20.gap-lg-10.gap-sm-7.gap-1.py-4.py-lg-0.m-lg-auto.ms-auto.ms-aut.align-self-center
+          li
+            a.nav-icon.home.active(href='index-2.html')
+              i.mat-icon.fs-xxl.material-symbols-outlined.mat-icon home
+          li
+            a.nav-icon.feed(href='#news-feed')
+              i.mat-icon.fs-xxl.material-symbols-outlined.mat-icon feed
+          li
+            a.nav-icon(href='group.html')
+              i.mat-icon.fs-xxl.material-symbols-outlined.mat-icon group
+          li
+            a.nav-icon(href='videos.html')
+              i.mat-icon.fs-xxl.material-symbols-outlined.mat-icon smart_display
+        .right-area.position-relative.d-flex.gap-3.gap-xxl-6.align-items-center
+          .single-item.d-none.d-lg-block.messages-area
+            .messages-btn.cmn-head
+              .icon-area.d-center.position-relative
+                i.material-symbols-outlined.mat-icon mail
+                span.abs-area.position-absolute.d-center.mdtxt 4
+            .main-area.p-5.messages-content
+              h5.mb-8 Messages
+              .single-box.p-0.mb-7
+                a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+                  .avatar
+                    img.avatar-img.max-un(src='images/avatar-7.png' alt='avatar')
+                  .text-area
+                    .title-area.position-relative.d-inline-flex.align-items-center
+                      h6.m-0.d-inline-flex Piter Maio
+                      span.abs-area.position-absolute.d-center.mdtxt 3
+                    p.mdtxt.sms Amet minim mollit non....
+              .single-box.p-0.mb-7
+                a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+                  .avatar
+                    img.avatar-img.max-un(src='images/avatar-1.png' alt='avatar')
+                  .text-area
+                    h6.m-0.mb-1 Annette Black
+                    p.mdtxt You: consequat sunt
+              .single-box.p-0.mb-7
+                a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+                  .avatar
+                    img.avatar-img.max-un(src='images/avatar-2.png' alt='avatar')
+                  .text-area
+                    h6.m-0.mb-1 Ralph Edwards
+                    p.mdtxt.sms Amet minim mollit non....
+              .single-box.p-0.mb-7
+                a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+                  .avatar
+                    img.avatar-img.max-un(src='images/avatar-3.png' alt='avatar')
+                  .text-area
+                    h6.m-0.mb-1 Darrell Steward
+                    p.mdtxt You: consequat sunt
+              .single-box.p-0.mb-7
+                a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+                  .avatar
+                    img.avatar-img.max-un(src='images/avatar-4.png' alt='avatar')
+                  .text-area
+                    h6.m-0.mb-1 Wade Warren
+                    p.mdtxt You: consequat sunt
+              .single-box.p-0.mb-7
+                a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+                  .avatar
+                    img.avatar-img.max-un(src='images/avatar-5.png' alt='avatar')
+                  .text-area
+                    h6.m-0.mb-1 Kathryn Murphy
+                    p.mdtxt You: consequat sunt
+              .single-box.p-0.mb-7
+                a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+                  .avatar
+                    img.avatar-img.max-un(src='images/avatar-6.png' alt='avatar')
+                  .text-area
+                    h6.m-0.mb-1 Jacob Jones
+                    p.mdtxt You: consequat sunt
+              .btn-area
+                a(href='profile-chat.html') See all inbox
+          .single-item.d-none.d-lg-block.messages-area.notification-area
+            .notification-btn.cmn-head.position-relative
+              .icon-area.d-center.position-relative
+                i.material-symbols-outlined.mat-icon notifications
+                span.abs-area.position-absolute.d-center.mdtxt 3
+            .main-area.p-5.notification-content
+              h5.mb-8 Notification
+              .single-box.p-0.mb-7
+                a.d-flex.justify-content-between.align-items-center(href='profile-notification.html')
+                  .left-item.position-relative.d-inline-flex.gap-3
+                    .avatar.position-relative.d-inline-flex
+                      img.avatar-img.max-un(src='images/avatar-1.png' alt='avatar')
+                      img.abs-item.position-absolute.max-un(src='images/speech-bubble.png' alt='icon')
+                    .text-area
+                      h6.m-0.mb-1 Piter Maio
+                      p.mdtxt Comment on your post
+                  .time-remaining
+                    p.mdtxt Just now
+              .single-box.p-0.mb-7
+                a.d-flex.justify-content-between.align-items-center(href='profile-notification.html')
+                  .left-item.position-relative.d-inline-flex.gap-3
+                    .avatar.position-relative.d-inline-flex
+                      img.avatar-img.max-un(src='images/avatar-2.png' alt='avatar')
+                      img.abs-item.position-absolute.max-un(src='images/emoji-love.png' alt='icon')
+                    .text-area
+                      h6.m-0.mb-1 Kathryn Murphy
+                      p.mdtxt Like your photo
+                  .time-remaining
+                    p.mdtxt 2min
+              .single-box.p-0.mb-7
+                a.d-flex.justify-content-between.align-items-center(href='profile-notification.html')
+                  .left-item.position-relative.d-inline-flex.gap-3
+                    .avatar.position-relative.d-inline-flex
+                      img.avatar-img.max-un(src='images/avatar-3.png' alt='avatar')
+                      img.abs-item.position-absolute.max-un(src='images/emoji-love.png' alt='icon')
+                    .text-area
+                      h6.m-0.mb-1 Jacob Jones
+                      p.mdtxt Sent you a request
+                  .time-remaining
+                    p.mdtxt 1hr
+                .d-flex.gap-3.mt-4
+                  button.cmn-btn Accept
+                  button.cmn-btn.alt Delete
+              .single-box.p-0.mb-7
+                a.d-flex.justify-content-between.align-items-center(href='profile-notification.html')
+                  .left-item.position-relative.d-inline-flex.gap-3
+                    .avatar.position-relative.d-inline-flex
+                      img.avatar-img.max-un(src='images/avatar-4.png' alt='avatar')
+                      img.abs-item.position-absolute.max-un(src='images/emoji-love.png' alt='icon')
+                    .text-area
+                      h6.m-0.mb-1 Kathryn Murphy
+                      p.mdtxt officia consequat duis enim...
+                  .time-remaining
+                    p.mdtxt 2hr
+              .btn-area
+                a(href='profile-notification.html') See all notification
+          .single-item.d-none.d-lg-block.profile-area.position-relative
+            .profile-pic.d-flex.align-items-center
+              span.avatar.cmn-head.active-status
+                img.avatar-img.max-un(src='images/avatar-1.png' alt='avatar')
+            .main-area.p-5.profile-content
+              .head-area
+                .d-flex.gap-3.align-items-center
+                  .avatar-item
+                    img.avatar-img.max-un(src='images/avatar-1.png' alt='avatar')
+                  .text-area
+                    h6.m-0.mb-1 Lori Ferguson
+                    p.mdtxt Web Developer
+              .view-profile.my-2
+                a.mdtxt.w-100.text-center.py-2(href='profile-post.html') View profile
+              ul
+                li
+                  a.mdtxt(href='profile-edit.html')
+                    i.material-symbols-outlined.mat-icon  settings 
+                    |                                             Settings &amp; Privacy
+                li
+                  a.mdtxt(href='#')
+                    i.material-symbols-outlined.mat-icon  power_settings_new 
+                    |                                             Sign Out
+              .switch-wrapper.mt-4.d-flex.gap-1.align-items-center
+                i.mat-icon.material-symbols-outlined.sun.icon  light_mode 
+                label.switch
+                  input.checkbox(type='checkbox')
+                  span.slider
+                i.mat-icon.material-symbols-outlined.moon.icon  dark_mode 
+                span.mdtxt.ms-2 Dark mode
+// header-section end
+// Bottom Menu start
+.header-menu.py-3.header-menu.d-block.d-lg-none.position-fixed.bottom-0.w-100.cus-z
+  .right-area.position-relative.d-flex.justify-content-around.gap-3.gap-xxl-6.align-items-center
+    .single-item.messages-area
+      .messages-btn.cmn-head
+        .icon-area.d-center.position-relative
+          i.material-symbols-outlined.mat-icon mail
+          span.abs-area.position-absolute.d-center.mdtxt 4
+      .main-area.p-5.messages-content
+        h5.mb-8 Messages
+        .single-box.p-0.mb-7
+          a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+            .avatar
+              img.avatar-img.max-un(src='images/avatar-7.png' alt='avatar')
+            .text-area
+              .title-area.position-relative.d-inline-flex.align-items-center
+                h6.m-0.d-inline-flex Piter Maio
+                span.abs-area.position-absolute.d-center.mdtxt 3
+              p.mdtxt.sms Amet minim mollit non....
+        .single-box.p-0.mb-7
+          a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+            .avatar
+              img.avatar-img.max-un(src='images/avatar-1.png' alt='avatar')
+            .text-area
+              h6.m-0.mb-1 Annette Black
+              p.mdtxt You: consequat sunt
+        .single-box.p-0.mb-7
+          a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+            .avatar
+              img.avatar-img.max-un(src='images/avatar-2.png' alt='avatar')
+            .text-area
+              h6.m-0.mb-1 Ralph Edwards
+              p.mdtxt.sms Amet minim mollit non....
+        .single-box.p-0.mb-7
+          a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+            .avatar
+              img.avatar-img.max-un(src='images/avatar-3.png' alt='avatar')
+            .text-area
+              h6.m-0.mb-1 Darrell Steward
+              p.mdtxt You: consequat sunt
+        .single-box.p-0.mb-7
+          a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+            .avatar
+              img.avatar-img.max-un(src='images/avatar-4.png' alt='avatar')
+            .text-area
+              h6.m-0.mb-1 Wade Warren
+              p.mdtxt You: consequat sunt
+        .single-box.p-0.mb-7
+          a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+            .avatar
+              img.avatar-img.max-un(src='images/avatar-5.png' alt='avatar')
+            .text-area
+              h6.m-0.mb-1 Kathryn Murphy
+              p.mdtxt You: consequat sunt
+        .single-box.p-0.mb-7
+          a.d-flex.gap-2.align-items-center(href='profile-chat.html')
+            .avatar
+              img.avatar-img.max-un(src='images/avatar-6.png' alt='avatar')
+            .text-area
+              h6.m-0.mb-1 Jacob Jones
+              p.mdtxt You: consequat sunt
+        .btn-area
+          a(href='profile-chat.html') See all inbox
+    .single-item.messages-area.notification-area
+      .notification-btn.cmn-head.position-relative
+        .icon-area.d-center.position-relative
+          i.material-symbols-outlined.mat-icon notifications
+          span.abs-area.position-absolute.d-center.mdtxt 3
+      .main-area.p-5.notification-content
+        h5.mb-8 Notification
+        .single-box.p-0.mb-7
+          a.d-flex.justify-content-between.align-items-center(href='profile-notification.html')
+            .left-item.position-relative.d-inline-flex.gap-3
+              .avatar.position-relative.d-inline-flex
+                img.avatar-img.max-un(src='images/avatar-1.png' alt='avatar')
+                img.abs-item.position-absolute.max-un(src='images/speech-bubble.png' alt='icon')
+              .text-area
+                h6.m-0.mb-1 Piter Maio
+                p.mdtxt Comment on your post
+            .time-remaining
+              p.mdtxt Just now
+        .single-box.p-0.mb-7
+          a.d-flex.justify-content-between.align-items-center(href='profile-notification.html')
+            .left-item.position-relative.d-inline-flex.gap-3
+              .avatar.position-relative.d-inline-flex
+                img.avatar-img.max-un(src='images/avatar-2.png' alt='avatar')
+                img.abs-item.position-absolute.max-un(src='images/emoji-love.png' alt='icon')
+              .text-area
+                h6.m-0.mb-1 Kathryn Murphy
+                p.mdtxt Like your photo
+            .time-remaining
+              p.mdtxt 2min
+        .single-box.p-0.mb-7
+          a.d-flex.justify-content-between.align-items-center(href='profile-notification.html')
+            .left-item.position-relative.d-inline-flex.gap-3
+              .avatar.position-relative.d-inline-flex
+                img.avatar-img.max-un(src='images/avatar-3.png' alt='avatar')
+                img.abs-item.position-absolute.max-un(src='images/emoji-love.png' alt='icon')
+              .text-area
+                h6.m-0.mb-1 Jacob Jones
+                p.mdtxt Sent you a request
+            .time-remaining
+              p.mdtxt 1hr
+          .d-flex.gap-3.mt-4
+            button.cmn-btn Accept
+            button.cmn-btn.alt Delete
+        .single-box.p-0.mb-7
+          a.d-flex.justify-content-between.align-items-center(href='profile-notification.html')
+            .left-item.position-relative.d-inline-flex.gap-3
+              .avatar.position-relative.d-inline-flex
+                img.avatar-img.max-un(src='images/avatar-4.png' alt='avatar')
+                img.abs-item.position-absolute.max-un(src='images/emoji-love.png' alt='icon')
+              .text-area
+                h6.m-0.mb-1 Kathryn Murphy
+                p.mdtxt officia consequat duis enim...
+            .time-remaining
+              p.mdtxt 2hr
+        .btn-area
+          a(href='profile-notification.html') See all notification
+    .single-item.profile-area.position-relative
+      .profile-pic.d-flex.align-items-center
+        span.avatar.cmn-head.active-status
+          img.avatar-img.max-un(src='images/avatar-1.png' alt='avatar')
+      .main-area.p-5.profile-content
+        .head-area
+          .d-flex.gap-3.align-items-center
+            .avatar-item
+              img.avatar-img.max-un(src='images/avatar-1.png' alt='avatar')
+            .text-area
+              h6.m-0.mb-1 Lori Ferguson
+              p.mdtxt Web Developer
+        .view-profile.my-2
+          a.mdtxt.w-100.text-center.py-2(href='profile-post.html') View profile
+        ul
+          li
+            a.mdtxt(href='profile-edit.html')
+              i.material-symbols-outlined.mat-icon  settings 
+              |                                 Settings &amp; Privacy
+          li
+            a.mdtxt(href='#')
+              i.material-symbols-outlined.mat-icon  power_settings_new 
+              |                                 Sign Out
+        .switch-wrapper.mt-4.d-flex.gap-1.align-items-center
+          i.mat-icon.material-symbols-outlined.sun.icon  light_mode 
+          label.switch
+            input.checkbox(type='checkbox')
+            span.slider
+          i.mat-icon.material-symbols-outlined.moon.icon  dark_mode 
+          span.mdtxt.ms-2 Dark mode
+// Bottom Menu end
+// Main Content start
+main.main-content
+  .container
+    .row.profile-picture-area
+      .col-xl-3.col-lg-4.col-md-5.col-sm-6.col-8
+        .single-box.p-3
+          .d-block.d-lg-none.position-absolute.end-0.top-0
+            button.button.profile-close
+              i.material-symbols-outlined.mat-icon.fs-xl  close 
+          .upload-single
+            .profile-picture.text-start
+              img.preview-image.w-100(src=dataprofile.avatar  alt='Preview Image' style="height : 230px; object-fit : cover;")
+            .file-upload
+              label.file.text-center.mt-4
+                input(type='file' name="avatar" style="display : none" fileavataprofile)
+                span.cmn-btn.d-center.gap-1
+                  i.material-symbols-outlined.mat-icon.fs-2  edit_note 
+                  |                                         Thêm avatar
+      .col-xl-9.col-lg-8
+        .head-area.mb-5
+          h6 Cập Nhật Thông Tin
+        form.text-center.d-grid.gap-4(method="Post" formsubmitprofile action='/profile/editprofile?_method=PATCH'  enctype="multipart/form-data")  
+          .single-box.p-3.p-sm-5
+            .row
+              .col-sm-6
+                .single-input.text-start
+                  label(for='name') Họ và Tên  
+                  .input-area.second
+                    input(type="hidden" value=dataprofile.id name="id")
+                    input(type='text' value=dataprofile.fullName name="fullName" placeholder='Type name' autocomplete='off')
+              .col-sm-6
+                .single-input.text-start
+                  label(for='number') Số Điện Thoại
+                  .input-area.second
+                    input(type='text' value=dataprofile.phone name="phone" placeholder='Number' autocomplete='off')
+              .col-sm-6
+                .single-input.text-start
+                  label(for='Email') Email
+                  .input-area.second
+                    input(type='text' value=dataprofile.email name="email" readonly placeholder='Email' autocomplete='off')
+           
+              .col-sm-6
+                .single-input.text-start
+                  label(for='address'  placeputfile) Địa Chỉ
+                  .input-area.second
+                    select( placeholder='address' name="address" class='form-control')
+                     each item in diachi
+                      option(value=item.id  selected=item.name == dataprofile.address.name  ) #{item.name}  
+               
+              .col-sm-12.mt-4
+                .btn-area.text-end
+                  button.cmn-btn Cập Nhật
+    .row.card 
+       .card-header
+           .col-xl-12.col-lg-8
+                ul.nav.nav-pills.justify-content-center.course-wizard(phicssstatusship handleinvoicedetailclient style="width : 100%;")
+                  li.nav-item(data-target-form='#jobDetailForm')
+                    button.nav-link.icon-btn(position=1 class=(id == 1 ? "active" : ""))
+                      .course-wizard-num
+                        span 1
+                      span.d-none.d-sm-inline Tất Cả
+                  li.nav-item(data-target-form='#jobDetailForm')
+                    button.nav-link.icon-btn(position=2 class=(id == 2 ? "active" : "") )
+                      .course-wizard-num
+                        span 2
+                      span.d-none.d-sm-inline Đang Chờ Xác Nhận
+                  // end nav item
+                  li.nav-item(data-target-form='#jobDetailForm')
+                    button.nav-link.icon-btn(position=3 class=(id == 3 ? "active" : "")  )
+                      .course-wizard-num
+                        span 3
+                      span.d-none.d-sm-inline Đã Chuẩn Bị Hàng
+                  // end nav item
+                  li.nav-item(data-target-form='#jobDetailForm')
+                    button.nav-link.icon-btn(position=4 class=(id == 4 ? "active" : "") )
+                      .course-wizard-num
+                        span 4
+                      span.d-none.d-sm-inline Đang Giao Hàng
+                  // end nav item
+                  li.nav-item(data-target-form='#jobDetailForm')
+                    button.nav-link.icon-btn(position=5 class=(id == 5 ? "active" : "") )
+                      .course-wizard-num
+                        span 5
+                      span.d-none.d-sm-inline Hoàn Thành
+                  li.nav-item(data-target-form='#jobDetailForm')
+                    button.nav-link(position=6 class=(id == 6 ? "active" : ""))
+                      .course-wizard-num
+                        span 6
+                      span.d-none.d-sm-inline Lịch Sử Hóa Đơn        
+       .tab-content.card-body
+                      #finish.tab-pane(style="display : block;")
+                        .card.table-card.border.shadow-none
+                          .card-header.pb-0.pt-2
+                            ul#myTab.nav.nav-tabs.profile-tabs(role='tablist')
+                              li.nav-item(role='presentation')
+                                button#home-tab.nav-link.active(data-bs-toggle='tab' data-bs-target='#home-tab-pane' type='button' role='tab' aria-controls='home-tab-pane' aria-selected='true') Thông Tin Đơn Hàng
+                             
+                          .card-body.pb-0
+                            #myTabContent.tab-content
+                              #home-tab-pane.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab' tabindex='0')
+                                .table-responsive
+                                  table.table.table-hover.mb-0
+                                    thead
+                                      tr(style="text-align : center;")
+                                        th Mã Hóa Đơn
+                                        Th Trạng thái
+                                        th Ngày Đặt Hàng
+                                        th Tổng Tiền 
+                                        th Phương Thức                                       
+                                        th Hành Động 
+                                        th 
+                                          i.material-icons-two-tone.f-18 more_vert
+                                    tbody(actionstatusotheradmin)#accordion
+                                      form(action="" method="POST" formhandlecancelinvoiceclient)
+                                      each item in data 
+                                        tr(style="text-align : center;")
+                                          td #{item.id}
+                                          td 
+                                           if((item.orderStatus != "cancel" && item.orderStatus != "refund") || id == 6) 
+                                            span.badge.text-bg-success() #{item.orderStatus}   
+                                           else 
+                                            span.badge(style="background : #9A90D4;") Chờ đợi xác nhận                                       
+                                          td #{item.Time}
+                                          td
+                                            span.badge.text-bg-success #{item.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' VNĐ'}   
+                                          td(style="color : #1DE9B6;") #{item.paymentMethod}                                        
+                                          td(style = "display : flex; justify-content : center" )
+                                              button.avtar.avtar-xs.btn-link-secondary(viewdetailinvoiceclient=item.id)
+                                                  i.ti.ti-eye.f-20(data-bs-toggle="tooltip" title="Xem Chi Tiết!")
+                                              if(id == 2 || id == 3)
+                                                a.avtar.avtar-xs.btn-link-secondary(handlecancelinvoiceprofileclient=`/profile/editinvoice/${item.id}/cancel`)
+                                                    <i class="fa-regular fa-circle-xmark" style="font-size : 15px;" data-bs-toggle="tooltip" title="Hủy Đơn Hàng!"></i>
+                                              if(id == 5)
+                                                 a.avtar.avtar-xs.btn-link-secondary(handlecancelinvoiceprofileclient=`/profile/editinvoice/${item.id}/refund`)
+                                                  <i class="fa-solid fa-right-left"  data-bs-toggle="tooltip" title="Trả Hàng"></i>
+                                          each itemnew in item.detail 
+                                            tr(style="text-align : center;" class="detailinvoiceclienthidden" handledetailinvoiceclient=item.id)
+                                              td Tên Shop #{item.nameshop}
+                                              td #{itemnew.title}                                      
+                                              td 
+                                                img(src=itemnew.thumbnail style="width : 50px ; height : 50px;")
+                                              td #{itemnew.quality}                                        
+                                              td #{itemnew.pricenew.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' VNĐ'}                                     
+                                              td #{(parseInt(itemnew.quality) * parseInt(itemnew.pricenew)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' VNĐ'}
+                                      
+                                                                                  
+                                                  
+// Main Content end
+// Go Live Popup start
+//- .go-live-popup
+  .container
+    .row
+      .col-lg-8
+        #goLiveMod.modal.cmn-modal.fade
+          .modal-dialog.modal-dialog-centered
+            .modal-content.p-5
+              .modal-header.justify-content-center
+                button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                  i.material-symbols-outlined.mat-icon.xxltxt  close 
+              .top-content.pb-5
+                h5 Go Live
+              .mid-area
+                .d-flex.mb-5.gap-3
+                  .profile-box
+                    a(href='#')
+                      img.max-un(src='images/add-post-avatar.png' alt='icon')
+                  textarea(cols='10' rows='2' placeholder='Write something to Lerio..')
+                .file-upload
+                  label Upload attachment
+                  label.file.mt-1
+                    input(type='file')
+                    span.file-custom.pt-8.pb-8.d-grid.text-center
+                      i.material-symbols-outlined.mat-icon  perm_media 
+                      span Drag here or click to upload photo.
+              .footer-area.pt-5
+                .btn-area.d-flex.justify-content-end.gap-2
+                  button.cmn-btn.alt(type='button' data-bs-dismiss='modal' aria-label='Close') Cancel
+                  button.cmn-btn Go Live
+// Go Live Popup end
+// video popup start
+//- .go-live-popup.video-popup
+  .container
+    .row
+      .col-lg-8
+        #photoVideoMod.modal.cmn-modal.fade
+          .modal-dialog.modal-dialog-centered
+            .modal-content.p-5
+              .modal-header.justify-content-center
+                button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                  i.material-symbols-outlined.mat-icon.xxltxt  close 
+              .top-content.pb-5
+                h5 Add post photo/video
+              .mid-area
+                .d-flex.mb-5.gap-3
+                  .profile-box
+                    a(href='#')
+                      img.max-un(src='images/add-post-avatar.png' alt='icon')
+                  textarea(cols='10' rows='2' placeholder='Write something to Lerio..')
+                .file-upload
+                  label Upload attachment
+                  label.file.mt-1
+                    input(type='file')
+                    span.file-custom.pt-8.pb-8.d-grid.text-center
+                      i.material-symbols-outlined.mat-icon  perm_media 
+                      span Drag here or click to upload photo.
+              .footer-area.pt-5
+                .btn-area.d-flex.justify-content-end.gap-2
+                  button.cmn-btn.alt(type='button' data-bs-dismiss='modal' aria-label='Close') Cancel
+                  button.cmn-btn Post
+// video popup end
+// Go Live Popup start
+//- .go-live-popup
+  .container
+    .row
+      .col-lg-8
+        #activityMod.modal.cmn-modal.fade
+          .modal-dialog.modal-dialog-centered
+            .modal-content.p-5
+              .modal-header.justify-content-center
+                button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                  i.material-symbols-outlined.mat-icon.xxltxt  close 
+              .top-content.pb-5
+                h5 Create post
+              .mid-area
+                .d-flex.mb-5.gap-3
+                  .profile-box
+                    a(href='#')
+                      img.max-un(src='images/add-post-avatar.png' alt='icon')
+                  textarea(cols='10' rows='2' placeholder='Write something to Lerio..')
+                .file-upload
+                  label Upload attachment
+                  label.file.mt-1
+                    input(type='file')
+                    span.file-custom.pt-8.pb-8.d-grid.text-center
+                      i.material-symbols-outlined.mat-icon  perm_media 
+                      span Drag here or click to upload photo.
+                .tooltips-area.d-flex.mt-3.gap-2
+                  button.btn.d-center(type='button' data-bs-toggle='tooltip' data-bs-placement='top' title='Fallings/Activity')
+                    i.material-symbols-outlined.mat-icon  mood 
+                  button.btn.d-center(type='button' data-bs-toggle='tooltip' data-bs-placement='top' title='Video')
+                    i.material-symbols-outlined.mat-icon  movie 
+                  button.btn.d-center(type='button' data-bs-toggle='tooltip' data-bs-placement='top' title='Maps')
+                    i.material-symbols-outlined.mat-icon  location_on 
+                  button.btn.d-center(type='button' data-bs-toggle='tooltip' data-bs-placement='top' title='Tag')
+                    i.material-symbols-outlined.mat-icon  sell 
+              .footer-area.d-flex.justify-content-between.pt-5
+                .left-area
+                  select
+                    option(value='1') Public
+                    option(value='2') Only Me
+                    option(value='3') Friends
+                    option(value='4') Custom
+                .btn-area.d-flex.justify-content-end.gap-2
+                  button.cmn-btn.alt(type='button' data-bs-dismiss='modal' aria-label='Close') Cancel
+                  button.cmn-btn Post
+// Go Live Popup end
+// ==================================================================
+script(src='/profile/js/jquery.min.js')
+script(src='/profile/js/bootstrap.bundle.min.js')
+script(src='/profile/js/slick.js')
+script(src='/profile/js/jquery.nice-select.min.js')
+script(src='/profile/js/plyr.js')
+script(src='/profile/js/apexcharts.js')
+script(src='/profile/js/wow.min.js')
+script(src='/profile/js/plugin.js')
+script(src='/profile/js/main.js')
+script(src="/socket.io/socket.io.js")
+script(src='/jsclient/io.js')
+script(src='/jsclient/jslayout.js')
+script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js") 
+script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js")
+script(src="/admin/js/jslayout.js")
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+script(src="/tinymce/tinymce.min.js")
+script(src="/admin/js/tinymce-config.js")
+<script src="/admin/layoutadmin/js/popper.min.js"></script>
+<script src="/admin/layoutadmin/js/simplebar.min.js"></script>
+<script src="/admin/layoutadmin/js/bootstrap.min.js"></script>
+<script src="/admin/layoutadmin/js/custom-font.js"></script>
+<script src="/admin/layoutadmin/js/pcoded.js"></script>
+<script src="/admin/layoutadmin/js/feather.min.js"></script>
+
+

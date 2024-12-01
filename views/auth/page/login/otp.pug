@@ -1,0 +1,72 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='x-ua-compatible' content='ie=edge')
+  title Xmee | Login and Register Form Html Templates
+  meta(name='description' content='')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  // Favicon
+  link(rel='shortcut icon' type='image/x-icon' href='/loginadmin/images/favicon.png')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='/loginadmin/css/bootstrap.min.css')
+  // Fontawesome CSS
+  link(rel='stylesheet' href='/loginadmin/css/fontawesome-all.min.css')
+  // Flaticon CSS
+  link(rel='stylesheet' href='/loginadmin/css/flaticon.css')
+  // Google Web Fonts
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  // Custom CSS
+  link(rel='stylesheet' href='/loginadmin/css/style.css')
+//if lt IE 8
+  p.browserupgrade
+    | You are using an 
+    strong outdated
+    |  browser. Please 
+    a(href='http://browsehappy.com/') upgrade your browser
+    |  to improve your experience.
+#preloader.preloader
+  .inner
+    .line1
+    .line2
+    .line3
+section.fxt-template-animation.fxt-template-layout11
+  .container
+    .row.align-items-center.justify-content-center
+      .col-xl-6.col-lg-7.col-sm-12.col-12.fxt-bg-color
+        .fxt-content
+          .fxt-header
+             div.fxt-logo(href='login-21.html' style="font-size : 35px ; font-weight : 600;") Xác Thực Mã OTP
+          .fxt-form
+            h2 Vui Lòng Kiểm Tra email của bạn
+            a.fxt-otp-logo(href='#')
+              img(src='/loginadmin/images/otp-icon.png' alt='Otp Logo')
+            p
+              | Chúng tôi đã gửi OTP về email của bạn
+            label.fxt-otp-label Nhập Mã OTP
+            form#otp-form(method='POST' action = "/auth/loginadmin/forgotpasswordotppost")
+              .fxt-transformY-50.fxt-transition-delay-1
+                .fxt-form-row
+                  input(value=email name="email" type="hidden")
+                  input.fxt-form-col.otp-input.form-control(type='text' name="otp" maxlength='1' required='required')
+                  input.fxt-form-col.otp-input.form-control(type='text' name="otp" maxlength='1' required='required')
+                  input.fxt-form-col.otp-input.form-control(type='text' name="otp" maxlength='1' required='required')
+                  input.fxt-form-col.otp-input.form-control(type='text' name="otp" maxlength='1' required='required')
+              .fxt-form-btn.fxt-transformY-50.fxt-transition-delay-4
+                .text-center.mb-3
+                  button.fxt-btn-fill(type='submit') Xác Nhận
+          .fxt-footer
+            .fxt-transformY-50.fxt-transition-delay-9
+              p.fxt-resend-wrap
+                | Bạn muốn quay lại trang
+                a.fxt-btn-resend(type='submit' href="/auth/loginadmin") Đăng Nhập
+               
+// jquery
+script(src='/loginadmin/js/jquery.min.js')
+// Bootstrap js
+script(src='/loginadmin/js/bootstrap.min.js')
+// Imagesloaded js
+script(src='/loginadmin/js/imagesloaded.pkgd.min.js')
+// Validator js
+script(src='/loginadmin/js/validator.min.js')
+// Custom Js
+script(src='/loginadmin/js/main.js')

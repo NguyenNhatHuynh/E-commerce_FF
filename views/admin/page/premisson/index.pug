@@ -1,0 +1,264 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main 
+  +alert(messages.nice)
+  +alertfaild(messages.error)
+  if(records)
+    div(data-records=records)
+  .pc-content(style="padding : 0;")
+    .page-header
+        .page-block
+          .row.d-flex.align-items-center
+            .col-md-6
+              .page-header-title
+                h2.mb-0(style="margin-left : -10px; color : #04A9F5") Phân Quyền
+            .col-md-6
+                div(class="text-right")
+                  button(
+                    type="submit"
+                    class="btn btn-primary "
+                    button-submit
+                 ) Cập nhật
+    .row
+      .card
+        .card-header 
+            h5(style="color : #04A9F5;") Phân Quyền Cho Từng Nhóm Quyền
+        .card-body
+          table.table.table-hover.mb-0(
+            class="table table-hover table-sm"
+            table-permissions
+          )
+            thead
+              tr
+                th(style="color : #04A9F5; ") Tính năng
+                each item in records
+                  th(class="text-center" style="color : #04A9F5;") #{item.title}
+            tbody(phicsscheckinputadminpremisson)
+              tr(data-name="id" class="d-none")
+                td
+                each item in records
+                  td(class="text-center")
+                    input(type="text" value=item.id)
+
+              //- Danh mục sản phẩm
+             
+              //- Hết Danh mục sản phẩm
+              //- Danh sách sản phẩm
+              tr
+                td(colspan="4" class="csstittlepermisson")
+                  b Quản Lý Sản Phẩm
+              tr(data-name="products_view")
+                td Xem
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="products_create")
+                td Thêm mới
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="products_edit")
+                td Chỉnh sửa
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="products_delete")
+                td Xóa
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+               
+
+
+              tr         
+                td(colspan="4" class="csstittlepermisson") 
+                    b Quản Lý Hóa Đơn
+              tr(data-name="invoice_view")
+                td Xem
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="handle_invoice")
+                td Xử Lý Hóa Đơn
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="confim-cancel")
+                td Xác Nhận Hủy Đơn
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="comfim-return")
+                td Xác Nhận Hoàn Đơn
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+
+
+              tr         
+                td(colspan="4" class="csstittlepermisson") 
+                    b Các Chức Năng Tiện Tích
+              tr(data-name="manage-dashboard")
+                td Quản Lý Trang Tổng Quan Shop
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="manage-revenue")
+                td Quản Lý Doanh Thu
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="manage-seo")
+                td Quản lý SEO sản phẩm
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="manage-mess")
+                td Nhắn Tin
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="maintain-account")
+                  td Gia Hạn Tài Khoản
+                  each item in records
+                    td(class="text-center")
+                      input(type="checkbox" class="form-check-input")
+
+
+
+
+
+
+
+
+
+
+
+
+              //- Nhóm quyền
+              tr
+                td(colspan="4" class="csstittlepermisson")
+                  b Tạo Quyền Và Cung Cấp Quyền
+              tr(data-name="roles_view")
+                td Xem
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="roles_create")
+                td Thêm mới
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="roles_edit")
+                td Chỉnh sửa
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="roles_delete")
+                td Xóa
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="roles_permissions")
+                td Phân quyền
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+
+              //- Tài Khoản
+              tr
+                td(colspan="4" class="csstittlepermisson") 
+                  b Quản Lý Tài Khoản
+              tr(data-name="account_view")
+                td Xem
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="premisson-account")
+                td Phân Quyền Tài Khoản
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="lock-account")
+                td Khóa Tài Khoản
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+
+
+
+              tr
+                td(colspan="3" class="csstittlepermisson")
+                  b Tạo Danh Mục Cho Sàn
+              tr(data-name="products-category_view")
+                td Xem
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="products-category_create")
+                td Thêm mới
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="products-category_edit")
+                td Chỉnh sửa
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="products-category_delete")
+                td Xóa
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              
+              tr         
+                td(colspan="4" class="csstittlepermisson") 
+                    b Các Chức Năng Cao Cấp
+              tr(data-name="manage-dashboard-admin")
+                td Quản Lý Tổng Quan Sàn
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="view-revenu")
+                td Xem Doanh Thu Sàn
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="manage-voucher")
+                td Quản Lý Voucher
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="check-products")
+                td Xét Duyệt Sản Phẩm
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="check-account")
+                td Xét Duyệt Tài Khoản
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+              tr(data-name="check-invoice")
+                td Xét Duyệt Hóa Đơn
+                each item in records
+                  td(class="text-center")
+                    input(type="checkbox" class="form-check-input")
+             
+              
+
+          
+
+
+    form(
+      form-change-permissions
+      method="POST"
+      action=`/${prefixAdmin}/premisson/handlepremisson?_method=PATCH`
+      class="d-none"
+    )
+      div(class="form-group")
+        input(
+          type="text"
+          class="form-control"
+          name="role"
+        )

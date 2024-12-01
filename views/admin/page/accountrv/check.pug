@@ -1,0 +1,71 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main
+    form(action="" method="POST"  data-formsubmitprofileadmin)
+      .pc-content(style="padding : 0;")
+        // [ breadcrumb ] start
+        .page-header
+          .page-block
+            .row.align-items-center
+              .col-md-12
+                .page-header-title
+                  h2.mb-0 Hồ Sơ Cá Nhân
+        // [ breadcrumb ] end
+        // [ Main Content ] start
+        .row
+          // [ form-element ] start
+          .col-lg-12
+            .card
+              #sticky-action.sticky-action
+                .card-header
+                  .row.align-items-center
+                    .col-sm-6
+                      h5 Thông Tin Chi Tiết
+                    .col-sm-6.text-sm-end.mt-3.mt-sm-0
+                
+              .card-body       
+                .row
+                  .col-md-6
+                      .mb-3
+                        label.form-label(for='exampleInputEmail1') Họ Và Tên
+                        input#exampleInputEmail1.form-control(type='email' value=dataaccount.fullName  readonly aria-describedby='emailHelp' placeholder='Enter email')
+                      .mb-3
+                        label.form-label(for='exampleInputPassword1') Email
+                        input#exampleInputPassword1.form-control(type='text' value=dataaccount.email getemailprofileadmin readonly placeholder='Password')
+                  .col-md-6
+                      .mb-3
+                        label.form-label(for='exampleInputEmail1') Số Điện Thoại
+                        input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp' value=dataaccount.phone  readonly  placeholder='Enter email')
+                      .mb-3
+                        label.form-label(for='exampleInputEmail1') Tên Shop
+                        input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp' value=dataaccount.nameshop  readonly  placeholder='Enter email')
+             
+                .row
+                  .col-md-6
+                    .mb-3
+                        label.form-label(for='exampleInputEmail1') Tuổi
+                        input#exampleInputEmail1.form-control(type='email'  aria-describedby='emailHelp' value=dataaccount.age  readonly  placeholder='Enter email')
+                  .col-md-6
+                      .mb-3
+                        label.form-label(for='exampleInputEmail1') Danh Mục Đăng Ký
+                        input#exampleInputEmail1.form-control(type='email'  aria-describedby='emailHelp' value=dataaccount.title  readonly  placeholder='Enter email')
+            
+                form
+                  .row
+                    .mb-3.col-md-6
+                      label.form-label(for='inputEmail4') Thời Hạn Đăng Ký
+                      input#inputEmail4.form-control(type='email' value=dataaccount.duration readonly placeholder='Email')
+                    .mb-3.col-md-6
+                      label.form-label(for='inputPassword4') Địa Chỉ
+                      input#inputPassword4.form-control(type='text' value=dataaccount.address.name readonly placeholder='Password')
+                    .mb-3.col-md-6
+                      label.form-label(for='inputAddress') Ngày Sinh
+                      input#inputAddress.form-control(type='text' value=dataaccount.birthday placeholder='1234 Main St')
+                    .mb-3.col-md-6
+                      label.form-label(for='inputAddress2') CCCD hoặc CMND
+                      img(src=dataaccount.cccd  style ="width : 280px; height : 120px; object-fit : cover; margin-left : 50px; background-position: center;")
+                
+                  button.btn.btn-primary.m-t-10(type='button' buttonacceptprofileadmin) Chấp Nhận Hồ Sơ
+                  button.btn.btn-danger.m-l-20.m-t-10(type="submit" buttonrefuseprofileadmin) Hồ Sợ Không Đạt 
+          // [ form-element ] end
+        // [ Main Content ] end

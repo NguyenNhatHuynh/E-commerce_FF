@@ -1,0 +1,228 @@
+/*L-desktop*/
+
+@media (min-device-width:  1600px)
+{
+    
+}
+
+/*L-laptops*/
+@media(max-width: 1440px)
+{
+    .step-type span
+    {
+        font-size: 16px;
+    }
+    .wrapper
+    {
+        width: 90%;
+    }
+    .step-counter-inner
+    {
+        margin-left: 10px;
+    }
+    
+
+    
+}
+
+/*laptops/tablets*/
+@media(max-width: 1024px)
+{
+    .tab-100
+    {
+        width: 100%;
+    }
+    .tab-50
+    {
+        width: 50%;
+    }
+    .tab-33
+    {
+        width: 33.333333%;
+        margin-bottom: 15px;
+    }
+    .step-type span
+    {
+        font-size: 14px;
+    }
+    .wrapper
+    {
+        width: 90%;
+    }
+    .step-counter-inner
+    {
+        margin-left: 10px;
+    }
+    .step-type .step-type-icon
+    {
+        min-width: 38px;
+        height: 38px;
+    }
+    .step-type .step-type-icon i
+    {
+        font-size: 17px;
+    }
+    .step-type::after
+    {
+        margin:  0 15px;
+        width: 31px;
+    }
+    .radio-field p
+    {
+        width: 85%;
+    }
+    .sidebar-text h2
+    {
+        font-size: 40px;
+    }
+    .sidebar
+    {
+        padding: 45px 60px 90px;
+    }
+    .sidebar-text p
+    {
+        width: 100%;
+        font-size: 13px;
+    }
+
+
+    .thankyou-page article p
+    {
+        width: 80%;
+    }
+    .social-media
+    {
+        width: 65%;
+    }
+    .thankyou-page article h1
+    {
+        font-size: 60px;
+    }
+    .thankyou-page article h1 span
+    {
+        font-size: 65px;
+    }
+    .thankyou-page article span
+    {
+        font-size: 18px;
+    }
+}
+
+
+/*tablets*/
+@media (max-width: 768px)
+{
+    .tab-sm-100
+    {
+        width: 100%;
+    }
+    .tab-sm-50
+    {
+        width: 50%;
+    }
+    .sidebar
+    {
+        order: 2;
+    }
+    .social-media
+    {
+        width: 85%;
+    }
+}
+
+
+/*Smart phone*/
+@media(max-width: 576px)
+{
+    .mob-100
+    {
+        width: 100%;
+    }
+    .mob-50
+    {
+        width: 50%;
+    }
+    .step-counter
+    {
+        display: none;
+    }
+    .step-bar-inner
+    {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        border-radius: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    .sidebar
+    {
+        order: 2;
+        padding: 45px 20px 90px;
+    }
+    .sidebar-text h2
+    {
+        font-size: 35px;
+    }
+    .sidebar-text p
+    {
+        font-size: 12px;
+    }
+    .wrapper
+    {
+        width: 95%;
+        margin-left:  auto;
+        margin-right:  auto;
+    }
+    .input-field label, .radio-field label
+    {
+        text-align: left;
+    }
+    .form#step2, .form#step3
+    {
+        padding-left: 0;
+    }
+    .gender-field
+    {
+        height: auto;
+    }
+    .gender-field .border-end
+    {
+        border: 0 !important;
+        border-bottom: solid 1px var(--bs-border-color) !important;
+    }
+    .gender-single
+    {
+        padding-left: 10px;
+    }
+    .thankyou-page article h1
+    {
+        font-size: 30px;
+    }
+    .thankyou-page article h1 span
+    {
+        font-size: 35px;
+    }
+    .thankyou-page article span
+    {
+        font-size: 15px;
+    }
+    .thankyou-page article p
+    {
+        font-size: 15px;
+        width: 90%;
+    }
+    .thankyou-page .logo-text
+    {
+        font-size: 60px;
+    }
+    .social-media
+    {
+        width: 100%;
+    }
+
+
+    
+}
+
+

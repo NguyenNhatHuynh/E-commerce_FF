@@ -1,0 +1,145 @@
+extends ../../layout/index.pug
+
+block main 
+  - if (messages.nice)
+    div(
+      class="alert alert-success"
+      show-alert
+    ) #{messages.nice} <span close-alert>x</span>
+  .pc-content.mb-4(style="padding : 0;")
+        // [ breadcrumb ] start
+        .page-header
+          .page-block
+            .row.align-items-center
+              .col-md-12
+                
+              .col-md-12
+                .page-header-title
+                  h2.mb-0 Quản Lý Sản Phẩm
+  .card.mb-3 
+    .card-header Bộ lọc và tìm kiếm 
+    .card-body.mb-4 
+      .row(phicssbuttonactiveproducts) 
+        .col-6
+          each item in fillterStates
+            button(
+              class=`btn btn-sm ml-1 btn-outline-success ${item.class}`
+              button-status=item.status
+                ) #{item.name} 
+        .col-6
+          form(id="form-seach")
+            .input-group.d-flex.align-items-center
+              input(type="text" placeholder="Nhập từ khóa" name="keyword" class="form-control" value=key)
+              .input-group-append
+                button(
+                  class="btn btn-success"
+                  type="submit"
+                ) Tìm
+  .card.mb-3 
+    .card-header Sắp Xếp 
+    .card-body 
+      select(name="" class="form-control" style = "padding : 0 0 0 7px;" sort-select) 
+          option(value="position-desc") Vị trí giảm dần
+          option(value="position-asc") Vị trí tăng dần
+          option(value="price-desc") Giá giảm dần
+          option(value="price-asc") Giá tăng dần
+          option(value="title-asc") Tiêu đề A - Z
+          option(value="title-desc") Tiêu đề Z - A
+      button(
+            class="btn btn-danger mt-2"
+            sort-clear
+          ) Clear
+  .card.mb-3 
+    .card-header Danh sách
+    .card-body
+      .row 
+        .col-8 
+          form(
+            action=`/${prefixAdmin}/products/changeall?_method=PATCH`
+            method="POST"
+            form-change-multi
+          ) 
+            .d-flex.align-items-start
+              .form-group
+                select(name="type" style = "padding : 0 0 0 7px;" class="form-control")
+                  option(value="active") Hoạt động
+                  option(value="inactive") Dừng hoạt động
+                  option(value="deleteall") Xoá Tất Cả
+              .form-group
+                input(
+                  type="hidden"
+                  name="ids"
+                  value=""
+                  class="form-control"
+                )
+              button(type="submit" style="margin-left : 10px" class="btn btn-primary") Áp dụng
+        if(role.permissions.includes("products_create"))
+          .col-4.text-right 
+            a(
+              href=`/${prefixAdmin}/products/create`
+              class="btn btn-outline-success"
+            ) + Thêm mới
+      table.table.table-hover.table-sm(checkboxfather)
+        thead
+          tr
+            th 
+              input(
+                  type="checkbox"
+                  name="checkall"
+                )
+            th STT
+            th Hình ảnh
+            th Tiêu đề
+            th Giá
+            th Trạng thái
+            th Xét duyệt
+            th Hành động
+
+        tbody
+          each item, index in products
+            tr 
+              td 
+                input(type="checkbox" name="id" value=item.id )
+              td #{index + 1}
+              td
+                img(
+                  src=item.thumbnail
+                  alt=item.title
+                  width="100px"
+                  height="auto"
+                )
+              td #{item.title}
+              td #{item.price}$
+              td
+                if(item.status == "active")
+                  a.badge.text-bg-success(href="javascript:;" class="" buttonchangestatus status=item.status id=item.id) Hoạt động
+                else
+                  a(href="javascript:;"  style ="color : white; background : #04A9F5; font-size : 11px; padding  : 5px; border-radius : 5px;"  buttonchangestatus status=item.status id=item.id) Dừng hoạt động
+              td
+                if(item.Licensing == "false")
+                   a(href="javascript:;" style ="color : #04A9F5;"  ) Chưa được phê duyệt 
+                else 
+                   a.badge.text-bg-success(href="javascript:;" class="badge badge-danger"  ) Đã được kiểm duyệt
+              td
+                if(role.permissions.includes("products_edit"))
+                  a.badge.text-bg-success(href=`/${prefixAdmin}/products/edit/${item.id}` class="btn btn-sm") Sửa
+                if(role.permissions.includes("products_delete"))
+                  a.badge.text-bg-primary(class="btn btn-sm ml-1" 
+                        button-delete data=item.id) Xóa
+  ul(class="pagination csspaginet")
+    li(class="page-item") 
+       button(class="page-link" buttonpaginet=1) Trang đầu
+    if(paginet.start > 1)
+      li(class="page-item") 
+        button(class="page-link" buttonpaginet=paginet.start - 1) Trang Trước
+    - for(let i = 0 ; i < paginet.totalpage ; i++)
+      li(class="page-item") 
+        button(class=(paginet.start == i + 1 ? "page-link active" : "page-link") buttonpaginet=i + 1) #{i + 1} 
+    if(paginet.start < paginet.totalpage)
+        li(class="page-item") 
+        button(class="page-link" buttonpaginet=paginet.start + 1) Trang Sau
+    li(class="page-item")
+      button(class="page-link" buttonpaginet=paginet.totalpage ) Trang Cuối
+
+    form(action="" form-change-status method="POST" data-path=`/${prefixAdmin}/products/change`) 
+    form(action="" form-delete method="POST" data-path=`/${prefixAdmin}/products/delete`)

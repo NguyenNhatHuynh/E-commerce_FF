@@ -1,0 +1,65 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='x-ua-compatible' content='ie=edge')
+  title Xmee | Login and Register Form Html Templates
+  meta(name='description' content='')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  // Favicon
+  link(rel='shortcut icon' type='image/x-icon' href='/loginadmin/images/favicon.png')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='/loginadmin/css/bootstrap.min.css')
+  // Fontawesome CSS
+  link(rel='stylesheet' href='/loginadmin/css/fontawesome-all.min.css')
+  // Flaticon CSS
+  link(rel='stylesheet' href='/loginadmin/css/flaticon.css')
+  // Google Web Fonts
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  // Custom CSS
+  link(rel='stylesheet' href='/loginadmin/css/style.css')
+//if lt IE 8
+  p.browserupgrade
+    | You are using an 
+    strong outdated
+    |  browser. Please 
+    a(href='http://browsehappy.com/') upgrade your browser
+    |  to improve your experience.
+
+section.fxt-template-animation.fxt-template-layout21
+  // Animation Start Here
+  #particles-js
+  // Animation End Here
+  .container
+    .row.align-items-center.justify-content-center
+      .col-xl-6.col-lg-7.col-sm-12.col-12.fxt-bg-color
+        .fxt-content
+          .fxt-header
+            div.fxt-logo(href='login-21.html' style="font-size : 35px ; font-weight : 600;") Xác Thực Tài Khoản
+            p Vui Lòng Xác Thực Tài Khoản
+          .fxt-form
+            form(method='POST' action="/auth/loginadmin/confimpost")
+              .form-group
+                .fxt-transformY-50.fxt-transition-delay-1
+                  input#email.form-control(type='email' name='email' placeholder='Email' required='required')
+              .form-group
+                .fxt-transformY-50.fxt-transition-delay-1
+                  input#email.form-control(type='text' name='codeactive' placeholder='Mã Xác Thực' required='required')
+              .form-group
+                .fxt-transformY-50.fxt-transition-delay-4
+                  button.fxt-btn-fill(type='submit') Gửi Mã Xác Nhận
+          .fxt-footer
+            .fxt-transformY-50.fxt-transition-delay-9
+                a.switcher-text2.inline-text(href='/auth/loginadmin') Đăng Nhập
+// jquery
+script(src='/loginadmin/js/jquery.min.js')
+// Bootstrap js
+script(src='/loginadmin/js/bootstrap.min.js')
+// Imagesloaded js
+script(src='/loginadmin/js/imagesloaded.pkgd.min.js')
+// Particles js
+script(src='/loginadmin/js/particles.min.js')
+script(src='/loginadmin/js/particles-1.js')
+// Validator js
+script(src='/loginadmin/js/validator.min.js')
+// Custom Js
+script(src='/loginadmin/js/main.js')

@@ -1,0 +1,552 @@
+extends ../../layout/layout.pug
+
+block main 
+    main(style="margin-top: 60px !important;")
+      // Start categories
+      section.tc-categories-style5.mt-30.wow.fadeInUp.slow(data-wow-delay="0.2s")
+        .container
+          .content.border.p-30.radius-4.overflow-hidden(style="background-image : url('/images/bg_category.jpg');   box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px;background-size : cover;")
+            .title.mb-70
+              .row.align-items-center
+                .col-lg-8
+                  //- h5.fsz-24.fw-bold.text-capitalize(style="color : #5B97BF; font-weight : 600;") Danh Mục Sản Phẩm
+
+            .categories(style="margin-bottom : 30px;")
+              each item in category
+                a.cat-item(href=`/products/index/${item.slug}`)
+                  div( style="width : 80px ; height : 80px;  border-radius: 50%; background : white; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;")
+                    img(       
+                      alt=""
+                      style="width : 100%;height : 100%; object-fit : cover; border-radius: 50%;"
+                      src=item.thumbnail
+                     )
+                  span.fsz-13.fw-bold.text-uppercase.mt-20(style="color : #5B97BF") #{item.title}
+          
+            .cat-foot.text-center.pt-30.position-relative.znd10
+              h3.fsz-24(style="color : #5B97BF; font-weight : 900;") Danh Mục Sản Phẩm Sàn Thương Mại Mùa Đông
+      // End categories
+      // Start products-slider
+      //- section.tc-products-slider-style5.mt-30.wow.fadeInUp.slow(data-wow-delay="0.2s")
+        .container
+          .content.border.p-30.radius-4
+            .title.mb-30
+              .row.align-items-center
+                .col-lg-8
+                  h5.fsz-24.fw-bold.text-capitalize Hand-Picked Foods
+                .col-lg-4.mt-4.mt-lg-0.text-lg-end
+                  a.fw-600.text-uppercase.hover-orange1(href="../inner_pages/products.html")
+                    | view all
+                    i.fal.fa-long-arrow-right.ms-1
+            .products-slider.overflow-hidden
+              .swiper-wrapper
+                //- .swiper-slide
+                  .product-card-style5
+                    .top-inf
+                      a.fav-btn(href="#0")
+                        i.fas.fa-heart
+                    a.img(href="../inner_pages/single_product.html")
+                      img.img-contain.main-image(
+                        alt="" 
+                        src="images/prod1.png"
+                        )
+                    .info
+                      .rating
+                        .stars
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star.color-999
+                        span.num.fsz-11 (5)
+                      h6
+                        a.prod-title.fsz-14.mt-2.hover-underline(href="../inner_pages/single_product.html") Royal Canin Cat Dry Food Exigent 2kg
+                      .price.mt-15
+                        h5.fsz-18.fw-600 $359.00
+                      .meta
+                        a.meta-item.color-green2.border(href="#") free shipping
+                        a.meta-item.color-red1.border(href="#") free gift
+                      p.fsz-12.mt-2
+                        i.fas.fa-check-circle.color-green1.me-1
+                        | In stock
+                      a.butn.bg-brown1.text-white.radius-4.fw-500.fsz-12.text-uppercase.text-center.mt-2.hover-bg-orange1.addCart(href="#")
+                        span Add To Cart
+                .swiper-slide
+                  .product-card-style5.bsh-none
+                    .top-inf
+                      .dis-card
+                        small.fsz-10.d-block.text-uppercase save
+                        h6.fsz-14 $100.00
+                      a.fav-btn(href="#0")
+                        i.fas.fa-heart
+                    a.img(href="../inner_pages/single_product.html")
+                      img.img-contain.main-image(
+                        alt="" 
+                        src="images/prod2.png"
+                        )
+                    .info
+                      .rating
+                        .stars
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                        span.num.fsz-11 (152)
+                      h6
+                        a.prod-title.fsz-14.mt-2.hover-underline(href="../inner_pages/single_product.html") Brit Premium by Nature Cat Can â€“ Chicken (200g)
+                      .price.mt-15
+                        h5.fsz-18.color-orange1.fw-600
+                          | $579.00
+                          span.old.fsz-14.color-666.text-decoration-line-through $619.00
+                      .meta
+                        a.meta-item.color-green2.border(href="#") free shipping
+                      p.fsz-12.mt-2
+                        i.fas.fa-check-circle.color-green1.me-1
+                        | In stock
+                      a.butn.bg-000.text-white.radius-4.fw-500.fsz-12.text-uppercase.text-center.mt-2.hover-bg-orange1.addCart(href="#0")
+                        span Add To Cart
+                .swiper-slide
+                  .product-card-style5.bsh-none
+                    .top-inf
+                      a.fav-btn(href="#0")
+                        i.fas.fa-heart
+                    a.img(href="../inner_pages/single_product.html")
+                      img.img-contain.main-image(
+                        alt="" 
+                        src="images/prod3.png"
+                        )
+                    .info
+                      .rating
+                        .stars
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star-half
+                        span.num.fsz-11 (8)
+                      h6
+                        a.prod-title.fsz-14.mt-2.hover-underline(href="../inner_pages/single_product.html") Spectrum Starter32 Kitten Food â€“ Chicken Formula (400g)
+                      .price.mt-15
+                        h5.fsz-18.color-orange1.fw-600
+                          | $1,729.00
+                          span.old.fsz-14.color-666.text-decoration-line-through $2,119.00
+                      .meta
+                        a.meta-item.color-green1.border(href="#") free shipping
+                      p.fsz-12.mt-2
+                        i.fas.fa-times-circle.color-red1.me-1
+                        | Out of stock
+                      a.butn.bg-000.text-white.radius-4.fw-500.fsz-12.text-uppercase.text-center.mt-2.hover-bg-orange1.addCart(href="#0")
+                        span Add To Cart
+                .swiper-slide
+                  .product-card-style5.bsh-none
+                    .top-inf
+                      a.fav-btn(href="#0")
+                        i.fas.fa-heart
+                    a.img(href="../inner_pages/single_product.html")
+                      img.img-contain.main-image(
+                        alt="" 
+                        src="images/prod4.png"
+                        )
+                    .info
+                      h6
+                        a.prod-title.fsz-14.mt-2.hover-underline(href="../inner_pages/single_product.html") Himalaya Erina EP Tick and Flea Control Shampoo 200 ml
+                      .price.mt-15
+                        h5.fsz-18.fw-600 $979.00 - $1,259.00
+                      .meta
+                        a.meta-item.border(href="#") $2.98 Shipping
+                      p.fsz-12.mt-2 PRE - ORDER
+                      a.butn.bg-000.text-white.radius-4.fw-500.fsz-12.text-uppercase.text-center.mt-2.hover-bg-orange1.addCart(href="#0")
+                        span Add To Cart
+                .swiper-slide
+                  .product-card-style5.bsh-none
+                    .top-inf
+                      .dis-card
+                        small.fsz-10.d-block.text-uppercase save
+                        h6.fsz-14 $3.00
+                      a.fav-btn(href="#0")
+                        i.fas.fa-heart
+                    a.img(href="../inner_pages/single_product.html")
+                      img.img-contain.main-image(
+                        alt="" 
+                        src="images/prod5.png"
+                        )
+                    .info
+                      .rating
+                        .stars
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                        span.num.fsz-11 (9)
+                      h6
+                        a.prod-title.fsz-14.mt-2.hover-underline(href="../inner_pages/single_product.html") Bonnie Beef Cocktail (500g)
+                      .price.mt-15
+                        h5.fsz-18.color-orange1.fw-600
+                          | $9.00
+                          span.old.fsz-14.color-666.text-decoration-line-through $12.00
+                      .meta
+                        a.meta-item.border(href="#") $3.98 Shipping
+                      p.fsz-12.mt-2.text-uppercase
+                        i.fas.fa-phone-alt
+                        | contact
+                      a.butn.bg-000.text-white.radius-4.fw-500.fsz-12.text-uppercase.text-center.mt-2.hover-bg-orange1.addCart(href="#0")
+                        span Add To Cart
+                .swiper-slide
+                  .product-card-style5.bsh-none
+                    .top-inf
+                      a.fav-btn.active(href="#0")
+                        i.fas.fa-heart
+                    a.img(href="../inner_pages/single_product.html")
+                      img.img-contain.main-image(
+                        alt="" 
+                        src="images/prod3.png"
+                        )
+                    .info
+                      .rating
+                        .stars
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star-half
+                        span.num.fsz-11 (8)
+                      h6
+                        a.prod-title.fsz-14.mt-2.hover-underline(href="../inner_pages/single_product.html") Spectrum Starter32 Kitten Food â€“ Chicken Formula (400g)
+                      .price.mt-15
+                        h5.fsz-18.color-orange1.fw-600
+                          | $1,729.00
+                          span.old.fsz-14.color-666.text-decoration-line-through $2,119.00
+                      .meta
+                        a.meta-item.color-green1.border(href="#") free shipping
+                      p.fsz-12.mt-2
+                        i.fas.fa-times-circle.color-red1.me-1
+                        | Out of stock
+                      a.butn.bg-000.text-white.radius-4.fw-500.fsz-12.text-uppercase.text-center.mt-2.hover-bg-orange1.addCart(href="#0")
+                        span Add To Cart
+            .swiper-button-next
+            .swiper-button-prev
+      // End products-slider
+      // Start features-line
+      .tc-features-line-style5.mt-90.wow.fadeInUp.slow(data-wow-delay="0.2s" style="margin-top : 120px !important;")
+        .container
+          .content.py-4.px-5.lh-7.bg-orange1.text-white.radius-4.text-uppercase.d-block.d-lg-flex.justify-content-between.fsz-13.lh-5(style="background : #5B97BF !important; padding : 20px;" phicsshomecontent2)
+            a(href="#")
+              span.icon.me-2
+                i.fal.fa-shipping-fast
+              | Sản Phẩm Tốt Nhất
+            a(href="#")
+              span.icon.me-2
+                i.fal.fa-redo-alt
+              | Hoàn Trả 7 Ngày
+            a(href="#")
+              span.icon.me-2
+                i.fal.fa-shield
+              | 100% chính hãng
+            a(href="#")
+              span.icon.me-2
+                i.fal.fa-rabbit
+              | Độc quyền của sàn
+            a(href="#")
+              span.icon.me-2
+                i.fal.fa-headphones
+              | Hổ Trợ 24/7
+      // End features-line
+      // Start sale
+      section.tc-sale-style5.mt-30.wow.fadeInUp.slow.mb-150(data-wow-delay="0.2s" )
+        .container
+          .content.border.radius-4(style="border : 1px solid white !important;")
+            .row
+              .col-lg-3
+                .sale-filter
+                  h5.fsz-22.mb-15
+                    i.fas.fa-bolt.me-1(style="color : white")
+                    span(style="font-size : 18px; display : inline-block; margin-left : 10px;") Sản Phẩm Nổi Bật
+                  ul
+                    li
+                      a.s-link(href="../inner_pages/products.html")
+                        | 40% offer
+                        span.arrow
+                          i.fal.fa-long-arrow-right
+                    li
+                      a.s-link(href="../inner_pages/products.html")
+                        | christmas offer
+                        span.arrow
+                          i.fal.fa-long-arrow-right
+                    li
+                      a.s-link(href="../inner_pages/products.html")
+                        | hand picked
+                        span.arrow
+                          i.fal.fa-long-arrow-right
+                    li
+                      a.s-link(href="../inner_pages/products.html")
+                        | Best sell
+                        span.arrow
+                          i.fal.fa-long-arrow-right
+                    li
+                      a.s-link(href="../inner_pages/products.html")
+                        | recently added
+                        span.arrow
+                          i.fal.fa-long-arrow-right
+                  .img
+                    img(
+                      alt="" 
+                      src="/images/home_1_snowman.png"
+                      )
+              .col-lg-9(style="background-image : url('/images/test.jpg');background-size : cover;background-positon : center; box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px;")
+                .products
+                  .row.gx-0
+                   each item of data                  
+                      .col-lg-3
+                        .product-card-style5(style="margin-top : 30px ;height : 400px !important; background : white; box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px;")
+                          .top-inf
+                            .dis-card(style="background : #5B97BF")
+                              small.fsz-10.d-block.text-uppercase save
+                              h6.fsz-14 #{item.discountPercentage} %
+                            a.fav-btn.active(style="background : #5B97BF ; color : white;")
+                              i.fas.fa-heart
+                          a.img(href="../inner_pages/single_product.html")
+                            img.img-contain.main-image(
+                              alt="" 
+                              src=item.thumbnail
+                              style="width 100%; aspect-ratio: 1/1;"
+                              )
+                          .info(phicssngoisaoclienthome)
+                            .rating
+                              .stars
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                              span.num.fsz-11(style="color : #7D7F82;") (152)
+                            h6
+                              a.prod-title.fsz-16.mt-2.hover-underline(href="../inner_pages/single_product.html") #{item.title}
+                            .price.mt-15
+                              h5.fsz-18.color-orange1.fw-600
+                                | #{item.priceNew}  
+                            .meta.d-flex.align-items-center(freeship)
+                                span(price).old.fsz-14.color-666.text-decoration-line-through.mr-3  #{item.price} VNĐ                  
+                                p.fsz-12.mt-3.d-flex.align-items-center
+                                  i.fas.fa-check-circle.color-green1.me-1
+                                  span(style="font-size : 10px;") In stock
+                            a( class="butn bg-000 text-white radius-4 fw-500 fsz-12 text-uppercase text-center mt-2 hover-bg-orange1 addCart" href=`` idshop=item.shopid addcart=item.id)
+                              span Add To Cart 
+                            form(formaddcart method="post" action="")
+      // End sale
+      // Start sale
+      section.tc-sale-style5.mt-30.wow.fadeInUp.slow.mb-4(data-wow-delay="0.2s" style="margin : 150px 0 180px 0 !important;")
+        .container
+          .content.border.radius-4
+            .row.gx-0
+              .col-lg-3
+                .sale-filter.bg-orange1
+                  h5.fsz-24.mb-15
+                    i.fas.fa-fire.me-1.text-white
+                    | Hot Sale
+                  ul
+                    li
+                      a.s-link(href="../inner_pages/products.html")
+                        | 40% offer
+                        span.arrow
+                          i.fal.fa-long-arrow-right
+                    li
+                      a.s-link(href="../inner_pages/products.html")
+                        | christmas offer
+                        span.arrow
+                          i.fal.fa-long-arrow-right
+                    li
+                      a.s-link(href="../inner_pages/products.html")
+                        | hand picked
+                        span.arrow
+                          i.fal.fa-long-arrow-right
+                    li
+                      a.s-link(href="../inner_pages/products.html")
+                        | Best sell
+                        span.arrow
+                          i.fal.fa-long-arrow-right
+                    li
+                      a.s-link(href="../inner_pages/products.html")
+                        | recently added
+                        span.arrow
+                          i.fal.fa-long-arrow-right
+                  .img(style="margin-bottom : -80px !important;")
+                    img.cat-img(
+                      alt="" 
+                      src="images/snowman_2.png"
+                      )
+              .col-lg-9(style="background-image : url('/images/snowflake.jpg'); background-size: cover;   box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px;")
+                .products
+                  .row.gx-0
+                   each item of productshotsale                  
+                      .col-lg-3
+                        .product-card-style5(style="margin-top : 30px ;height : 400px !important; background : white; box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px;")
+                          .top-inf
+                            .dis-card(style="background : #5B97BF")
+                              small.fsz-10.d-block.text-uppercase save
+                              h6.fsz-14 #{item.discountPercentage} %
+                            a.fav-btn.active(style="background : #5B97BF ; color : white;")
+                              i.fas.fa-heart
+                          a.img(href="../inner_pages/single_product.html")
+                            img.img-contain.main-image(
+                              alt="" 
+                              src=item.thumbnail
+                              style="width 100% ; height : 100%;"
+                              )
+                          .info(phicssngoisaoclienthome)
+                            .rating
+                              .stars
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                              span.num.fsz-11(style="color : #7D7F82;") (152)
+                            h6
+                              a.prod-title.fsz-14.mt-2.hover-underline(href="../inner_pages/single_product.html") #{item.title}
+                            .price.mt-15
+                              h5.fsz-18.color-orange1.fw-600
+                                | #{item.priceNew}  
+                            .meta.d-flex.align-items-center(freeship)
+                                span(price).old.fsz-14.color-666.text-decoration-line-through.mr-3  #{item.price} VNĐ                  
+                                p.fsz-12.mt-3.d-flex.align-items-center
+                                  i.fas.fa-check-circle.color-green1.me-1
+                                  span(style="font-size : 10px;") In stock
+                            a( class="butn bg-000 text-white radius-4 fw-500 fsz-12 text-uppercase text-center mt-2 hover-bg-orange1 addCart" href=`` idshop=item.shopid addcart=item.id)
+                              span Add To Cart 
+                              form(formaddcart method="post" action="")
+               
+                     
+          //- .row.gx-0
+            .col-lg-9.offset-lg-3
+              .recent-style5
+                h6.title.fsz-20.fw-bold.mb-4.mb-lg-0 Recently Viewed
+                .prods
+                  a(href="#")
+                    img(
+                      alt="" 
+                      src="images/prod1.png"
+                      )
+                  a(href="#")
+                    img(
+                      alt="" 
+                      src="images/prod2.png"
+                      )
+                  a(href="#")
+                    img(
+                      alt="" 
+                      src="images/prod3.png"
+                      )
+                  a(href="#")
+                    img(
+                      alt="" 
+                      src="images/prod4.png"
+                      )
+                  a(href="#")
+                    img(
+                      alt="" 
+                      src="images/prod5.png"
+                      )
+                  a(href="#")
+                    img(
+                      alt="" 
+                      src="images/prod6.png"
+                      )
+                  a(href="#")
+                    img(
+                      alt="" 
+                      src="images/prod7.png"
+                      )
+                  a(href="#")
+                    img(
+                      alt="" 
+                      src="images/prod8.png"
+                      )
+                  a(href="#")
+                    img(
+                      alt="" 
+                      src="images/prod9.png"
+                      )
+      // End sale
+      // Start banner
+      section.tc-banner-style5.mt-30.wow.fadeInUp.slow(data-wow-delay="0.2s")
+        .container
+          .content.bg-light2.py-lg-2.px-5.radius-3(style="background : #5B97BF !important;")
+            .row.align-items-center.gx-5
+              .col-lg-6
+                .logo-img.mt-4.mt-lg-0
+                  img(
+                    style ="width : 220px ; height : 80px; object-fit : cover; margin-left : -31px; margin-top : -10px; margin-bottom : -10px;"
+                    alt="" 
+                    src="/css/logo8.jpg"
+                    )
+              .col-lg-6.text-right
+                a.butn.md-butn.bg-white.radius-3.fw-600.fsz-12.text-uppercase.hover-bg-orange1(href="#")
+                  span(style="font-weight : 600; color : #809AA7;") Mua Sắm Ngay
+      // End banner
+      // Start tabs
+      section.tc-tabs-style5.mt-30.wow.fadeInUp.slow(data-wow-delay="0.2s")
+        .container
+          .content.border.radius-4.p-30.overflow-hidden
+            .title.mb-30.d-block.d-lg-flex.justify-content-between.align-items-center
+              div.d-flex.align-items-center
+                <i class="fa-regular fa-lightbulb" style ="font-size : 25px; color : #04A9F5"></i>
+                h5.fsz-24.fw-bold.flex-shrink-0(style="color : #5B97BF ; margin-left : 15px;") Sản Phẩm Gợi Ý
+                
+              ul#pills-tab.nav.nav-pills.mt-4.mt-lg-0(role="tablist")
+                li.nav-item(role="presentation")
+                  div(style="background : white; color : #809AA7; font-weight : 600;  box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px;" )#pills-cat2-tab.nav-link.ms-lg-2(
+                    ) Hấp Dẫn
+                li.nav-item(role="presentation")
+                  div(style="background : white; color : #809AA7; font-weight : 600;  box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px;" )#pills-cat3-tab.nav-link.ms-lg-2(
+                    ) Tiện Ích
+                li.navit-em(role="presentation")
+                  div(style="background : white; color : #809AA7; font-weight : 600;  box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px;" )#pills-cat4-tab.nav-link.ms-lg-2(
+                    ) Nổi Bật
+                li.nav-item(role="presentation")
+                  div(style="background : white; color : #809AA7; font-weight : 600;  box-shadow: #88a5bf7a 6px 2px 16px, #fffc -6px -2px 16px;" )#pills-cat5-tab.nav-link.ms-lg-2(
+                    ) Giá Ưu Đãi
+            #pills-tabContent.tab-content
+              #pills-cat1.tab-pane.fade.show.active
+                .tabs-product-slider5
+                  .swiper-wrapper
+                          each item of randomProducts                  
+                              .swiper-slide
+                                .product-card-style5(style="height : 400px !important;")
+                                  .top-inf
+                                    .dis-card(style="background : #5B97BF")
+                                      small.fsz-10.d-block.text-uppercase save
+                                      h6.fsz-14 #{item.discountPercentage} %
+                                    a.fav-btn.active(style="background : #5B97BF ; color : white;")
+                                      i.fas.fa-heart
+                                  a.img(href="../inner_pages/single_product.html")
+                                    img.img-contain.main-image(
+                                      alt="" 
+                                      src=item.thumbnail
+                                      style="width 100% ; height : 100%;"
+                                      )
+                                  .info(phicssngoisaoclienthome)
+                                    .rating
+                                      .stars
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                      span.num.fsz-11(style="color : #7D7F82;") (152)
+                                    h6
+                                      a.prod-title.fsz-14.mt-2.hover-underline(href="../inner_pages/single_product.html") #{item.title}
+                                    .price.mt-15
+                                      h5.fsz-18.color-orange1.fw-600
+                                        | #{item.priceNew}  
+                                    .meta.d-flex.align-items-center(freeship)
+                                        span(price).old.fsz-14.color-666.text-decoration-line-through.mr-3  #{item.price} VNĐ                  
+                                        p.fsz-12.mt-3.d-flex.align-items-center
+                                          i.fas.fa-check-circle.color-green1.me-1
+                                          span(style="font-size : 10px;") In stock
+                                    a( class="butn bg-000 text-white radius-4 fw-500 fsz-12 text-uppercase text-center mt-2 hover-bg-orange1 addCart" href=`` idshop=item.shopid addcart=item.id)
+                                      span Add To Cart 
+                                      form(formaddcart method="post" action="")
+
+                              
+               

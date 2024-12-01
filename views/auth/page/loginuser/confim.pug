@@ -1,0 +1,83 @@
+include ../../mixi/mixi.pug
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='x-ua-compatible' content='ie=edge')
+  title Xmee | Login and Register Form Html Templates
+  meta(name='description' content='')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  // Favicon
+  link(rel='shortcut icon' type='image/x-icon' href='images/favicon.png')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='/cssotp/bootstrap.min.css')
+  // Fontawesome CSS
+  link(rel='stylesheet' href='/cssotp/fontawesome-all.min.css')
+  // Flaticon CSS
+  link(rel='stylesheet' href='/cssotp/flaticon.css')
+  // Google Web Fonts
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  // Custom CSS
+  link(rel='stylesheet' href='/cssotp/style.css')
+//if lt IE 8
+  p.browserupgrade
+    | You are using an 
+    strong outdated
+    |  browser. Please 
+    a(href='http://browsehappy.com/') upgrade your browser
+    |  to improve your experience.
++alert(messages.nice)
++alertfaild(messages.error)
+#preloader.preloader
+  .inner
+    .line1
+    .line2
+    .line3
+section.fxt-template-animation.fxt-template-layout34(data-bg-image='img/elements/bg1.png')
+  .fxt-shape
+    .fxt-transformX-L-50.fxt-transition-delay-1
+      img(src='/imagesotp/shape1.png' alt='Shape')
+  .container
+    .row
+      .col-lg-8
+        .fxt-column-wrap.justify-content-between
+          .fxt-animated-img
+            .fxt-transformX-L-50.fxt-transition-delay-10
+              img(src='/imagesotp/bg34-1.png' alt='Animated Image')
+          .fxt-transformX-L-50.fxt-transition-delay-3
+            a.fxt-logo(href='login-34.html')
+              img(src='/imagesotp/logo-34.png' alt='Logo')
+          .fxt-transformX-L-50.fxt-transition-delay-5
+            .fxt-middle-content
+              h1.fxt-main-title Validate OTP
+              .fxt-switcher-description1
+                | Please enter the OTP (one time password) to verify your account. A Code has been sent to +2*******337
+          .fxt-transformX-L-50.fxt-transition-delay-7
+            .fxt-qr-code
+              img(src='/imagesotp/qr-otp-34.png' alt='QR')
+      .col-lg-4
+        .fxt-column-wrap.justify-content-center
+          .fxt-form
+            a.fxt-otp-logo(href='#')
+              img(src='/imagesotp/otp-icon.png' alt='Otp Logo')
+            form#otp-form(method='POST' action="/auth/loginuser/registerconfimpost")
+              label.fxt-label(for='reset') Enter OTP Code Here
+              .fxt-otp-row
+                input.fxt-otp-col.otp-input.form-control(type='text' name="otp" maxlength='1' required='required')
+                input.fxt-otp-col.otp-input.form-control(type='text' name="otp" maxlength='1' required='required')
+                input.fxt-otp-col.otp-input.form-control(type='text' name="otp" maxlength='1' required='required')
+                input.fxt-otp-col.otp-input.form-control(type='text' name="otp" maxlength='1' required='required')
+              .fxt-otp-btn
+                button.fxt-btn-fill(type='submit') Verify
+            .fxt-switcher-description3
+              | Not received your code?
+              a.fxt-switcher-text.ms-1(href='login-34.html') Resend code
+// jquery
+script(src='/jsotp/jquery.min.js')
+// Bootstrap js
+script(src='/jsotp/bootstrap.min.js')
+// Imagesloaded js
+script(src='/jsotp/imagesloaded.pkgd.min.js')
+// Validator js
+script(src='/jsotp/validator.min.js')
+// Custom Js
+script(src='/jsotp/main.js')

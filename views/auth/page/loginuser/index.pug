@@ -1,0 +1,92 @@
+include ../../mixi/mixi.pug
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='x-ua-compatible' content='ie=edge')
+  title Xmee | Login and Register Form Html Templates
+  meta(name='description' content='')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  // Favicon
+  link(rel='shortcut icon' type='image/x-icon' href='/images/favicon.png')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='/css/bootstraplogin.min.css')
+  // Fontawesome CSS
+  link(rel='stylesheet' href='/css/fontawesome-all.min.css')
+  // Flaticon CSS
+  link(rel='stylesheet' href='/css/flaticon.css')
+  // Google Web Fonts
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  // Custom CSS
+  link(rel='stylesheet' href='/css/style.css')
+//if lt IE 8
+  p.browserupgrade
+    | You are using an 
+    strong outdated
+    |  browser. Please 
+    a(href='http://browsehappy.com/') upgrade your browser
+    |  to improve your experience.
++alert(messages.nice)
++alertfaild(messages.error)
+#preloader.preloader
+  .inner
+    .line1
+    .line2
+    .line3
+section.fxt-template-animation.fxt-template-layout34(data-bg-image='/images/elements/bg1.png')
+  .fxt-shape
+    .fxt-transformX-L-50.fxt-transition-delay-1
+      img(src='/images/shape1.png' alt='Shape')
+  .container 
+    .row
+      .col-lg-8
+        .fxt-column-wrap.justify-content-between
+          .fxt-animated-img
+            .fxt-transformX-L-50.fxt-transition-delay-10
+              img(src='/images/bg34-1.png' alt='Animated Image')
+          .fxt-transformX-L-50.fxt-transition-delay-3
+            a.fxt-logo(href='login-34.html')
+              img(src='/images/logo-34.png' alt='Logo')
+          .fxt-transformX-L-50.fxt-transition-delay-5
+            .fxt-middle-content
+              h1.fxt-main-title Sign In to Rechage Direct
+              .fxt-switcher-description1
+                | If you don&rsquo;t have an account You can
+                a.fxt-switcher-text.ms-2(href='/auth/loginuser/register') Sign Up
+          .fxt-transformX-L-50.fxt-transition-delay-7
+            .fxt-qr-code
+              img(src='/images/qr-login-34.png' alt='QR')
+      .col-lg-4
+        .fxt-column-wrap.justify-content-center
+          .fxt-form
+            form(method='POST' action="/auth/loginuser/loginpost")
+              .form-group
+                input#email.form-control(type='email' name='email' placeholder='Enter Email or Mobile Number' required='required')
+              .form-group
+                input#password.form-control(type='password' name='password' placeholder='********' required='required')
+                i.fa.fa-fw.fa-eye.toggle-password.field-icon(toggle='#password')
+              .form-group
+                .fxt-switcher-description2.text-right
+                  a.fxt-switcher-text(href='forgot-password-34.html') Recovery Password
+              .form-group
+                button.fxt-btn-fill(type='submit') Sign In
+          .fxt-style-line
+            span Or Continus with
+          ul.fxt-socials
+            li.fxt-google
+              a(href='/auth/google' title='google')
+                i.fab.fa-google-plus-g
+            li.fxt-apple
+              a(href='#' title='apple')
+                i.fab.fa-apple
+            li.fxt-facebook
+              a(href='/auth/facebook' title='Facebook')
+                i.fab.fa-facebook-f
+script(src='/js/jquery.min.js')
+// Bootstrap js
+script(src='/js/bootstrap.min.js')
+// Imagesloaded js
+script(src='/js/imagesloaded.pkgd.min.js')
+// Validator js
+script(src='/js/validator.min.js')
+// Custom Js
+script(src='/js/main.js')

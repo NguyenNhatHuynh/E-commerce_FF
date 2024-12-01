@@ -1,0 +1,191 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+
+block main
+  - if (messages.nice)
+    div(
+      class="alert alert"
+      show-alert
+      data-time=5000
+    ) #{messages.nice} <span close-alert>x</span>
+  h1(class="mb-4") Đánh Giá Các Trường
+
+  form(
+    action=`/${prefixAdmin}/checkproducts/check`
+    method="POST"
+  )
+    div(class="form-group")
+        input(
+            readonly
+            type="hidden"
+            class="form-control"
+            id="id"
+            name="id"
+            required
+            value=data.id  
+        )
+    div(class="form-group")
+        label(for="title") Tiêu đề
+        .row
+            .col-11
+                input(
+                    readonly
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    required
+                    value=data.title
+                )
+            .col-1.text-right
+               input(type="checkbox"  class="form-check-input" name="title" id="defaultCheck1" style="padding : 0;")
+    div(class="form-group")
+      label(for="categoryid") Danh Muc 
+      .row
+        .col-11
+            input(
+                readonly
+                type="text"
+                class="form-control"
+                id="title"
+                required
+                value=data.category.title
+            )
+        .col-1.text-right
+               input(type="checkbox"  class="form-check-input" name="category" id="defaultCheck1" style="padding : 0;")
+    div(class="form-group m-3")
+      .row
+        .col-11
+            input(
+                readonly
+                type="radio"
+                class="form-check-input"
+                id="featured0"
+                value="0"
+                disabled
+                checked=(data.featured == "0" ? true : false)
+            )
+            label(for="featured0" class="form-check-label" style="margin-right : 60px;") Không   
+            input(
+                readonly
+                type="radio"
+                class="form-check-input"
+                id="featured1"
+                value="1"
+                checked=(data.featured == "1" ? true : false)
+            )
+            label(for="featured1" class="form-check-label") Nổi bật
+        .col-1
+               input(type="checkbox"  class="form-check-input" name="featured" id="defaultCheck1" style="margin-left : 65px")
+    div(class="form-group")
+      label(for="desc") Mô tả
+      .row
+        .col-11
+            textarea(
+                readonly
+                disabled
+                class="form-control"
+                id="desc"
+                rows="5"
+            ) #{data.description}
+        .col-1.text-right
+            input(type="checkbox"  class="form-check-input" name="description" id="defaultCheck1" style="padding : 0;")
+    div(class="form-group")
+      label(for="price") Giá
+      .row
+        .col-11
+            input(
+                readonly
+                type="number"
+                class="form-control"
+                id="price"
+                value=data.price
+                min="0"
+            )
+        .col-1.text-right
+             input(type="checkbox"  class="form-check-input" name="price" id="defaultCheck1" style="padding : 0;")
+    div(class="form-group")
+      label(for="discount") % Giảm giá
+      .row
+        .col-11
+            input(
+                readonly
+                type="number"
+                class="form-control"
+                id="discount"
+                value=data.discountPercentage
+                min="0"
+            )
+        .col-1.text-right
+             input(type="checkbox"  class="form-check-input" name="discountPercentage" id="defaultCheck1" style="padding : 0;")
+    div(class="form-group")
+      label(for="stock") Số lượng
+      .row
+        .col-11
+            input(
+                readonly
+                type="number"
+                class="form-control"
+                id="stock"
+                value=data.stock
+                min="0"
+            )
+        .col-1.text-right
+             input(type="checkbox"  class="form-check-input" name="stock" id="defaultCheck1" style="padding : 0;")
+    div(class="form-group")
+      label(for="thumbnail") Ảnh
+      .row
+        .col-11
+            img.img(
+                style="width : 120px ; height : 120px ; margin-left : 20px;object-fix : cover;"
+            id="thumbnail"
+            src=data.thumbnail
+            )
+        .col-1.text-right
+             input(type="checkbox"  class="form-check-input" name="thumbnail" id="defaultCheck1" style="padding : 0;")
+    div(class="form-group")
+      label(for="position") Vị trí
+      .row
+        .col-11
+            input(
+                readonly
+                type="number"
+                class="form-control"
+                id="position"
+                placeholder="Tự động tăng"
+                min="1"
+                value=data.position
+            )
+        .col-1.text-right
+             input(type="checkbox"  class="form-check-input" name="position" id="defaultCheck1" style="padding : 0;")      
+    div(class="form-group m-3")
+      .row
+        .col-11
+            input(
+                readonly
+                disabled
+                type="radio"
+                class="form-check-input"
+                id="statusInActive"
+                value="inactive"
+                checked = (data.status == "inactive" ? true : false)
+            )
+            label(for="statusInActive" class="form-check-label" style="margin-right : 60px;") Dừng hoạt động
+            input(
+                readonly
+                disabled
+                type="radio"
+                class="form-check-input"
+                id="statusActive"
+                value="active"
+                checked = (data.status == "active" ? true : false)
+            )
+            label(for="statusActive" class="form-check-label") Hoạt động
+        .col-1
+               input(type="checkbox"  class="form-check-input" name="status" id="defaultCheck1" style="margin-left : 65px")
+    div(class="form-group")
+      button(
+        type="submit"
+        class="btn btn-primary"
+      ) Xác Nhận
+
+  script(src="/admin/js/product.js")

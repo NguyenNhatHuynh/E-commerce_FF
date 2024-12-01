@@ -1,0 +1,72 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main
+  +alert(messages.nice)
+  +alertfaild(messages.error)    
+  .pc-content(style="padding : 0;")
+    // [ breadcrumb ] start
+    .page-header
+        .row.align-items-center             
+            h2.mb-0 SEO
+    // [ breadcrumb ] end
+    // [ Main Content ] start
+    .row
+      // [ sample-page ] start
+      .col-sm-12
+        .card.mb-3 
+            .card-header 
+              .row 
+                .col-10 
+                    h5(style="color: #0FADF5;") Search Engine Optimization
+                .col-2.text-right
+                    a(  updatedescriptionshopseo style="padding : 8px ; border : 2px solid #0FADF5; width : 100px; margin-left : auto; color: #0FADF5;") Cập Nhật
+            .card-body 
+              .row 
+                .col-12.mb-3 
+                  h5(style="color : #0FADF5") Hãy mô tả thông tin shop để sản có thể tìm kiếm bạn tối đa 200 từ
+                .col-12
+                  textarea(
+                    contentofdescriptionshopseo
+                    class="form-control rounded border shadow p-3" 
+                    id="contentofdescriptionshopseo"
+                    rows="7"
+                    name="descriptionseo"
+                    maxlength = "200"
+                    ) #{account.descriptionseo.length > 0 ? account.descriptionseo : ""}
+                        
+                             
+      .col-sm-12.mt-5 
+         .card.mb-3 
+            .card-header 
+              .row 
+                .col-12
+                    h5(style="color: #0FADF5;") Search Engine Optimization
+    
+            .card-body 
+              .row 
+                .col-12.mb-3 
+                  h5(style="color : #0FADF5") Hãy mô tả từ khóa để shop có thể tìm kiếm bạn
+                .col-12
+                 .dt-responsive.table-responsive
+                  table#base-style.table.table-striped.table-bordered.nowrap
+                    thead
+                      tr(style="text-align : center;")
+                        th Tên Sản Phẩm
+                        th Ảnh
+                        th SEO
+                        th Mô Tả Từ Khóa
+                        th Xem Chi Tiết
+                        th Câp Nhật Từ Khóa
+                    tbody
+                       each item in dataproducts
+                          tr(style="text-align : center;")
+                            td #{item.title}
+                            td
+                             img(src=item.thumbnail style="width : 50px ; height : 50px ; object-fix : cover;") 
+                            td #{item.SEO}
+                            td 
+                                input(placeholder="Tối Đa 50 ký tự" class="form-control" value=item.descriptionseo inputproductsseoadmin=item.id name="keyword"  type="text"  maxlength="50")
+                            td
+                              a.badge.text-bg-success.btn(href=`/admin/SEO/view/${item.id}` ) Xem
+                            td
+                              a.badge.text-bg-primary.btn( buttonsubmitproductsseoadmin=item.id ) Cập Nhật

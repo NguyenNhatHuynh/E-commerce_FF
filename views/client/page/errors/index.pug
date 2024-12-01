@@ -1,0 +1,242 @@
+doctype html
+// [Head] start
+head
+  title 404 | Light Able Admin &amp; Dashboard Template
+  // [Meta]
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='description' content='Light Able admin and dashboard template offer a variety of UI elements and pages, ensuring your admin panel is both fast and effective.')
+  meta(name='author' content='phoenixcoded')
+  // [Favicon] icon
+  link(rel='icon' href='/admin/layoutadmin/images/favicon.svg' type='image/x-icon')
+  // [Google Font : Public Sans] icon
+  link(href='https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap' rel='stylesheet')
+  // [Tabler Icons] https://tablericons.com
+  link(rel='stylesheet' href='/admin/layoutadmin/css/tabler-icons.min.css')
+  // [Feather Icons] https://feathericons.com
+  link(rel='stylesheet' href='/admin/layoutadmin/css/feather.css')
+  // [Font Awesome Icons] https://fontawesome.com/icons
+  link(rel='stylesheet' href='/admin/layoutadmin/css/fontawesome.css')
+  // [Material Icons] https://fonts.google.com/icons
+  link(rel='stylesheet' href='/admin/layoutadmin/css/material.css')
+  // [Template CSS Files]
+  link#main-style-link(rel='stylesheet' href='/admin/layoutadmin/css/style.css')
+  link(rel='stylesheet' href='/admin/layoutadmin/css/style-preset.css')
+// [Head] end
+// [Body] Start
+// [ Pre-loader ] start
+.loader-bg
+  .loader-track
+    .loader-fill
+// [ Pre-loader ] End
+.auth-main.v1
+  .auth-wrapper
+    .auth-form
+      .error-card
+        .card-body
+          .error-image-block
+            img.img-fluid(src='/admin/layoutadmin/images/img-error-404.png' alt='img')
+          .text-center
+            h1.mt-2 Oops! Something Went wrong
+            p.mt-2.mb-4.text-muted.f-20
+              | We couldn&rsquo;t find the page you were looking for. Why not try back to the Homepage.
+            a.btn.btn-primary.d-inline-flex.align-items-center.mb-3(href='/')
+              i.ph-duotone.ph-house.me-2
+              |  Back to Home
+    .auth-sidefooter
+      img.img-brand.img-fluid(src='/admin/layoutadmin/images/logo-dark.svg' alt='images')
+      hr.mb-3.mt-4
+      .row
+        .col.my-1
+          p.m-0
+            | Made with &hearts; by Team 
+            a(href='https://themeforest.net/user/phoenixcoded' target='_blank')  Phoenixcoded
+        .col-auto.my-1
+          ul.list-inline.footer-link.mb-0
+            li.list-inline-item
+              a(href='../index.html') Home
+            li.list-inline-item
+              a(href='https://pcoded.gitbook.io/light-able/' target='_blank') Documentation
+            li.list-inline-item
+              a(href='https://phoenixcoded.support-hub.io/' target='_blank') Support
+// Required Js
+script(src='js/popper.min.js')
+script(src='js/simplebar.min.js')
+script(src='js/bootstrap.min.js')
+script(src='js/custom-font.js')
+script(src='js/pcoded.js')
+script(src='js/feather.min.js')
+script.
+  layout_change('light');
+script.
+  layout_sidebar_change('light');
+script.
+  change_box_container('false');
+script.
+  layout_caption_change('true');
+script.
+  layout_rtl_change('false');
+script.
+  preset_change("preset-1");
+#offcanvas_pc_layout.offcanvas.border-0.pct-offcanvas.offcanvas-end(tabindex='-1')
+  .offcanvas-header.justify-content-between
+    h5.offcanvas-title Settings
+    button.btn.btn-icon.btn-link-danger(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
+      i.ti.ti-x
+  .pct-body.customizer-body
+    .offcanvas-body.py-0
+      ul.list-group.list-group-flush
+        li.list-group-item
+          .pc-dark
+            h6.mb-1 Theme Mode
+            p.text-muted.text-sm Choose light or dark mode or Auto
+            .row.theme-color.theme-layout
+              .col-4
+                .d-grid
+                  button.preset-btn.btn.active(data-value='true' onclick="layout_change('light');")
+                    span.btn-label Light
+                    span.pc-lay-icon
+                      span
+                      span
+                      span
+                      span
+              .col-4
+                .d-grid
+                  button.preset-btn.btn(data-value='false' onclick="layout_change('dark');")
+                    span.btn-label Dark
+                    span.pc-lay-icon
+                      span
+                      span
+                      span
+                      span
+              .col-4
+                .d-grid
+                  button.preset-btn.btn(data-value='default' onclick='layout_change_default();' data-bs-toggle='tooltip' title="Automatically sets the theme based on user's operating system's color scheme.")
+                    span.btn-label Default
+                    span.pc-lay-icon.d-flex.align-items-center.justify-content-center
+                      i.ph-duotone.ph-cpu
+        li.list-group-item
+          h6.mb-1 Sidebar Theme
+          p.text-muted.text-sm Choose Sidebar Theme
+          .row.theme-color.theme-sidebar-color
+            .col-6
+              .d-grid
+                button.preset-btn.btn(data-value='true' onclick="layout_sidebar_change('dark');")
+                  span.btn-label Dark
+                  span.pc-lay-icon
+                    span
+                    span
+                    span
+                    span
+            .col-6
+              .d-grid
+                button.preset-btn.btn.active(data-value='false' onclick="layout_sidebar_change('light');")
+                  span.btn-label Light
+                  span.pc-lay-icon
+                    span
+                    span
+                    span
+                    span
+        li.list-group-item
+          h6.mb-1 Accent color
+          p.text-muted.text-sm Choose your primary theme color
+          .theme-color.preset-color
+            a.active(href='#!' data-value='preset-1')
+              i.ti.ti-check
+            a(href='#!' data-value='preset-2')
+              i.ti.ti-check
+            a(href='#!' data-value='preset-3')
+              i.ti.ti-check
+            a(href='#!' data-value='preset-4')
+              i.ti.ti-check
+            a(href='#!' data-value='preset-5')
+              i.ti.ti-check
+            a(href='#!' data-value='preset-6')
+              i.ti.ti-check
+            a(href='#!' data-value='preset-7')
+              i.ti.ti-check
+            a(href='#!' data-value='preset-8')
+              i.ti.ti-check
+            a(href='#!' data-value='preset-9')
+              i.ti.ti-check
+            a(href='#!' data-value='preset-10')
+              i.ti.ti-check
+        li.list-group-item
+          h6.mb-1 Sidebar Caption
+          p.text-muted.text-sm Sidebar Caption Hide/Show
+          .row.theme-color.theme-nav-caption
+            .col-6
+              .d-grid
+                button.preset-btn.btn.active(data-value='true' onclick="layout_caption_change('true');")
+                  span.btn-label Caption Show
+                  span.pc-lay-icon
+                    span
+                    span
+                    span
+                      span
+                      span
+                    span
+            .col-6
+              .d-grid
+                button.preset-btn.btn(data-value='false' onclick="layout_caption_change('false');")
+                  span.btn-label Caption Hide
+                  span.pc-lay-icon
+                    span
+                    span
+                    span
+                      span
+                      span
+                    span
+        li.list-group-item
+          .pc-rtl
+            h6.mb-1 Theme Layout
+            p.text-muted.text-sm LTR/RTL
+            .row.theme-color.theme-direction
+              .col-6
+                .d-grid
+                  button.preset-btn.btn.active(data-value='false' onclick="layout_rtl_change('false');")
+                    span.btn-label LTR
+                    span.pc-lay-icon
+                      span
+                      span
+                      span
+                      span
+              .col-6
+                .d-grid
+                  button.preset-btn.btn(data-value='true' onclick="layout_rtl_change('true');")
+                    span.btn-label RTL
+                    span.pc-lay-icon
+                      span
+                      span
+                      span
+                      span
+        li.list-group-item.pc-box-width
+          .pc-container-width
+            h6.mb-1 Layout Width
+            p.text-muted.text-sm Choose Full or Container Layout
+            .row.theme-color.theme-container
+              .col-6
+                .d-grid
+                  button.preset-btn.btn.active(data-value='false' onclick="change_box_container('false')")
+                    span.btn-label Full Width
+                    span.pc-lay-icon
+                      span
+                      span
+                      span
+                      span
+                        span
+              .col-6
+                .d-grid
+                  button.preset-btn.btn(data-value='true' onclick="change_box_container('true')")
+                    span.btn-label Fixed Width
+                    span.pc-lay-icon
+                      span
+                      span
+                      span
+                      span
+                        span
+        li.list-group-item
+          .d-grid
+            button#layoutreset.btn.btn-light-danger Reset Layout
+// [Body] end

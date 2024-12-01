@@ -1,0 +1,418 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main
+      .pc-content(style="padding : 0;")
+        // [ breadcrumb ] start
+        .page-header
+          .page-block
+            .row.align-items-center
+              .col-md-12
+                .page-header-title
+                  h2.mb-0 Kiểm Duyệt Tài Khoản
+        .row
+          if(dataaccount)
+            each item in dataaccount
+                .col-xl-4
+                  .card.statistics-card-1
+                    .card-header.d-flex.align-items-center.justify-content-between.py-3
+                      h5 #{item.fullName}
+                      .dropdown
+                        a.avtar.avtar-xs.btn-link-secondary.dropdown-toggle.arrow-none(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                          i.material-icons-two-tone.f-18 more_vert
+                        .dropdown-menu.dropdown-menu-end
+                          a.dropdown-item(href=`/admin/accountreview/check/${item.id}`) Xem Chi tiết
+                    .card-body
+                      img.img-fluid.img-bg.h-100(src='/admin/layoutadmin/images/img-status-1.svg' alt='img')
+                      .d-flex.align-items-center
+                        h3.f-w-300.d-flex.align-items-center.m-b-0
+                          small.text-muted.m-r-10 Ngày Đăng Ký
+                        span.badge.bg-light-success.ms-2 #{item.time}
+                      p.text-muted.mb-2.text-sm.mt-3 Số điện Thoại #{item.phone}
+                      .progress(style='height: 7px')
+                        .progress-bar.bg-brand-color-1(role='progressbar' style='width: 100%'  aria-valuemin='0' aria-valuemax='100')
+        //-   .col-sm-6.col-xl-4
+        //-     .card.statistics-card-1
+        //-       .card-header.d-flex.align-items-center.justify-content-between.py-3
+        //-         h5 Pending Orders
+        //-         .dropdown
+        //-           a.avtar.avtar-xs.btn-link-secondary.dropdown-toggle.arrow-none(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+        //-             i.material-icons-two-tone.f-18 more_vert
+        //-           .dropdown-menu.dropdown-menu-end
+        //-             a.dropdown-item(href='#') View
+        //-             a.dropdown-item(href='#') Edit
+        //-       .card-body
+        //-         img.img-fluid.img-bg(src='images/img-status-2.svg' alt='img')
+        //-         .d-flex.align-items-center
+        //-           h3.f-w-300.d-flex.align-items-center.m-b-0
+        //-             | 100 
+        //-             small.text-muted /500
+        //-           span.badge.bg-light-primary.ms-2 20%
+        //-         p.text-muted.mb-2.text-sm.mt-3 Delivery Orders
+        //-         .progress(style='height: 7px')
+        //-           .progress-bar.bg-brand-color-1(role='progressbar' style='width: 75%' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100')
+        //-   .col-sm-6.col-xl-4
+        //-     .card.statistics-card-1
+        //-       .card-header.d-flex.align-items-center.justify-content-between.py-3
+        //-         h5 Return Orders
+        //-         .dropdown
+        //-           a.avtar.avtar-xs.btn-link-secondary.dropdown-toggle.arrow-none(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+        //-             i.material-icons-two-tone.f-18 more_vert
+        //-           .dropdown-menu.dropdown-menu-end
+        //-             a.dropdown-item(href='#') View
+        //-             a.dropdown-item(href='#') Edit
+        //-       .card-body
+        //-         img.img-fluid.img-bg(src='images/img-status-3.svg' alt='img')
+        //-         .d-flex.align-items-center
+        //-           h3.f-w-300.d-flex.align-items-center.m-b-0
+        //-             | 50 
+        //-             small.text-muted /400
+        //-           span.badge.bg-light-danger.ms-2 10%
+        //-         p.text-muted.mb-2.text-sm.mt-3 Return Orders
+        //-         .progress(style='height: 7px')
+        //-           .progress-bar.bg-brand-color-3(role='progressbar' style='width: 75%' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100')
+        //-   // [ Row 1 ] end
+        //-   // [ Row 2 ] start
+        //-   .col-sm-6.col-xl-4
+        //-     .card
+        //-       .card-header.d-flex.align-items-center.justify-content-between.py-3
+        //-         h5 Register User
+        //-         .dropdown
+        //-           a.avtar.avtar-xs.btn-link-secondary.dropdown-toggle.arrow-none(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+        //-             i.material-icons-two-tone.f-18 more_vert
+        //-           .dropdown-menu.dropdown-menu-end
+        //-             a.dropdown-item(href='#') View
+        //-             a.dropdown-item(href='#') Edit
+        //-       .card-body
+        //-         .d-flex.align-items-end.mb-3
+        //-           h4.mb-0 1205
+        //-           span.badge.bg-light-success.ms-2 20%
+        //-         p.text-muted.mb-0 Monthly Increase
+        //-   .col-sm-6.col-xl-4
+        //-     .card
+        //-       .card-header.d-flex.align-items-center.justify-content-between.py-3
+        //-         h5 Daily User
+        //-         .dropdown
+        //-           a.avtar.avtar-xs.btn-link-secondary.dropdown-toggle.arrow-none(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+        //-             i.material-icons-two-tone.f-18 more_vert
+        //-           .dropdown-menu.dropdown-menu-end
+        //-             a.dropdown-item(href='#') View
+        //-             a.dropdown-item(href='#') Edit
+        //-       .card-body
+        //-         .d-flex.align-items-end.mb-3
+        //-           h4.mb-0 467
+        //-           span.badge.bg-light-warning.ms-2 10%
+        //-         p.text-muted.mb-0 Weekly Increase
+        //-   .col-sm-6.col-xl-4
+        //-     .card
+        //-       .card-header.d-flex.align-items-center.justify-content-between.py-3
+        //-         h5 Premium User
+        //-         .dropdown
+        //-           a.avtar.avtar-xs.btn-link-secondary.dropdown-toggle.arrow-none(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+        //-             i.material-icons-two-tone.f-18 more_vert
+        //-           .dropdown-menu.dropdown-menu-end
+        //-             a.dropdown-item(href='#') View
+        //-             a.dropdown-item(href='#') Edit
+        //-       .card-body
+        //-         .d-flex.align-items-end.mb-3
+        //-           h4.mb-0 346
+        //-           span.badge.bg-light-primary.ms-2 50%
+        //-         p.text-muted.mb-0 Yearly Increase
+        //-   .col-md-12.col-xl-4
+        //-     .card.overflow-hidden
+        //-       .card-body.bg-light-primary
+        //-         .row.align-items-center
+        //-           .col-6
+        //-             p.text-muted.mb-1 Total Visitors
+        //-             .d-flex.align-items-center.mb-1
+        //-               h4.mb-0 235
+        //-               span.badge.bg-primary.ms-2 20%
+        //-             p.text-primary.text-sm.mb-0 More than last Month
+        //-           .col-6
+        //-             img.img-fluid(src='images/img-visitor.png' alt='img')
+        //-   .col-sm-6.col-xl-4
+        //-     .card
+        //-       .card-body
+        //-         .d-flex.align-items-center.justify-content-between
+        //-           p.mb-0
+        //-             i.ph-duotone.ph-circle.text-warning.me-2
+        //-             |  Parcel in the way
+        //-           i.ph-duotone.ph-info.f-20.ms-1(data-bs-toggle='tooltip' data-bs-title='Parcel in the way')
+        //-         .d-flex.align-items-center.my-2
+        //-           h2.d-flex.align-items-center.m-b-0
+        //-             | 25 
+        //-             span.text-muted /40
+        //-         p.mb-0
+        //-           span.text-success
+        //-             i.ph-duotone.ph-caret-up.f-20.align-bottom
+        //-             |  +15%
+        //-           |  last month
+        //-   .col-sm-6.col-xl-4
+        //-     .card
+        //-       .card-header.d-flex.align-items-center.justify-content-between.py-3
+        //-         h5 Product earn
+        //-         .dropdown
+        //-           a.avtar.avtar-xs.btn-link-secondary.dropdown-toggle.arrow-none(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+        //-             i.material-icons-two-tone.f-18 more_vert
+        //-           .dropdown-menu.dropdown-menu-end
+        //-             a.dropdown-item(href='#') View
+        //-             a.dropdown-item(href='#') Edit
+        //-       .card-body
+        //-         .d-flex.align-items-center.justify-content-between
+        //-           div
+        //-             p.text-muted.mb-0 Sale Product
+        //-             .d-flex.align-items-end.mt-1
+        //-               h4.mb-0 375
+        //-               span.badge.bg-light-success.ms-2 36%
+        //-           .avtar.bg-brand-color-2.text-white
+        //-             i.ph-duotone.ph-cube.f-26
+        //-   // [ Row 2 ] end
+        //-   // [ Row 3 ] start
+        //-   .col-md-12.col-xl-8
+        //-     .card.bg-brand-color-3.earning-card.statistics-card-1
+        //-       .card-body.overflow-hidden
+        //-         img.img-fluid.img-bg.h-100(src='images/img-earning-bg.svg' alt='img')
+        //-         ul#pills-tab.mt-3.nav.nav-fill.nav-pills.align-items-center.justify-content-center.mb-5(role='tablist')
+        //-           li.nav-item
+        //-             a#pills-earnings-mon.nav-link.active(data-bs-toggle='pill' href='#earnings-mon' role='tab' aria-controls='earnings-mon' aria-selected='true') Mon
+        //-           li.nav-item
+        //-             a#pills-earnings-tue.nav-link(data-bs-toggle='pill' href='#earnings-tue' role='tab' aria-controls='earnings-tue' aria-selected='false') Tue
+        //-           li.nav-item
+        //-             a#pills-earnings-wed.nav-link(data-bs-toggle='pill' href='#earnings-wed' role='tab' aria-controls='earnings-wed' aria-selected='false') Wed
+        //-           li.nav-item
+        //-             a#pills-earnings-thu.nav-link(data-bs-toggle='pill' href='#earnings-thu' role='tab' aria-controls='earnings-thu' aria-selected='false') Thu
+        //-           li.nav-item
+        //-             a#pills-earnings-fri.nav-link(data-bs-toggle='pill' href='#earnings-fri' role='tab' aria-controls='earnings-fri' aria-selected='false') Fri
+        //-           li.nav-item
+        //-             a#pills-earnings-sat.nav-link(data-bs-toggle='pill' href='#earnings-sat' role='tab' aria-controls='earnings-sat' aria-selected='false') Sat
+        //-           li.nav-item
+        //-             a#pills-earnings-sun.nav-link(data-bs-toggle='pill' href='#earnings-sun' role='tab' aria-controls='earnings-sun' aria-selected='false') Sun
+        //-         #tabContent-pills.mb-3.tab-content
+        //-           #earnings-mon.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='pills-earnings-mon')
+        //-             .row
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ph-duotone.ph-chart-bar.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 984,632
+        //-                       span.badge.bg-light-danger.ms-2 10%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Earnings
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ti.ti-zoom-money.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 134,276
+        //-                       span.badge.bg-light-success.ms-2 12%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Expenses
+        //-           #earnings-tue.tab-pane.fade(role='tabpanel' aria-labelledby='pills-earnings-tue')
+        //-             .row
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.avtar-l.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ph-duotone.ph-chart-bar.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 222,586
+        //-                       span.badge.bg-light-success.ms-2 30%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Earnings
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ti.ti-zoom-money.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 344,624
+        //-                       span.badge.bg-light-success.ms-2 12%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Expenses
+        //-           #earnings-wed.tab-pane.fade(role='tabpanel' aria-labelledby='pills-earnings-wed')
+        //-             .row
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ph-duotone.ph-chart-bar.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 984,632
+        //-                       span.badge.bg-light-danger.ms-2 10%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Earnings
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ti.ti-zoom-money.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 134,276
+        //-                       span.badge.bg-light-success.ms-2 12%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Expenses
+        //-           #earnings-thu.tab-pane.fade(role='tabpanel' aria-labelledby='pills-earnings-thu')
+        //-             .row
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.avtar-l.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ph-duotone.ph-chart-bar.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 222,586
+        //-                       span.badge.bg-light-success.ms-2 30%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Earnings
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ti.ti-zoom-money.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 344,624
+        //-                       span.badge.bg-light-success.ms-2 12%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Expenses
+        //-           #earnings-fri.tab-pane.fade(role='tabpanel' aria-labelledby='pills-earnings-fri')
+        //-             .row
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ph-duotone.ph-chart-bar.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 984,632
+        //-                       span.badge.bg-light-danger.ms-2 10%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Earnings
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ti.ti-zoom-money.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 134,276
+        //-                       span.badge.bg-light-success.ms-2 12%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Expenses
+        //-           #earnings-sat.tab-pane.fade(role='tabpanel' aria-labelledby='pills-earnings-sat')
+        //-             .row
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.avtar-l.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ph-duotone.ph-chart-bar.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 222,586
+        //-                       span.badge.bg-light-success.ms-2 30%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Earnings
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ti.ti-zoom-money.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 344,624
+        //-                       span.badge.bg-light-success.ms-2 12%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Expenses
+        //-           #earnings-sun.tab-pane.fade(role='tabpanel' aria-labelledby='pills-earnings-sun')
+        //-             .row
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ph-duotone.ph-chart-bar.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 984,632
+        //-                       span.badge.bg-light-danger.ms-2 10%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Earnings
+        //-               .col-md-6
+        //-                 .d-flex.align-items-center
+        //-                   .avtar.bg-white.bg-opacity-50.flex-shrink-0
+        //-                     i.ti.ti-zoom-money.text-white.f-30
+        //-                   .flex-grow-1.ms-3
+        //-                     .d-inline-flex.align-items-center.mb-1
+        //-                       h3.mb-0.text-white 134,276
+        //-                       span.badge.bg-light-success.ms-2 12%
+        //-                     p.mb-0.text-white.text-opacity-75 Total Expenses
+        //-   .col-md-6.col-xl-4
+        //-     .card
+        //-       .card-body
+        //-         .d-flex.align-items-center.justify-content-between
+        //-           .d-inline-flex.align-items-center
+        //-             i.ph-duotone.ph-arrow-down-left.text-primary.me-2.f-20
+        //-             p.text-muted.mb-0 Income
+        //-           h4.mb-0 3.15k
+        //-     .card
+        //-       .card-body
+        //-         .d-flex.align-items-center.mb-3
+        //-           .flex-shrink-0
+        //-             img.img-fluid(src='images/favicon.svg' alt='img')
+        //-           .flex-grow-1.ms-2
+        //-             h5.mb-0 Light able
+        //-             span.text-sm.text-muted Light able@developers.io
+        //-         .d-flex.align-items-center
+        //-           .flex-grow-1.me-2
+        //-             .user-group
+        //-               img.avtar(src='images/avatar-6.jpg' alt='user-image')
+        //-               img.avtar(src='images/avatar-6.jpg' alt='user-image')
+        //-               img.avtar(src='images/avatar-7.jpg' alt='user-image')
+        //-               img.avtar(src='images/avatar-8.jpg' alt='user-image')
+        //-               span.avtar.rounded-circle.bg-light-warning.text-warning +2
+        //-           .flex-shrink-0
+        //-             a.avtar.avtar-s.bg-primary.rounded-circle.text-white(href='#')
+        //-               i.ti.ti-plus.f-18
+        //-   // [ Row 3 ] end
+        //-   // [ Row 4 ] start
+        //-   .col-md-6.col-xl-4
+        //-     .card
+        //-       .card-body
+        //-         h6 Languages
+        //-         p.text-muted.text-sm Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        //-         .progress.my-3.bg-transparent(style='height: 8px')
+        //-           .progress-bar.bg-success(role='progressbar' style='width: 15%' aria-valuenow='15' aria-valuemin='0' aria-valuemax='100')
+        //-           .progress-bar.bg-primary(role='progressbar' style='width: 20%' aria-valuenow='30' aria-valuemin='0' aria-valuemax='100')
+        //-           .progress-bar.bg-warning(role='progressbar' style='width: 20%' aria-valuenow='30' aria-valuemin='0' aria-valuemax='100')
+        //-           .progress-bar.bg-danger(role='progressbar' style='width: 25%' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100')
+        //-         .row.g-1
+        //-           .col-6
+        //-             p.mb-0
+        //-               i.ph-duotone.ph-circle.text-success.f-12
+        //-               |  React native
+        //-           .col-6
+        //-             p.mb-0
+        //-               i.ph-duotone.ph-circle.text-primary.f-12
+        //-               |  Figma
+        //-           .col-6
+        //-             p.mb-0
+        //-               i.ph-duotone.ph-circle.text-warning.f-12
+        //-               |  Bootstrap 5
+        //-           .col-6
+        //-             p.mb-0
+        //-               i.ph-duotone.ph-circle.text-danger.f-12
+        //-               |  Shopify
+        //-   .col-sm-6.col-xl-4
+        //-     .card
+        //-       .card-body
+        //-         .d-flex.align-items-center.justify-content-between.mb-2
+        //-           p.mb-0 Users
+        //-           i.ph-duotone.ph-arrow-square-out.f-20.ms-1(data-bs-toggle='tooltip' data-bs-title='Users')
+        //-         h5.mb-0 56,908
+        //-     .card
+        //-       .card-body
+        //-         .d-flex.align-items-center.justify-content-between.mb-2
+        //-           p.mb-0 Income this month
+        //-           i.ph-duotone.ph-arrow-square-in.f-20.ms-1.text-danger(data-bs-toggle='tooltip' data-bs-title='Income this month')
+        //-         .d-flex.align-items-center
+        //-           h5.mb-0 $3,569
+        //-           span.badge.bg-danger.ms-2
+        //-             i.ph-duotone.ph-arrow-down.me-1.align-middle
+        //-             |  2.6%
+        //-   .col-sm-6.col-xl-4
+        //-     .card
+        //-       .card-body
+        //-         .d-flex.align-items-center.mb-2
+        //-           h6.mb-0 Releases new version
+        //-           span.badge.bg-primary.ms-2 350
+        //-         .d-flex.align-items-start
+        //-           .flex-shrink-0
+        //-             i.ph-duotone.ph-tag-chevron.text-primary.f-30
+        //-           .flex-grow-1.ms-3
+        //-             .d-inline-flex.align-items-center.mb-2
+        //-               h6.mb-0
+        //-                 u v2.63.3
+        //-               span.badge.bg-light-success.ms-2 Latest
+        //-             p.mb-0.text-muted on Sep 29
+      

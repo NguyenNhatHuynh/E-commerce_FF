@@ -1,0 +1,110 @@
+extends ../../layout/index.pug
+include ../../mixi/mixi.pug
+block main 
+    +alert(messages.nice)
+    +alertfaild(messages.error)        
+    .pc-content(style="padding : 0;")
+        // [ breadcrumb ] start
+        .page-header.mb-4
+          .page-block
+            .row.align-items-center
+              
+              .col-md-12
+                .page-header-title
+                  h2.mb-0 Đăng Ký
+        // [ breadcrumb ] end
+        // [ Main Content ] start
+        form(method="post" formsubmitbtnbuynowdurationadmin)
+        .row
+          .col-12
+            .row.g-4
+              // [ sample-page ] start
+              .col-md-6.col-lg-4
+                .card.price-card.p-4.border.border-success.border-2.h-100(style="border : 2px solid #1DE9B6 !important;")
+                  .card-body.bg-success.bg-opacity-10.rounded.v3(style="background : #E8FDF8 !important;")
+                    .price-head.v3
+                      h4.mb-0.text-success Gói Cơ bản
+                      .price-price.mt-3(style="font-size : 20px;")
+                        | 4.800.000 VNĐ 
+                        span.text-muted 1 Năm
+                    ul.list-group.list-group-flush.product-list.v3
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-success
+                        |  Trang sản phẩm
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-success
+                        |  Hóa đơn
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-success
+                        |  Xử lý hóa đơn
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-success
+                        |  SEO shop và sản phẩm
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-success
+                        |  4% mỗi đơn hàng
+                    .d-grid
+                      btn.btn.btn-dark.mt-4(btnbuynowdurationadmin="basic") Buy Now
+              .col-md-6.col-lg-4
+                .card.price-card.p-4.border.border-primary.border-2.h-100(style="border : 2px solid #04A9F5 !important;")
+                  .card-body.bg-primary.bg-opacity-10.rounded.v3(style="background : #E5F6FE !important;")
+                    .price-head.v3
+                      h4.mb-0.text-primary Gói trung cấp
+                      .price-price.mt-3(style="font-size : 20px;")
+                        | 14.400.000 VNĐ
+                        span.text-muted(style="margin-left : 5px") 3 Năm
+                    ul.list-group.list-group-flush.product-list.v3
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-primary
+                        |  Trang sản phẩm
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-primary
+                        |  Hóa đơn
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-primary
+                        |  Xử lý hóa đơn
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-primary
+                        |  SEO shop và sản phẩm
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-primary
+                        |  3% mỗi đơn hàng
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-primary
+                        |  có khả nâng lên nổi bật
+                    .d-grid
+                      a.btn.btn-dark.mt-4(btnbuynowdurationadmin="intermediate") Buy Now
+              .col-md-6.col-lg-4
+                .card.price-card.p-4.border.border-warning.border-2.h-100(style="border : 2px solid #F4C22B !important;")
+                  .card-body.bg-warning.bg-opacity-10.rounded.v3(style="background : #FEF9E9 !important;")
+                    .price-head.v3
+                      h4.mb-0.text-warning Gói cao cấp
+                      .price-price.mt-3(style="font-size : 20px;")
+                        | 24.000.000 VNĐ
+                        span.text-muted(style="margin-left : 5px") 5 Năm
+                    ul.list-group.list-group-flush.product-list.v3
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-warning
+                        |  Trang Sản Phẩm   
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-warning
+                        |  Hóa Đơn
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-warning
+                        |  xử lý hóa đơn
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-warning
+                        |  SEO shop và sản phẩm
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-warning
+                        |  2% mỗi đơn hàng
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-warning
+                        |  có khả năng lên nỗi bật
+                      li.list-group-item.enable
+                        i.ti.ti-check.text-warning
+                        |  có khả năng lên gợi ý
+                    .d-grid
+                      a.btn.btn-dark.mt-4(btnbuynowdurationadmin="premium") Buy Now
+              // [ sample-page ] end
+        // [ Main Content ] end
