@@ -11,7 +11,7 @@ const http = require('http');
 const { Server } = require("socket.io");
 const flash = require('express-flash');
 const cookieParser = require('cookie-parser');
-const session = require('express-session');
+const session = require('cookie-session');
 const path = require('path');
 dotevn.config();
 const app = express();
@@ -30,6 +30,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true 
   }));
+
 app.use(flash());
 app.locals.prefixAdmin = system.prefixAdmin
 app.use(express.static(`${__dirname}/public`));
