@@ -15,7 +15,7 @@ const session = require('express-session');
 const path = require('path');
 dotevn.config();
 const app = express();
-const port = process.env.port || 3000;
+const port = 3000;
 const server = http.createServer(app);
 const io = new Server(server);
 global._io = io
