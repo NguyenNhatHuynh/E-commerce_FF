@@ -2,7 +2,6 @@ const bill = require("../../models/bill")
 const detail = require("../../models/detailbill")
 const products = require("../../models/products")
 module.exports.index = async (req,res) => {
- console.log(res.locals.role.permissions)
  const datadoanhthu = await bill.find({
     idshop : res.locals.user.token,
     status : 1
